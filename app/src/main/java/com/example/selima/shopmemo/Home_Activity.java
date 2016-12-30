@@ -1,7 +1,10 @@
 package com.example.selima.shopmemo;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -10,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.widget.TabHost;
 
 
 public class Home_Activity extends AppCompatActivity {
@@ -22,11 +27,11 @@ public class Home_Activity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ActionBar ab = getSupportActionBar();
+        final ActionBar ab = getSupportActionBar();
 
 
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        final TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("ALL"));
         tabLayout.addTab(tabLayout.newTab().setText("COMBO"));
 
@@ -37,9 +42,22 @@ public class Home_Activity extends AppCompatActivity {
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                Window window = getWindow();
+                if(tab.getPosition()==0){
+                    tabLayout.setBackgroundColor(Color.parseColor("#00ACC1"));
+                    tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#F57C00"));
+                    ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ACC1")));
+                    window.setStatusBarColor(Color.parseColor("#0097A7"));
+                }
+                else{
+                    tabLayout.setBackgroundColor(Color.parseColor("#F57C00"));
+                    tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#00ACC1"));
+                    ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F57C00")));
+                    window.setStatusBarColor(Color.parseColor("#EF6C00"));
+                }
                 viewPager.setCurrentItem(tab.getPosition());
             }
 
@@ -53,6 +71,7 @@ public class Home_Activity extends AppCompatActivity {
 
             }
         });
+
     }
 
     @Override
@@ -61,15 +80,6 @@ public class Home_Activity extends AppCompatActivity {
         return true;
     }
 
-  /*  @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -90,4 +100,5 @@ public class Home_Activity extends AppCompatActivity {
 
         }
     }
+
 }
