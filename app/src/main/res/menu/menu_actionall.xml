@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
-    <item android:id="@+id/filter"
+
+    <item android:id="@+id/filterAll"
         android:title="Filter"
         android:icon="@mipmap/ic_filter_white_48dp"
         yourapp:showAsAction="ifRoom" />
-    <item android:id="@+id/sort"
+
+    <item android:id="@+id/sortAll"
+        android:title="Sort"
+        android:icon="@mipmap/ic_sort_variant_white_48dp"
+        yourapp:showAsAction="ifRoom" />
+
+
+    <item android:id="@+id/sortCombo"
         android:title="Sort"
         android:icon="@mipmap/ic_sort_variant_white_48dp"
         yourapp:showAsAction="ifRoom" />

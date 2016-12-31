@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 
 public class Home_Activity extends AppCompatActivity {
@@ -51,12 +52,20 @@ public class Home_Activity extends AppCompatActivity {
                     tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#F57C00"));
                     ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ACC1")));
                     window.setStatusBarColor(Color.parseColor("#0097A7"));
+
+                    hideOption(R.id.sortCombo);
+                    showOption(R.id.sortAll);
+                    showOption(R.id.filterAll);
                 }
                 else{
                     tabLayout.setBackgroundColor(Color.parseColor("#F57C00"));
                     tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#00ACC1"));
                     ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#F57C00")));
                     window.setStatusBarColor(Color.parseColor("#EF6C00"));
+
+                    showOption(R.id.sortCombo);
+                    hideOption(R.id.sortAll);
+                    hideOption(R.id.filterAll);
                 }
                 viewPager.setCurrentItem(tab.getPosition());
             }
@@ -74,9 +83,12 @@ public class Home_Activity extends AppCompatActivity {
 
     }
 
+    private Menu menu;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu=menu;
         getMenuInflater().inflate(R.menu.menu_actionall, menu);
+        hideOption(R.id.sortCombo);
         return true;
     }
 
@@ -84,13 +96,22 @@ public class Home_Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.filter:
+            case R.id.filterAll:
                 // User chose the "Settings" item, show the app settings UI...
+                Toast.makeText(this, "filtra gli oggetti",
+                        Toast.LENGTH_SHORT).show();
                 return true;
 
-            case R.id.sort:
+            case R.id.sortAll:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
+                Toast.makeText(this, "Ordina gli oggetti",
+                        Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.sortCombo:
+                Toast.makeText(this, "Ordina le combo",
+                        Toast.LENGTH_SHORT).show();
                 return true;
 
             default:
@@ -99,6 +120,19 @@ public class Home_Activity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+
+    private void hideOption(int id)
+    {
+        MenuItem item = menu.findItem(id);
+        item.setVisible(false);
+    }
+
+    private void showOption(int id)
+    {
+        MenuItem item = menu.findItem(id);
+        item.setVisible(true);
     }
 
 }
