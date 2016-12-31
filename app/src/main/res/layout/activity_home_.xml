@@ -30,7 +30,8 @@
         android:elevation="6dp"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"/>
+        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+        app:tabIndicatorHeight="4dp" />/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
