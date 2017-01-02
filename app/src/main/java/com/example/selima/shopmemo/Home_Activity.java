@@ -105,13 +105,11 @@ public class Home_Activity extends AppCompatActivity {
             case R.id.sortAll:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
-                Toast.makeText(this, "Ordina gli oggetti",
-                        Toast.LENGTH_SHORT).show();
+
                 return true;
 
             case R.id.sortCombo:
-                Toast.makeText(this, "Ordina le combo",
-                        Toast.LENGTH_SHORT).show();
+
                 return true;
 
             default:

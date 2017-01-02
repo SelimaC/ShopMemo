@@ -10,11 +10,36 @@
     <item android:id="@+id/sortAll"
         android:title="Sort"
         android:icon="@mipmap/ic_sort_variant_white_48dp"
-        yourapp:showAsAction="ifRoom" />
+        yourapp:showAsAction="ifRoom">
+        <menu>
+          <item
+            android:id="@+id/menu_all1"
+            android:title="Nome"/>
+          <item
+            android:id="@+id/menu_all2"
+            android:title="Prezzo"/>
+          <item
+            android:id="@+id/menu_all3"
+            android:title="Preferenza"/>
+          <item
+            android:id="@+id/menu_all4"
+            android:title="Categoria"/>
+        </menu>
+        </item>
 
 
     <item android:id="@+id/sortCombo"
         android:title="Sort"
         android:icon="@mipmap/ic_sort_variant_white_48dp"
-        yourapp:showAsAction="ifRoom" />
+        yourapp:showAsAction="ifRoom" >
+        <menu>
+            <item
+                android:id="@+id/menu_combo1"
+                android:title="Nome"/>
+            <item
+                android:id="@+id/menu_combo2"
+                android:title="Prezzo"/>
+
+        </menu>
+    </item>
 </menu>
