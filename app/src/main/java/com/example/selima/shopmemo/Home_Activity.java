@@ -103,13 +103,12 @@ public class Home_Activity extends AppCompatActivity {
                 return true;
 
             case R.id.sortAll:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
+                // Apre menu a tendina
 
                 return true;
 
             case R.id.sortCombo:
-
+                // Apre menu a tendina
                 return true;
 
             default:
