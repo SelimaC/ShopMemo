@@ -1,11 +1,14 @@
 package com.example.selima.shopmemo;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -13,12 +16,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.Window;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.Toast;
 
 
 public class Home_Activity extends AppCompatActivity {
+
+    LinearLayout mRevealView;
+    boolean hidden=true;
+    ImageButton ib_cat1,ib_cat2,ib_cat3;
+    ImageButton ib_cat4,ib_cat5,ib_cat6;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -30,7 +44,70 @@ public class Home_Activity extends AppCompatActivity {
 
         final ActionBar ab = getSupportActionBar();
 
+        ib_cat1=(ImageButton)findViewById(R.id.cat1);
+        ib_cat2=(ImageButton)findViewById(R.id.cat2);
+        ib_cat3=(ImageButton)findViewById(R.id.cat3);
+        ib_cat4=(ImageButton)findViewById(R.id.cat4);
+        ib_cat5=(ImageButton)findViewById(R.id.cat5);
+        ib_cat6=(ImageButton)findViewById(R.id.cat6);
 
+        ib_cat1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View arg0) {
+                // azioni da fare
+                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+            }
+        });
+        ib_cat2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View arg0) {
+                // azioni da fare
+                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+            }
+        });
+        ib_cat3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View arg0) {
+                // azioni da fare
+                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+            }
+        });
+        ib_cat4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View arg0) {
+                // azioni da fare
+                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+            }
+        });
+        ib_cat5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View arg0) {
+                // azioni da fare
+                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+            }
+        });
+        ib_cat6.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View arg0) {
+                // azioni da fare
+                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+            }
+        });
+
+        mRevealView = (LinearLayout) findViewById(R.id.reveal_items);
+        mRevealView.setVisibility(View.INVISIBLE);
 
         final TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("ALL"));
@@ -66,6 +143,9 @@ public class Home_Activity extends AppCompatActivity {
                     showOption(R.id.sortCombo);
                     hideOption(R.id.sortAll);
                     hideOption(R.id.filterAll);
+
+                    mRevealView.setVisibility(View.INVISIBLE);
+                    hidden=true;
                 }
                 viewPager.setCurrentItem(tab.getPosition());
             }
@@ -93,13 +173,48 @@ public class Home_Activity extends AppCompatActivity {
     }
 
 
+
+    //Variabili per l'effetto del menu categorie
+    Animator animator, animate;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.filterAll:
-                // User chose the "Settings" item, show the app settings UI...
-                Toast.makeText(this, "filtra gli oggetti",
-                        Toast.LENGTH_SHORT).show();
+
+                // finding X and Y co-ordinates
+                int cx = (mRevealView.getLeft() + mRevealView.getRight());
+                int cy = (mRevealView.getTop());
+
+                // to find  radius when icon is tapped for showing layout
+                int startradius=0;
+                int endradius = Math.max(mRevealView.getWidth(), mRevealView.getHeight());
+
+                // performing circular reveal when icon will be tapped
+                animator = ViewAnimationUtils.createCircularReveal(mRevealView,
+                        cx, cy, startradius, endradius);
+                animator.setInterpolator(new AccelerateDecelerateInterpolator());
+                animator.setDuration(400);
+
+                //reverse animation
+                // to find radius when icon is tapped again for hiding layout
+                //  starting radius will be the radius or the extent to which circular reveal animation is to be shown
+
+                int reverse_startradius = Math.max(mRevealView.getWidth(),mRevealView.getHeight());
+
+                //endradius will be zero
+                int reverse_endradius=0;
+
+                // performing circular reveal for reverse animation
+                animate = ViewAnimationUtils.createCircularReveal(mRevealView,cx,cy,reverse_startradius,reverse_endradius);
+                if(hidden){
+
+                    // to show the layout when icon is tapped
+                    mRevealView.setVisibility(View.VISIBLE);
+                    animator.start();
+                    hidden = false;
+                }
+
                 return true;
 
             case R.id.sortAll:
@@ -119,6 +234,54 @@ public class Home_Activity extends AppCompatActivity {
         }
     }
 
+    // Controlla se il touch è dentro la finestra delle categorie
+    boolean isWithinEditTextBounds(int xPoint, int yPoint) {
+        int[] l = new int[2];
+        mRevealView.getLocationOnScreen(l);
+        int x = l[0];
+        int y = l[1];
+        int w = mRevealView.getWidth();
+        int h = mRevealView.getHeight();
+
+        if (xPoint< x || xPoint> x + w || yPoint< y || yPoint> y + h) {
+            return false;
+        }
+        return true;
+    }
+    //Fa sparire le categorie se si clicca al di fuori
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if(!isWithinEditTextBounds((int)ev.getRawX(),(int)ev.getRawY()) && hidden==false){
+            int cx = (mRevealView.getLeft() + mRevealView.getRight());
+            int cy = (mRevealView.getTop());
+            int reverse_startradius = Math.max(mRevealView.getWidth(),mRevealView.getHeight());
+
+            //endradius will be zero
+            int reverse_endradius=0;
+
+            // performing circular reveal for reverse animation
+            animate = ViewAnimationUtils.createCircularReveal(mRevealView,cx,cy,reverse_startradius,reverse_endradius);
+
+                mRevealView.setVisibility(View.VISIBLE);
+
+
+                // to hide layout on animation end
+                animate.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        mRevealView.setVisibility(View.INVISIBLE);
+                        hidden = true;
+                    }
+                });
+                animate.start();
+
+            return true;
+
+        }
+        return super.dispatchTouchEvent(ev);
+    }
 
     private void hideOption(int id)
     {
