@@ -76,6 +76,7 @@ public class Home_Activity extends AppCompatActivity {
                 hidden=true;
             }
         });
+
         ib_cat3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
@@ -192,6 +193,9 @@ public class Home_Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.filterAll:
+                ImageButton ib_cat1=(ImageButton)findViewById(R.id.cat1);
+
+                Log.d("d","oo: " + ib_cat1.callOnClick());
                 // finding X and Y co-ordinates
                 int cx = (mRevealView.getLeft() + mRevealView.getRight());
                 int cy = (mRevealView.getTop());
@@ -290,6 +294,7 @@ public class Home_Activity extends AppCompatActivity {
             return true;
 
         }
+
         return super.dispatchTouchEvent(ev);
     }
 
