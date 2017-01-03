@@ -29,7 +29,7 @@ import android.widget.TabHost;
 import android.widget.Toast;
 
 
-public class Home_Activity extends AppCompatActivity {
+public class Home_Activity extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout mRevealView;
     boolean hidden=true;
@@ -46,78 +46,6 @@ public class Home_Activity extends AppCompatActivity {
 
         final ActionBar ab = getSupportActionBar();
 
-        ib_cat1=(ImageButton)findViewById(R.id.cat1);
-        ib_cat2=(ImageButton)findViewById(R.id.cat2);
-        ib_cat3=(ImageButton)findViewById(R.id.cat3);
-        ib_cat4=(ImageButton)findViewById(R.id.cat4);
-        ib_cat5=(ImageButton)findViewById(R.id.cat5);
-        ib_cat6=(ImageButton)findViewById(R.id.cat6);
-        Log.d("arg"," " + ib_cat1.toString());
-        ib_cat1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View arg0) {
-                // azioni da fare
-                Log.d("arg"," " + arg0.toString());
-                Toast.makeText(Home_Activity.this,
-                        "Categoria1", Toast.LENGTH_SHORT).show();
-                mRevealView.setVisibility(View.INVISIBLE);
-                hidden=true;
-            }
-        });
-
-
-        ib_cat2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View arg0) {
-                // azioni da fare
-                Toast.makeText(Home_Activity.this,
-                        "Categoria2", Toast.LENGTH_SHORT).show();
-                mRevealView.setVisibility(View.INVISIBLE);
-                hidden=true;
-            }
-        });
-
-        ib_cat3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View arg0) {
-                // azioni da fare
-                Toast.makeText(Home_Activity.this,
-                        "Categoria3", Toast.LENGTH_SHORT).show();
-                mRevealView.setVisibility(View.INVISIBLE);
-                hidden=true;
-            }
-        });
-        ib_cat4.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View arg0) {
-                // azioni da fare
-                Toast.makeText(Home_Activity.this,
-                        "Categoria4", Toast.LENGTH_SHORT).show();
-                mRevealView.setVisibility(View.INVISIBLE);
-                hidden=true;
-            }
-        });
-        ib_cat5.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View arg0) {
-                // azioni da fare
-                Toast.makeText(Home_Activity.this,
-                        "Categoria5", Toast.LENGTH_SHORT).show();
-                mRevealView.setVisibility(View.INVISIBLE);
-                hidden=true;
-            }
-        });
-        ib_cat6.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View arg0) {
-                // azioni da fare
-                Toast.makeText(Home_Activity.this,
-                        "Categoria6", Toast.LENGTH_SHORT).show();
-                mRevealView.setVisibility(View.INVISIBLE);
-                hidden=true;
-            }
-        });
-
         mRevealView = (LinearLayout) findViewById(R.id.reveal_items);
         mRevealView.setVisibility(View.INVISIBLE);
 
@@ -126,6 +54,20 @@ public class Home_Activity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("COMBO"));
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        ib_cat1=(ImageButton)findViewById(R.id.cat1);
+        ib_cat2=(ImageButton)findViewById(R.id.cat2);
+        ib_cat3=(ImageButton)findViewById(R.id.cat3);
+        ib_cat4=(ImageButton)findViewById(R.id.cat4);
+        ib_cat5=(ImageButton)findViewById(R.id.cat5);
+        ib_cat6=(ImageButton)findViewById(R.id.cat6);
+
+        ib_cat1.setOnClickListener(this);
+        ib_cat2.setOnClickListener(this);
+        ib_cat3.setOnClickListener(this);
+        ib_cat4.setOnClickListener(this);
+        ib_cat5.setOnClickListener(this);
+        ib_cat6.setOnClickListener(this);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter
@@ -175,6 +117,58 @@ public class Home_Activity extends AppCompatActivity {
 
     }
 
+
+    // imagebutton click events
+    @Override
+    public void onClick(View v) {
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setVisibility(View.VISIBLE);
+        switch (v.getId()) {
+            case R.id.cat1:
+                Toast.makeText(Home_Activity.this,
+                        "Categoria1", Toast.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+                break;
+            case R.id.cat2:
+                Toast.makeText(Home_Activity.this,
+                        "Categoria2", Toast.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+                break;
+            case R.id.cat3:
+                Toast.makeText(Home_Activity.this,
+                        "Categoria3", Toast.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+                break;
+            case R.id.cat4:
+                Toast.makeText(Home_Activity.this,
+                        "Categoria4", Toast.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+                break;
+            case R.id.cat5:
+                Toast.makeText(Home_Activity.this,
+                        "Categoria5", Toast.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+                break;
+            case R.id.cat6:
+                Toast.makeText(Home_Activity.this,
+                        "Categoria6", Toast.LENGTH_SHORT).show();
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+                break;
+        }
+    }
+
     private Menu menu;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -193,9 +187,7 @@ public class Home_Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.filterAll:
-                ImageButton ib_cat1=(ImageButton)findViewById(R.id.cat1);
 
-                Log.d("d","oo: " + ib_cat1.callOnClick());
                 // finding X and Y co-ordinates
                 int cx = (mRevealView.getLeft() + mRevealView.getRight());
                 int cy = (mRevealView.getTop());
@@ -222,11 +214,14 @@ public class Home_Activity extends AppCompatActivity {
                 // performing circular reveal for reverse animation
                 animate = ViewAnimationUtils.createCircularReveal(mRevealView,cx,cy,reverse_startradius,reverse_endradius);
                 if(hidden){
+                    final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+                    viewPager.setVisibility(View.INVISIBLE);
 
                     // to show the layout when icon is tapped
                     mRevealView.setVisibility(View.VISIBLE);
                     animator.start();
                     hidden = false;
+
                 }
 
                 return true;
@@ -267,6 +262,7 @@ public class Home_Activity extends AppCompatActivity {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if(!isWithinEditTextBounds((int)ev.getRawX(),(int)ev.getRawY()) && hidden==false){
+
             int cx = (mRevealView.getLeft() + mRevealView.getRight());
             int cy = (mRevealView.getTop());
             int reverse_startradius = Math.max(mRevealView.getWidth(),mRevealView.getHeight());
@@ -290,7 +286,8 @@ public class Home_Activity extends AppCompatActivity {
                     }
                 });
                 animate.start();
-
+            final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+            viewPager.setVisibility(View.VISIBLE);
             return true;
 
         }
