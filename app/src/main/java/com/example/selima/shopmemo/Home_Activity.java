@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
@@ -14,6 +15,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -50,21 +52,26 @@ public class Home_Activity extends AppCompatActivity {
         ib_cat4=(ImageButton)findViewById(R.id.cat4);
         ib_cat5=(ImageButton)findViewById(R.id.cat5);
         ib_cat6=(ImageButton)findViewById(R.id.cat6);
-
+        Log.d("arg"," " + ib_cat1.toString());
         ib_cat1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
                 // azioni da fare
-                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                Log.d("arg"," " + arg0.toString());
+                Toast.makeText(Home_Activity.this,
+                        "Categoria1", Toast.LENGTH_SHORT).show();
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
             }
         });
+
+
         ib_cat2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
                 // azioni da fare
-                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(Home_Activity.this,
+                        "Categoria2", Toast.LENGTH_SHORT).show();
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
             }
@@ -73,7 +80,8 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 // azioni da fare
-                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(Home_Activity.this,
+                        "Categoria3", Toast.LENGTH_SHORT).show();
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
             }
@@ -82,7 +90,8 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 // azioni da fare
-                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(Home_Activity.this,
+                        "Categoria4", Toast.LENGTH_SHORT).show();
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
             }
@@ -91,7 +100,8 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 // azioni da fare
-                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(Home_Activity.this,
+                        "Categoria5", Toast.LENGTH_SHORT).show();
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
             }
@@ -100,7 +110,8 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 // azioni da fare
-                Snackbar.make(arg0, "Categoria 1", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(Home_Activity.this,
+                        "Categoria6", Toast.LENGTH_SHORT).show();
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
             }
@@ -181,7 +192,6 @@ public class Home_Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.filterAll:
-
                 // finding X and Y co-ordinates
                 int cx = (mRevealView.getLeft() + mRevealView.getRight());
                 int cy = (mRevealView.getTop());
