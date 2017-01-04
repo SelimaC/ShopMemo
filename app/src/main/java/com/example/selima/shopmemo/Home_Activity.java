@@ -122,7 +122,8 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setVisibility(View.VISIBLE);
+        viewPager.offsetTopAndBottom(-((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
+        Log.d("onClick","offset of -"+((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
         switch (v.getId()) {
             case R.id.cat1:
                 Toast.makeText(Home_Activity.this,
@@ -188,6 +189,10 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         switch (item.getItemId()) {
             case R.id.filterAll:
 
+                final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+                viewPager.offsetTopAndBottom(+((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
+                Log.d("opening","offset of +"+((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
+
                 // finding X and Y co-ordinates
                 int cx = (mRevealView.getLeft() + mRevealView.getRight());
                 int cy = (mRevealView.getTop());
@@ -214,8 +219,8 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 // performing circular reveal for reverse animation
                 animate = ViewAnimationUtils.createCircularReveal(mRevealView,cx,cy,reverse_startradius,reverse_endradius);
                 if(hidden){
-                    final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-                    viewPager.setVisibility(View.INVISIBLE);
+                //    final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+               //     viewPager.setVisibility(View.INVISIBLE);
 
                     // to show the layout when icon is tapped
                     mRevealView.setVisibility(View.VISIBLE);
@@ -262,7 +267,8 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if(!isWithinEditTextBounds((int)ev.getRawX(),(int)ev.getRawY()) && hidden==false){
-
+            final int offset = ((LinearLayout) (findViewById(R.id.reveal_items))).getHeight();
+            final boolean flag = ev.getActionMasked() == MotionEvent.ACTION_DOWN;
             int cx = (mRevealView.getLeft() + mRevealView.getRight());
             int cy = (mRevealView.getTop());
             int reverse_startradius = Math.max(mRevealView.getWidth(),mRevealView.getHeight());
@@ -283,11 +289,17 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                         super.onAnimationEnd(animation);
                         mRevealView.setVisibility(View.INVISIBLE);
                         hidden = true;
+                        if(flag) {
+                            final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+                            Log.d("dispatch", "offset of -" + offset);
+                            viewPager.offsetTopAndBottom(-offset);
+                        }
                     }
                 });
                 animate.start();
-            final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-            viewPager.setVisibility(View.VISIBLE);
+
+
+
             return true;
 
         }
