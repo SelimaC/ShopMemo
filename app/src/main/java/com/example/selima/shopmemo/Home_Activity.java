@@ -16,17 +16,26 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.ActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import static android.view.ViewGroup.LayoutParams.FILL_PARENT;
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 
 public class Home_Activity extends AppCompatActivity implements View.OnClickListener {
@@ -70,6 +79,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         ib_cat6.setOnClickListener(this);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+
         final PagerAdapter adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
@@ -187,7 +197,6 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.filterAll:
-
                 // finding X and Y co-ordinates
                 int cx = (mRevealView.getLeft() + mRevealView.getRight());
                 int cy = (mRevealView.getTop());
@@ -216,14 +225,17 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 if(hidden){
                     final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
                     viewPager.setVisibility(View.INVISIBLE);
-
+                   /* final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+                    // viewPager.setVisibility(View.INVISIBLE);
+                    ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) viewPager.getLayoutParams();
+                    lp.topMargin += 450;*/
                     // to show the layout when icon is tapped
                     mRevealView.setVisibility(View.VISIBLE);
                     animator.start();
                     hidden = false;
 
-                }
 
+                }
                 return true;
 
             case R.id.sortAll:
@@ -288,6 +300,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 animate.start();
             final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
             viewPager.setVisibility(View.VISIBLE);
+
             return true;
 
         }
