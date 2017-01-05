@@ -15,7 +15,7 @@ public class Product implements Serializable {
     private Double prezzo;
     private String pathFoto;
     //Opzionali
-    private Categoria categoria;
+    private Categoria categoria = Categoria.NO_CAT;
     private Float voto = 0f;
 
     public Product(String nome, String negozio, Double prezzo, String pathFoto) {
@@ -67,6 +67,8 @@ public class Product implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+        if (categoria == null)
+            this.categoria = Categoria.NO_CAT;
     }
 
     public Float getVoto() {

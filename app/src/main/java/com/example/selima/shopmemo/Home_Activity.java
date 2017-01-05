@@ -28,7 +28,10 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
+
+import java.util.List;
 
 
 public class Home_Activity extends AppCompatActivity implements View.OnClickListener {
@@ -37,6 +40,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     boolean hidden=true;
     ImageButton ib_cat1,ib_cat2,ib_cat3;
     ImageButton ib_cat4,ib_cat5,ib_cat6;
+    private List<Product> productList;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -70,6 +74,8 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         ib_cat4.setOnClickListener(this);
         ib_cat5.setOnClickListener(this);
         ib_cat6.setOnClickListener(this);
+
+        productList = ProductFactory.getInstance(this).getAllProducts();
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter
@@ -242,23 +248,23 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 return true;
             case R.id.menu_all0:
                 //Ordina di recente
-                ProductFactory.getInstance().getProductsByTime();
+                ProductFactory.getInstance(this).getProductsByTime();
                 return true;
             case R.id.menu_all1:
                 //Ordina per nome
-                ProductFactory.getInstance().getProductsByName();
+                ProductFactory.getInstance(this).getProductsByName();
                 return true;
             case R.id.menu_all2:
                 //Ordina per prezzo
-                ProductFactory.getInstance().getProductsByPrice();
+                ProductFactory.getInstance(this).getProductsByPrice();
                 return true;
             case R.id.menu_all3:
                 //Ordina per categoria
-                ProductFactory.getInstance().getProductsByCategory();
+                ProductFactory.getInstance(this).getProductsByCategory();
                 return true;
             case R.id.menu_all4:
                 //Ordina per preferenza
-                ProductFactory.getInstance().getProductsByPreference();
+                ProductFactory.getInstance(this).getProductsByPreference();
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

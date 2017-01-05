@@ -1,5 +1,13 @@
 package com.example.selima.shopmemo.model;
 
+import android.content.Context;
+import android.util.Log;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,19 +19,28 @@ import java.util.List;
 
 public class ProductFactory {
     private List<Product> allProduct = new ArrayList<>();
+    private Context context;
+
     private static ProductFactory singleton = null;
-    private ProductFactory(){
+    private ProductFactory(Context context){
+        this.context = context;
     }
-    public static ProductFactory getInstance(){
-        if (singleton == null)
-            singleton = new ProductFactory();
+
+    public static ProductFactory getInstance(Context context){
+        if (singleton == null) {
+            singleton = new ProductFactory(context);
+        }
         return singleton;
     }
 
     public List<Product> getAllProducts(){
         if(allProduct.isEmpty()){
+            Log.d("prodotti","caricando dal file");
+            System.out.println("carico il file");
             loadListFromFile();
             if (allProduct.isEmpty()) {
+                Log.d("prodotti","generando da zero");
+                System.out.println("carico da zero");
                 generateInitialList();
             }
         }
@@ -130,10 +147,31 @@ public class ProductFactory {
     }
 
     private void saveListToFile() {
-        //TODO: usare la serializzazione per salvare il file, quale path?
+        try {
+            FileOutputStream fos = context.openFileOutput("listaProdotti", Context.MODE_PRIVATE);
+            ObjectOutputStream out = new ObjectOutputStream(fos);
+            out.writeObject(allProduct);
+            out.close();
+            fos.close();
+        }catch(IOException i) {
+            i.printStackTrace();
+        }
     }
 
     private void loadListFromFile() {
-        //TODO: usare la serializzazione per caricare il file, quale path?
+        try {
+            FileInputStream fileIn = context.openFileInput("listaProdotti");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            allProduct = (List<Product>) in.readObject();
+            in.close();
+            fileIn.close();
+        }catch(IOException i) {
+            i.printStackTrace();
+            return;
+        }catch(ClassNotFoundException c) {
+            System.out.println("Employee class not found");
+            c.printStackTrace();
+            return;
+        }
     }
 }
