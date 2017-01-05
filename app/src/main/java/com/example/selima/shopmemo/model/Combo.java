@@ -9,14 +9,15 @@ import java.util.List;
  */
 
 public class Combo implements Serializable {
-    List<Product> listaProdotti;
+    List<Product> listaProdotti = new ArrayList<>();
 
     Combo(){
-        listaProdotti = new ArrayList<>();
     }
+
     Combo(List<Product> l){
-        listaProdotti = new ArrayList<>();
-        listaProdotti.addAll(l);
+        if (l!= null) {
+            listaProdotti.addAll(l);
+        }
     }
 
 }

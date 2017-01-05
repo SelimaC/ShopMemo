@@ -12,6 +12,10 @@
         android:icon="@mipmap/ic_sort_variant_white_48dp"
         yourapp:showAsAction="ifRoom">
         <menu>
+            <item
+                android:id="@+id/menu_all0"
+                android:title="Recente"
+                />
           <item
             android:id="@+id/menu_all1"
             android:title="Nome"/>

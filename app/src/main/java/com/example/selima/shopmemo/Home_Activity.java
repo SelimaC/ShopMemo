@@ -28,6 +28,8 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.example.selima.shopmemo.model.ProductFactory;
+
 
 public class Home_Activity extends AppCompatActivity implements View.OnClickListener {
 
@@ -233,13 +235,31 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
             case R.id.sortAll:
                 // Apre menu a tendina
-
                 return true;
 
             case R.id.sortCombo:
                 // Apre menu a tendina
                 return true;
-
+            case R.id.menu_all0:
+                //Ordina di recente
+                ProductFactory.getInstance().getProductsByTime();
+                return true;
+            case R.id.menu_all1:
+                //Ordina per nome
+                ProductFactory.getInstance().getProductsByName();
+                return true;
+            case R.id.menu_all2:
+                //Ordina per prezzo
+                ProductFactory.getInstance().getProductsByPrice();
+                return true;
+            case R.id.menu_all3:
+                //Ordina per categoria
+                ProductFactory.getInstance().getProductsByCategory();
+                return true;
+            case R.id.menu_all4:
+                //Ordina per preferenza
+                ProductFactory.getInstance().getProductsByPreference();
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
