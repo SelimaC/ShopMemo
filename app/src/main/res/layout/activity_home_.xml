@@ -67,7 +67,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@mipmap/cart"
+                    android:background="@drawable/cat1"
                     android:clickable="true"/>
 
                 <TextView
@@ -91,7 +91,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@mipmap/cart"
+                    android:background="@drawable/cat2"
                     android:clickable="true"/>
 
                 <TextView
@@ -115,7 +115,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@mipmap/cart"
+                    android:background="@drawable/cat3"
                     android:clickable="true"/>
 
                 <TextView
@@ -148,7 +148,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@mipmap/cart"
+                    android:background="@drawable/cat4"
                     android:clickable="true"/>
 
                 <TextView
@@ -173,7 +173,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@mipmap/cart"
+                    android:background="@drawable/cat5"
                     android:clickable="true"/>
 
                 <TextView
@@ -198,7 +198,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:background="@mipmap/cart"
+                    android:background="@drawable/cat6"
                     android:clickable="true"/>
 
                 <TextView
