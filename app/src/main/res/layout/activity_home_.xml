@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Home_Activity">
 
     <android.support.v7.widget.Toolbar
@@ -72,6 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textSize="@dimen/activity_vertical_margin"
                     android:text="Alimentari e cura della persona" />
             </LinearLayout>
 
@@ -94,6 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textSize="@dimen/activity_vertical_margin"
                     android:text="Libri, film, musica e altro" />
             </LinearLayout>
 
@@ -116,6 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textSize="@dimen/activity_vertical_margin"
                     android:text="Elettronica, informatica e giochi" />
             </LinearLayout>
 
@@ -147,6 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textSize="@dimen/activity_vertical_margin"
                     android:text="Casa, giardino e fai da te" />
 
             </LinearLayout>
@@ -170,6 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textSize="@dimen/activity_vertical_margin"
                     android:text="Sport, auto e tempo libero" />
 
             </LinearLayout>
@@ -193,6 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:textSize="@dimen/activity_vertical_margin"
                     android:text="Vestiario, scarpe e accessori" />
 
             </LinearLayout>
