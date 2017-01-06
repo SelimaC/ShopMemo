@@ -186,7 +186,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         hideOption(R.id.sortCombo);
         return true;
     }
-
+//
 
 
     //Variabili per l'effetto del menu categorie
@@ -200,6 +200,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
                 viewPager.offsetTopAndBottom(+((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
                 Log.d("opening","offset of +"+((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
+
 
                 // finding X and Y co-ordinates
                 int cx = (mRevealView.getLeft() + mRevealView.getRight());
