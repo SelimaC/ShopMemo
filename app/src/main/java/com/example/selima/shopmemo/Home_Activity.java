@@ -38,8 +38,8 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
     LinearLayout mRevealView;
     boolean hidden=true;
-    ImageButton ib_cat1,ib_cat2,ib_cat3;
-    ImageButton ib_cat4,ib_cat5,ib_cat6;
+    LinearLayout ib_cat1,ib_cat2,ib_cat3;
+    LinearLayout ib_cat4,ib_cat5,ib_cat6;
     private List<Product> productList;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -61,12 +61,12 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        ib_cat1=(ImageButton)findViewById(R.id.cat1);
-        ib_cat2=(ImageButton)findViewById(R.id.cat2);
-        ib_cat3=(ImageButton)findViewById(R.id.cat3);
-        ib_cat4=(ImageButton)findViewById(R.id.cat4);
-        ib_cat5=(ImageButton)findViewById(R.id.cat5);
-        ib_cat6=(ImageButton)findViewById(R.id.cat6);
+        ib_cat1=(LinearLayout)findViewById(R.id.cat1);
+        ib_cat2=(LinearLayout)findViewById(R.id.cat2);
+        ib_cat3=(LinearLayout)findViewById(R.id.cat3);
+        ib_cat4=(LinearLayout)findViewById(R.id.cat4);
+        ib_cat5=(LinearLayout)findViewById(R.id.cat5);
+        ib_cat6=(LinearLayout)findViewById(R.id.cat6);
 
         ib_cat1.setOnClickListener(this);
         ib_cat2.setOnClickListener(this);

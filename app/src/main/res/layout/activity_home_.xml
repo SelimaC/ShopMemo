@@ -56,71 +56,74 @@
 
 
             <LinearLayout
+                android:id="@+id/cat1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/cat1"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@mipmap/cart"
                     android:clickable="true"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
                     android:textSize="@dimen/activity_vertical_margin"
+                    android:gravity="center"
                     android:text="Alimentari e cura della persona" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cat2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/cat2"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@mipmap/cart"
                     android:clickable="true"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
                     android:textSize="@dimen/activity_vertical_margin"
-                    android:text="Libri, film, musica e altro" />
+                    android:gravity="center"
+                    android:text="Libri, film, musica" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cat3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/cat3"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@mipmap/cart"
                     android:clickable="true"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
-                    android:textSize="@dimen/activity_vertical_margin"
+                    android:textSize="16dp"
+                    android:gravity="center"
                     android:text="Elettronica, informatica e giochi" />
             </LinearLayout>
 
@@ -134,73 +137,76 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/cat4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/cat4"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@mipmap/cart"
                     android:clickable="true"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
-                    android:textSize="@dimen/activity_vertical_margin"
+                    android:textSize="16dp"
+                    android:gravity="center"
                     android:text="Casa, giardino e fai da te" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/cat5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/cat5"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@mipmap/cart"
                     android:clickable="true"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
-                    android:textSize="@dimen/activity_vertical_margin"
+                    android:textSize="16dp"
+                    android:gravity="center"
                     android:text="Sport, auto e tempo libero" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/cat6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/cat6"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@mipmap/cart"
                     android:clickable="true"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
-                    android:textSize="@dimen/activity_vertical_margin"
+                    android:textSize="16dp"
+                    android:gravity="center"
                     android:text="Vestiario, scarpe e accessori" />
 
             </LinearLayout>
