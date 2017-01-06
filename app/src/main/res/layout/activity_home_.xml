@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Cat1" />
+                    android:text="Alimentari e cura della persona" />
             </LinearLayout>
 
             <LinearLayout
@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Cat2" />
+                    android:text="Libri, film, musica e altro" />
             </LinearLayout>
 
             <LinearLayout
@@ -116,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Cat3" />
+                    android:text="Elettronica, informatica e giochi" />
             </LinearLayout>
 
         </LinearLayout>
@@ -147,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Cat4" />
+                    android:text="Casa, giardino e fai da te" />
 
             </LinearLayout>
 
@@ -170,7 +170,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Cat5" />
+                    android:text="Sport, auto e tempo libero" />
 
             </LinearLayout>
 
@@ -193,7 +193,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Cat6" />
+                    android:text="Vestiario, scarpe e accessori" />
 
             </LinearLayout>
 
