@@ -40,7 +40,6 @@ public class ProductFactory {
             loadListFromFile();
             if (allProduct.isEmpty()) {
                 Log.d("prodotti","generando da zero");
-                System.out.println("carico da zero");
                 generateInitialList();
             }
         }
@@ -116,11 +115,18 @@ public class ProductFactory {
     }
 
     public void deleteProduct(Integer id){
-        allProduct.remove(getProductById(id));
+        Product prod = getProductById(id);
+        List<Combo> l = ComboFactory.getInstance(context).getAllCombo();
+        for(Combo c: l){
+            if(c.listaProdotti.contains(prod)){
+                ComboFactory.getInstance(context).removeProductFromCombo(id,c.getId());
+            }
+        }
+        allProduct.remove(prod);
         saveListToFile();
     }
 
-    private Product getProductById(Integer id) {
+    Product getProductById(Integer id) {
         for(Product p: allProduct){
             if(p.getId().equals(id)){
                 return p;
@@ -169,7 +175,7 @@ public class ProductFactory {
             i.printStackTrace();
             return;
         }catch(ClassNotFoundException c) {
-            System.out.println("Employee class not found");
+            System.out.println("Product class not found");
             c.printStackTrace();
             return;
         }

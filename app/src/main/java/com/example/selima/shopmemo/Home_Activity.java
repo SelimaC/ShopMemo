@@ -28,6 +28,8 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.example.selima.shopmemo.model.Combo;
+import com.example.selima.shopmemo.model.ComboFactory;
 import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
 
@@ -41,6 +43,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     LinearLayout ib_cat1,ib_cat2,ib_cat3;
     LinearLayout ib_cat4,ib_cat5,ib_cat6;
     private List<Product> productList;
+    private List<Combo> comboList;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -76,6 +79,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         ib_cat6.setOnClickListener(this);
 
         productList = ProductFactory.getInstance(this).getAllProducts();
+        comboList = ComboFactory.getInstance(this).getAllCombo();
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter
@@ -260,12 +264,24 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 ProductFactory.getInstance(this).getProductsByPrice();
                 return true;
             case R.id.menu_all3:
+                //Ordina per preferenza
+                ProductFactory.getInstance(this).getProductsByPreference();
+                return true;
+            case R.id.menu_all4:
                 //Ordina per categoria
                 ProductFactory.getInstance(this).getProductsByCategory();
                 return true;
-            case R.id.menu_all4:
-                //Ordina per preferenza
-                ProductFactory.getInstance(this).getProductsByPreference();
+            case R.id.menu_combo0:
+                //Ordina di recente
+                ComboFactory.getInstance(this).getComboByTime();
+                return true;
+            case R.id.menu_combo1:
+                //Ordina per nome
+                ComboFactory.getInstance(this).getComboByName();
+                return true;
+            case R.id.menu_combo2:
+                //Ordina per prezzo
+                ComboFactory.getInstance(this).getComboByPrice();
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

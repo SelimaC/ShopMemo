@@ -9,15 +9,41 @@ import java.util.List;
  */
 
 public class Combo implements Serializable {
+    private static Integer maxId = 0;
+
     List<Product> listaProdotti = new ArrayList<>();
+    private String nome;
+    private Integer id;
 
-    Combo(){
-    }
-
-    Combo(List<Product> l){
+    Combo(List<Product> l, String nome){
         if (l!= null) {
             listaProdotti.addAll(l);
         }
+        this.nome = nome;
+        id = maxId++;
     }
 
+    public String getNome(){
+        return nome;
+    }
+
+    public List<Product> getListaProdotti() {
+        return listaProdotti;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Double getPrezzoTotale(){
+        Double totale = 0.;
+        for(Product p: listaProdotti){
+            totale += p.getPrezzo();
+        }
+        return totale;
+    }
 }
