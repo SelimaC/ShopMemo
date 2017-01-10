@@ -44,6 +44,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     LinearLayout ib_cat4,ib_cat5,ib_cat6;
     private List<Product> productList;
     private List<Combo> comboList;
+    PagerAdapter adapter;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -78,11 +79,9 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         ib_cat5.setOnClickListener(this);
         ib_cat6.setOnClickListener(this);
 
-        productList = ProductFactory.getInstance(this).getAllProducts();
-        comboList = ComboFactory.getInstance(this).getAllCombo();
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter
+        adapter = new PagerAdapter
                 (getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -126,6 +125,10 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
             }
         });
+
+        productList = ProductFactory.getInstance(this).getAllProducts();
+        ((AllFragment)(adapter.getItem(0))).setList(productList);
+        comboList = ComboFactory.getInstance(this).getAllCombo();
 
     }
 
@@ -253,23 +256,23 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 return true;
             case R.id.menu_all0:
                 //Ordina di recente
-                ProductFactory.getInstance(this).getProductsByTime();
+                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByTime());
                 return true;
             case R.id.menu_all1:
                 //Ordina per nome
-                ProductFactory.getInstance(this).getProductsByName();
+                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByName());
                 return true;
             case R.id.menu_all2:
                 //Ordina per prezzo
-                ProductFactory.getInstance(this).getProductsByPrice();
+                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByPrice());
                 return true;
             case R.id.menu_all3:
                 //Ordina per preferenza
-                ProductFactory.getInstance(this).getProductsByPreference();
+                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByPreference());
                 return true;
             case R.id.menu_all4:
                 //Ordina per categoria
-                ProductFactory.getInstance(this).getProductsByCategory();
+                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByCategory());
                 return true;
             case R.id.menu_combo0:
                 //Ordina di recente

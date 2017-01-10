@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,18 @@ public abstract class PageFragmentAll extends Fragment {
     public PageFragmentAll() {
         // Required empty public constructor
     }/**/
+    static RecyclerView recyclerView;
+    static List<Product> list = new ArrayList<>();
+    public void setList(List<Product> l){
+        list = l;
+        Log.d("listaProdotti",""+list);
 
+        if(recyclerView == null) return;
+        recyclerView.setAdapter(new RecyclerAdapterAll(l));
+        recyclerView.invalidate();
+
+    }
+    //final RecyclerAdapterAll adapter = new RecyclerAdapterAll(list);
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +55,15 @@ public abstract class PageFragmentAll extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.all_fragment1, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.al_list);
+        recyclerView = (RecyclerView) view.findViewById(R.id.al_list);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         //recyclerView.setHasFixedSize(true); improve performace but mine can change
 
-        List<Product> list = new ArrayList<>();
+        //List<Product> list = new ArrayList<>();
 
-        fillList(list);
+        //fillList(list);
 
         RecyclerAdapterAll adapter = new RecyclerAdapterAll(list);
         recyclerView.setAdapter(adapter);
