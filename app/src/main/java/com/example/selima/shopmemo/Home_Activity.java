@@ -36,7 +36,7 @@ import com.example.selima.shopmemo.model.ProductFactory;
 import java.util.List;
 
 
-public class Home_Activity extends AppCompatActivity implements View.OnClickListener {
+public class Home_Activity extends AppCompatActivity implements View.OnClickListener,PageFragmentAll.OnListItemClickListener {
 
     LinearLayout mRevealView;
     boolean hidden=true;
@@ -360,6 +360,15 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     {
         MenuItem item = menu.findItem(id);
         item.setVisible(true);
+    }
+
+
+    @Override
+    public void onListItemClick(String title) {
+        Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
+    }
+    public void cardMoreFunction(View view){
+        Toast.makeText(this, "moreButton", Toast.LENGTH_SHORT).show();
     }
 
 }
