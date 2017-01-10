@@ -6,6 +6,7 @@ package com.example.selima.shopmemo;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,15 +41,19 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(mItemsList.get(position).getNome());
-        holder.price.setText(mItemsList.get(position).getPrezzo() + " €");
-        holder.shop.setText(mItemsList.get(position).getNegozio());
+        holder.shopANDprice.setText(mItemsList.get(position).getNegozio() + " - " +
+                                    mItemsList.get(position).getPrezzo() + " €");
 
         if(mItemsList.get(position).getVoto()==0)
             holder.preference.setText("0");
         else
             holder.preference.setText(mItemsList.get(position).getVoto().toString());
         holder.star.setImageResource(R.drawable.star);
-        holder.photo.setImageResource(R.mipmap.cart);
+
+        int id = Home_Activity.context().getResources().getIdentifier(mItemsList.get(position).getPathFoto(),
+                "drawable", Home_Activity.context().getPackageName());
+
+        holder.photo.setImageResource(id);
     }
 
     @Override
@@ -60,8 +65,7 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         CardView cardView;
         TextView name;
-        TextView price;
-        TextView shop;
+        TextView shopANDprice;
         TextView preference;
         ImageView star;
         ImageView photo;
@@ -75,8 +79,7 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
 
             cardView = (CardView)v.findViewById(R.id.card_view);
             name = (TextView)v.findViewById(R.id.name);
-            price = (TextView)v.findViewById(R.id.price);
-            shop = (TextView)v.findViewById(R.id.shop);
+            shopANDprice = (TextView)v.findViewById(R.id.shopANDprice);
             preference = (TextView)v.findViewById(R.id.preference);
             star = (ImageView) v.findViewById(R.id.star);
             photo = (ImageView) v.findViewById(R.id.photo);

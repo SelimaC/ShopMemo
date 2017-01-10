@@ -2,6 +2,7 @@ package com.example.selima.shopmemo;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.nfc.Tag;
@@ -38,6 +39,7 @@ import java.util.List;
 
 public class Home_Activity extends AppCompatActivity implements View.OnClickListener,PageFragmentAll.OnListItemClickListener {
 
+    private static Home_Activity mApp = null;
     LinearLayout mRevealView;
     boolean hidden=true;
     LinearLayout ib_cat1,ib_cat2,ib_cat3;
@@ -50,6 +52,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mApp=this;
         setContentView(R.layout.activity_home_);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -372,6 +375,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     }
     public void cardMoreFunction(View view){
         Toast.makeText(this, "moreButton", Toast.LENGTH_SHORT).show();
+    }
+
+    public static Context context()
+    {
+        return mApp.getApplicationContext();
     }
 
 }

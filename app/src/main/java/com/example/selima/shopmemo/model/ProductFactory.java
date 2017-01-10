@@ -38,7 +38,7 @@ public class ProductFactory {
             Log.d("prodotti","caricando dal file");
             System.out.println("carico il file");
             loadListFromFile();
-            if (allProduct.isEmpty()) {
+            if (allProduct.isEmpty() || 0==0) {
                 Log.d("prodotti","generando da zero");
                 generateInitialList();
             }
@@ -139,14 +139,17 @@ public class ProductFactory {
         Product temp = new Product("T-Shirt", "OVS", 14.90, "");
         temp.setCategoria(Categoria.CAT1);
         temp.setVoto(4.2f);
+        temp.setPathFoto("tshirt");
         allProduct.add(temp);
 
         temp = new Product("Jeans neri", "Bershka", 29.00, "");
         temp.setVoto(4.8f);
+        temp.setPathFoto("jeans");
         allProduct.add(temp);
 
         temp = new Product("Monitor 22\"", "MediaWorld", 189.90, "" );
         temp.setCategoria(Categoria.CAT2);
+        temp.setPathFoto("monitor");
         allProduct.add(temp);
 
         saveListToFile();
