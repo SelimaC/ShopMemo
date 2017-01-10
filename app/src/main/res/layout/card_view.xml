@@ -75,7 +75,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/star"
                 android:layout_toRightOf="@+id/photo"
-                android:layout_below="@+id/shopANDprice"
                 android:layout_marginLeft="210dp"
                 />
         </RelativeLayout>

@@ -38,7 +38,7 @@ public class ProductFactory {
             Log.d("prodotti","caricando dal file");
             System.out.println("carico il file");
             loadListFromFile();
-            if (allProduct.isEmpty() || 0==0) {
+            if (allProduct.isEmpty()) {
                 Log.d("prodotti","generando da zero");
                 generateInitialList();
             }
