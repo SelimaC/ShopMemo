@@ -399,7 +399,9 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onListItemClick(String title) {
-        Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
+        i.putExtra("oggetto", title);
+        startActivity(i);
     }
     public void cardMoreFunctionProd(View view){
        showPopup(view);
