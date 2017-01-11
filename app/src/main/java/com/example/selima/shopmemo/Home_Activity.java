@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -144,6 +145,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.offsetTopAndBottom(-((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
         Log.d("onClick","offset of -"+((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
+        Intent i;
         switch (v.getId()) {
             case R.id.cat1:
                 Toast.makeText(Home_Activity.this,
@@ -151,6 +153,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat1");
+                startActivity(i);
+
                 break;
             case R.id.cat2:
                 Toast.makeText(Home_Activity.this,
@@ -158,6 +165,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat2");
+                startActivity(i);
+
                 break;
             case R.id.cat3:
                 Toast.makeText(Home_Activity.this,
@@ -165,6 +177,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat3");
+                startActivity(i);
+
                 break;
             case R.id.cat4:
                 Toast.makeText(Home_Activity.this,
@@ -172,6 +189,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat4");
+                startActivity(i);
+
                 break;
             case R.id.cat5:
                 Toast.makeText(Home_Activity.this,
@@ -179,6 +201,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat5");
+                startActivity(i);
+
                 break;
             case R.id.cat6:
                 Toast.makeText(Home_Activity.this,
@@ -186,6 +213,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat6");
+                startActivity(i);
+
                 break;
         }
     }
