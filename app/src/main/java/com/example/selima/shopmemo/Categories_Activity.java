@@ -4,8 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+
+import com.example.selima.shopmemo.model.Categoria;
+import com.example.selima.shopmemo.model.Product;
+import com.example.selima.shopmemo.model.ProductFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Categories_Activity extends AppCompatActivity {
 
@@ -20,10 +30,8 @@ public class Categories_Activity extends AppCompatActivity {
         final ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
-
         Intent i = getIntent();
         String cat = i.getStringExtra("categoria");
-
         switch (cat){
             case "cat1": ab.setTitle("Alimentari e cura della persona");
                 break;
@@ -38,10 +46,13 @@ public class Categories_Activity extends AppCompatActivity {
             case "cat6":  ab.setTitle("Vestiario, scarpe e accessori");
                 break;
             default: break;
-
         }
 
+
+
+
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

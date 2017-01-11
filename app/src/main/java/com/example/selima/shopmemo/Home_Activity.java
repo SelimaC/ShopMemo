@@ -212,6 +212,8 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
                 break;
         }
+
+
     }
 
     private Menu menu;
