@@ -136,6 +136,18 @@ public class ProductFactory {
         return null;
     }
 
+    public List<Combo> getComboIn(Integer id){
+        Product prod = getProductById(id);
+        List<Combo> l = ComboFactory.getInstance(context).getAllCombo();
+        List<Combo> lista = new ArrayList<>();
+        for(Combo c: l){
+            if(c.listaProdotti.contains(prod)){
+                lista.add(c);
+            }
+        }
+        return lista;
+    }
+
     private void generateInitialList() {
         Product temp = new Product("T-Shirt", "OVS", 14.90, "");
         temp.setCategoria(Categoria.CAT1);

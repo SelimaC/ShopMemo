@@ -2,6 +2,8 @@ package com.example.selima.shopmemo;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -43,7 +45,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     boolean hidden=true;
     LinearLayout ib_cat1,ib_cat2,ib_cat3;
     LinearLayout ib_cat4,ib_cat5,ib_cat6;
-    private List<Product> productList;
+    List<Product> productList;
     private List<Combo> comboList;
     PagerAdapter adapter;
 
@@ -388,6 +390,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.menuthreedotsproduct, popup.getMenu());
         final List<Product> lista = productList;
+        final FragmentManager supportoFragment = getFragmentManager();
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -397,8 +400,15 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                         TextView child = (TextView) viewGroup.getChildAt(6);
                         String id = child.getText().toString();
                         //Toast.makeText(view.getContext(), "Elimina oggetto "+id, Toast.LENGTH_SHORT).show();
-                        ProductFactory.getInstance(getApplicationContext()).deleteProduct(Integer.parseInt(id));
-                        ((AllFragment)(adapter.getItem(0))).setList(lista);
+                        //ProductFactory.getInstance(getApplicationContext()).deleteProduct(Integer.parseInt(id));
+                        DialogFragment fragment = new DeleteProductDialog();
+                        Bundle bundle = new Bundle();
+                        bundle.putInt("NUMCOMBO",ProductFactory.getInstance(getApplicationContext()).getComboIn(Integer.parseInt(id)).size());
+                        bundle.putInt("IDPROD",(Integer.parseInt(id)));
+
+                        fragment.setArguments(bundle);
+                        fragment.show(supportoFragment,"conferma");
+                        //((AllFragment)(adapter.getItem(0))).setList(lista);
                         break;
                     case R.id.modificaProd:
                         Toast.makeText(view.getContext(), "La modifica non è implementata", Toast.LENGTH_SHORT).show();
