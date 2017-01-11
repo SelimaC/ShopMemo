@@ -16,10 +16,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -377,12 +379,19 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
     }
     public void cardMoreFunction(View view){
-        Toast.makeText(this, "moreButton", Toast.LENGTH_SHORT).show();
+       showPopup(view);
     }
 
     public static Context context()
     {
         return mApp.getApplicationContext();
+    }
+
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menuthreedots, popup.getMenu());
+        popup.show();
     }
 
 }

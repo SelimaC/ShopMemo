@@ -68,7 +68,7 @@
                 android:id="@+id/star"
                 android:layout_below="@+id/shopANDprice"
                 android:layout_toRightOf="@+id/photo"
-                android:layout_marginLeft="230dp"/>
+                android:layout_marginLeft="180dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
                 android:layout_toLeftOf="@+id/star"
                 android:layout_marginTop="5dp"
                 android:textSize="17sp"
-                android:layout_marginRight="-220dp"
+                android:layout_marginRight="-175dp"
                 />
 
         </RelativeLayout>
