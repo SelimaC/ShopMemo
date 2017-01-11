@@ -115,6 +115,7 @@ public class ProductFactory {
     }
 
     public void deleteProduct(Integer id){
+        Log.d("elimina", "prdootto"+id);
         Product prod = getProductById(id);
         List<Combo> l = ComboFactory.getInstance(context).getAllCombo();
         for(Combo c: l){

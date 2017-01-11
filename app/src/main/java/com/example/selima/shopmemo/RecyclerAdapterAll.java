@@ -54,6 +54,7 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
                 "drawable", Home_Activity.context().getPackageName());
 
         holder.photo.setImageResource(id);
+        holder.hiddenId.setText(mItemsList.get(position).getId().toString());
     }
 
     @Override
@@ -69,6 +70,7 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
         TextView preference;
         ImageView star;
         ImageView photo;
+        TextView hiddenId;
 
         /**
          * Constructor
@@ -83,7 +85,7 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
             preference = (TextView)v.findViewById(R.id.preference);
             star = (ImageView) v.findViewById(R.id.star);
             photo = (ImageView) v.findViewById(R.id.photo);
-
+            hiddenId  = (TextView) v.findViewById(R.id.hidden_id);
             v.setOnClickListener(this);
         }
 

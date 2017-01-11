@@ -5,19 +5,14 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -26,11 +21,11 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Combo;
@@ -378,7 +373,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     public void onListItemClick(String title) {
         Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
     }
-    public void cardMoreFunction(View view){
+    public void cardMoreFunctionProd(View view){
        showPopup(view);
     }
 
@@ -388,9 +383,33 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     }
 
     public void showPopup(View v) {
+        final View view = v;
         PopupMenu popup = new PopupMenu(this, v);
         MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.menuthreedots, popup.getMenu());
+        inflater.inflate(R.menu.menuthreedotsproduct, popup.getMenu());
+        final List<Product> lista = productList;
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.eliminaProd:
+                        ViewGroup viewGroup = (ViewGroup) view.getParent();
+                        TextView child = (TextView) viewGroup.getChildAt(6);
+                        String id = child.getText().toString();
+                        //Toast.makeText(view.getContext(), "Elimina oggetto "+id, Toast.LENGTH_SHORT).show();
+                        ProductFactory.getInstance(getApplicationContext()).deleteProduct(Integer.parseInt(id));
+                        ((AllFragment)(adapter.getItem(0))).setList(lista);
+                        break;
+                    case R.id.modificaProd:
+                        Toast.makeText(view.getContext(), "La modifica non è implementata", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.addA:
+                        Toast.makeText(view.getContext(), "Aggiunta", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return false;
+            }
+        });
         popup.show();
     }
 

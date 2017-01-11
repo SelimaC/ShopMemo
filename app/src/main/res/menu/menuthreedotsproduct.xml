@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/modifica"
+        android:id="@+id/modificaProd"
         android:title="Modifica"/>
     <item
-        android:id="@+id/elimina"
+        android:id="@+id/eliminaProd"
         android:title="Elimina"/>
     <item
         android:id="@+id/addA"
