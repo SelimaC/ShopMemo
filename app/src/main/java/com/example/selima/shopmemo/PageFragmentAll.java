@@ -17,7 +17,7 @@ import java.util.List;
 
 
 public abstract class PageFragmentAll extends Fragment {
-    private OnListItemClickListener mListItemClickListener;
+    static private OnListItemClickListener mListItemClickListener;
 /*
     /**
      * Use this factory method to create a new instance of
@@ -39,7 +39,9 @@ public abstract class PageFragmentAll extends Fragment {
         Log.d("listaProdotti",""+list);
 
         if(recyclerView == null) return;
-        recyclerView.setAdapter(new RecyclerAdapterAll(l));
+        RecyclerAdapterAll adapter = new RecyclerAdapterAll(l);
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemTapListener(mListItemClickListener);
         recyclerView.invalidate();
 
     }
