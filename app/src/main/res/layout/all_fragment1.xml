@@ -22,6 +22,7 @@
         app:layout_anchor="@id/al_list"
         app:backgroundTint="@color/colorPrimary"
         app:layout_anchorGravity="bottom|right|end"
-        app:layout_behavior="com.example.selima.shopmemo.ScrollAwareFABBehavior"/>
+        app:layout_behavior="com.example.selima.shopmemo.ScrollAwareFABBehavior"
+        android:onClick="newObject"/>
 
 </android.support.design.widget.CoordinatorLayout>

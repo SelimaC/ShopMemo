@@ -11,6 +11,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -103,6 +104,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                     hideOption(R.id.sortCombo);
                     showOption(R.id.sortAll);
                     showOption(R.id.filterAll);
+
                 }
                 else{
                     tabLayout.setBackgroundColor(Color.parseColor("#F57C00"));
@@ -396,6 +398,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         item.setVisible(true);
     }
 
+
+    public void newObject(View view) {
+        Intent i = new Intent(getApplicationContext(), NewObject.class);
+        startActivity(i);
+    }
 
     @Override
     public void onListItemClick(String title) {

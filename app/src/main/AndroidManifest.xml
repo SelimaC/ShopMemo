@@ -20,8 +20,11 @@
         </activity>
         <activity
             android:name=".Categories_Activity"
-            android:parentActivityName=".Home_Activity"></activity>
-        <activity android:name=".SummaryObject_Activity"
+            android:parentActivityName=".Home_Activity" />
+        <activity
+            android:name=".SummaryObject_Activity"
+            android:parentActivityName=".Home_Activity" />
+        <activity android:name=".NewObject"
             android:parentActivityName=".Home_Activity"></activity>
     </application>
 
