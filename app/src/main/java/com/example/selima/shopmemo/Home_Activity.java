@@ -148,8 +148,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         Intent i;
         switch (v.getId()) {
             case R.id.cat1:
-                Toast.makeText(Home_Activity.this,
-                        "Categoria1", Toast.LENGTH_SHORT).show();
+
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
@@ -160,8 +159,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.cat2:
-                Toast.makeText(Home_Activity.this,
-                        "Categoria2", Toast.LENGTH_SHORT).show();
+
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
@@ -172,8 +170,6 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.cat3:
-                Toast.makeText(Home_Activity.this,
-                        "Categoria3", Toast.LENGTH_SHORT).show();
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
@@ -184,8 +180,6 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.cat4:
-                Toast.makeText(Home_Activity.this,
-                        "Categoria4", Toast.LENGTH_SHORT).show();
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
@@ -196,8 +190,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.cat5:
-                Toast.makeText(Home_Activity.this,
-                        "Categoria5", Toast.LENGTH_SHORT).show();
+
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
@@ -208,8 +201,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.cat6:
-                Toast.makeText(Home_Activity.this,
-                        "Categoria6", Toast.LENGTH_SHORT).show();
+
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
                 hidden=true;
