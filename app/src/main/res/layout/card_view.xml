@@ -19,8 +19,8 @@
             >
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:id="@+id/photo"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -63,20 +63,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/preference"
-                android:layout_toRightOf="@+id/photo"
                 android:layout_below="@+id/shopANDprice"
-                android:layout_marginLeft="180dp"
-                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/photo"
+                android:layout_marginTop="5dp"
                 android:textSize="17sp"
+                android:layout_marginLeft="130dp"
                 />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/star"
-                android:layout_toRightOf="@+id/photo"
                 android:layout_below="@+id/shopANDprice"
-                android:layout_marginLeft="210dp"
+                android:layout_toRightOf="@+id/photo"
+                android:layout_marginLeft="160dp"
                 />
         </RelativeLayout>
 
