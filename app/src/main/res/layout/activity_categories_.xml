@@ -30,10 +30,11 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/cat_list"
+            android:id="@+id/al_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#ebebeb"/>
 
     </android.support.design.widget.CoordinatorLayout>
+
 </RelativeLayout>

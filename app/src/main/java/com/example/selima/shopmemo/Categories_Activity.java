@@ -1,6 +1,9 @@
 package com.example.selima.shopmemo;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +33,7 @@ public class Categories_Activity extends AppCompatActivity {
         final ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
+
         Intent i = getIntent();
         String cat = i.getStringExtra("categoria");
         switch (cat){
@@ -47,8 +51,6 @@ public class Categories_Activity extends AppCompatActivity {
                 break;
             default: break;
         }
-
-
 
 
     }
