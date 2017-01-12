@@ -127,7 +127,7 @@ public class ProductFactory {
         saveListToFile();
     }
 
-    Product getProductById(Integer id) {
+    public Product getProductById(Integer id) {
         for(Product p: allProduct){
             if(p.getId().equals(id)){
                 return p;

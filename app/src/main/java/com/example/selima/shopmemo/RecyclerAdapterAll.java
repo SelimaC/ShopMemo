@@ -95,7 +95,7 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
             if (null != mListItemClickListener) {
                 // Notify the active callbacks interface (the activity, if the
                 // fragment is attached to one) that an item has been selected.
-                mListItemClickListener.onListItemClick(mItemsList.get(getAdapterPosition()).getNome());
+                mListItemClickListener.onListItemClick(mItemsList.get(getAdapterPosition()).getId());
             }
         }
     }

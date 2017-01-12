@@ -404,9 +404,9 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onListItemClick(String title) {
+    public void onListItemClick(int id) {
         Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
-        i.putExtra("oggetto", title);
+        i.putExtra("oggetto", String.valueOf(id));
         startActivity(i);
     }
     public void cardMoreFunctionProd(View view){

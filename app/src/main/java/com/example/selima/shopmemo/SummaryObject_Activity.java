@@ -1,6 +1,8 @@
 package com.example.selima.shopmemo;
 
 import android.animation.Animator;
+import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -14,12 +16,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.ComboFactory;
+import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
+
+import java.util.List;
 
 import static java.security.AccessController.getContext;
 
@@ -38,9 +45,11 @@ public class SummaryObject_Activity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         Intent i = getIntent();
-        String obj = i.getStringExtra("oggetto");
+        String o = i.getStringExtra("oggetto");
+        int id = Integer.parseInt(i.getStringExtra("oggetto"));
 
-        ab.setTitle(obj);
+        Product obj = ProductFactory.getInstance(this).getProductById(id);
+        ab.setTitle(obj.getNome());
 
 
     }
@@ -65,6 +74,19 @@ public class SummaryObject_Activity extends AppCompatActivity {
                 return  true;
             case R.id.menu_summary2:
 
+                /*final FragmentManager supportoFragment = getFragmentManager();
+                ViewGroup viewGroup = (ViewGroup) view.getParent();
+                TextView child = (TextView) viewGroup.getChildAt(6);
+                String id = child.getText().toString();
+
+                DialogFragment fragment = new DeleteProductDialog();
+                Bundle bundle = new Bundle();
+                bundle.putInt("NUMCOMBO",ProductFactory.getInstance(getApplicationContext()).getComboIn(Integer.parseInt(id)).size());
+                bundle.putInt("IDPROD",(Integer.parseInt(id)));
+
+                fragment.setArguments(bundle);
+                fragment.show(supportoFragment,"conferma");
+                */
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

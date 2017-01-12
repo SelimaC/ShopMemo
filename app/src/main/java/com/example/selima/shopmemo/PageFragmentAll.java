@@ -94,6 +94,6 @@ public abstract class PageFragmentAll extends Fragment {
 
 
     public interface OnListItemClickListener {
-        void onListItemClick(String title);
+        void onListItemClick(int id);
     }
 }
