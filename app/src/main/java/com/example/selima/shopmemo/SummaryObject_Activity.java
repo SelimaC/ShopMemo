@@ -16,9 +16,12 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.ComboFactory;
 import com.example.selima.shopmemo.model.ProductFactory;
+
+import static java.security.AccessController.getContext;
 
 public class SummaryObject_Activity extends AppCompatActivity {
 
@@ -55,7 +58,14 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
 
                 return true;
+            case R.id.menu_summary1:
 
+                Toast.makeText(this, "La modifica non è implementata", Toast.LENGTH_SHORT).show();
+
+                return  true;
+            case R.id.menu_summary2:
+
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
