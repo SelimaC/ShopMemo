@@ -24,7 +24,7 @@
         <activity
             android:name=".SummaryObject_Activity"
             android:parentActivityName=".Home_Activity" />
-        <activity android:name=".NewObject"
+        <activity android:name=".NewObject_Activity"
             android:parentActivityName=".Home_Activity"></activity>
     </application>
 

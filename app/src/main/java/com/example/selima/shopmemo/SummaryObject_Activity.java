@@ -1,10 +1,24 @@
 package com.example.selima.shopmemo;
 
+import android.animation.Animator;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.LinearLayout;
+
+import com.example.selima.shopmemo.model.ComboFactory;
+import com.example.selima.shopmemo.model.ProductFactory;
 
 public class SummaryObject_Activity extends AppCompatActivity {
 
@@ -24,5 +38,29 @@ public class SummaryObject_Activity extends AppCompatActivity {
         String obj = i.getStringExtra("oggetto");
 
         ab.setTitle(obj);
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_summaryobject, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.options:
+
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }
