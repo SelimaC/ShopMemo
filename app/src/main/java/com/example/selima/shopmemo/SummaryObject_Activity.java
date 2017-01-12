@@ -38,6 +38,7 @@ import static java.security.AccessController.getContext;
 
 public class SummaryObject_Activity extends AppCompatActivity {
 
+    private boolean zoomOut =  false;
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +59,11 @@ public class SummaryObject_Activity extends AppCompatActivity {
         Product obj = ProductFactory.getInstance(this).getProductById(id);
         ab.setTitle(obj.getNome());
 
-        ImageView photo = (ImageView) findViewById(R.id.photoobj);
+        final ImageView photo = (ImageView) findViewById(R.id.photoobj);
         int idphoto = Home_Activity.context().getResources().getIdentifier(obj.getPathFoto(),
                 "drawable", Home_Activity.context().getPackageName());
+        photo.setImageResource(idphoto);
+
 
         TextView shop = (TextView) findViewById(R.id.shop);
         TextView price = (TextView) findViewById(R.id.price);
@@ -70,8 +73,6 @@ public class SummaryObject_Activity extends AppCompatActivity {
         shop.setText(obj.getNegozio());
         price.setText( obj.getPrezzo() + " €");
         category.setText(obj.getCategoria()+ "");
-
-        photo.setImageResource(idphoto);
 
 
         List<Combo> c = new ArrayList<>();
