@@ -40,7 +40,7 @@ public class DeleteProductDialog extends DialogFragment {
                         if(isSummary){
                             Intent i = new Intent(Home_Activity.context(), Home_Activity.class);
                             getActivity().finish();
-                            startActivity(i);
+                           // startActivity(i);
                         }
                         else ((AllFragment)((Home_Activity)getActivity()).adapter.getItem(0)).setList(((Home_Activity) getActivity()).productList);
 

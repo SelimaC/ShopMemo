@@ -139,6 +139,11 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ((AllFragment)adapter.getItem(0)).setList(productList);
+    }
 
     // imagebutton click events
     @Override
