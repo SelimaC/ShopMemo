@@ -1,9 +1,14 @@
 package com.example.selima.shopmemo;
 
 import android.animation.Animator;
+import android.app.Activity;
+import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.icu.util.RangeValueIterator;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -13,11 +18,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -38,7 +45,7 @@ import static java.security.AccessController.getContext;
 
 public class SummaryObject_Activity extends AppCompatActivity {
 
-    private boolean zoomOut =  false;
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +67,7 @@ public class SummaryObject_Activity extends AppCompatActivity {
         ab.setTitle(obj.getNome());
 
         final ImageView photo = (ImageView) findViewById(R.id.photoobj);
-        int idphoto = Home_Activity.context().getResources().getIdentifier(obj.getPathFoto(),
+        final int idphoto = Home_Activity.context().getResources().getIdentifier(obj.getPathFoto(),
                 "drawable", Home_Activity.context().getPackageName());
         photo.setImageResource(idphoto);
 
@@ -102,6 +109,21 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
         final ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listp);
         list.setAdapter(adapter);*/
+         final Activity con = this;
+         photo.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Dialog settingsDialog = new Dialog(con);
+
+                 View v = con.getLayoutInflater().inflate(R.layout.image_layout, null);
+                 ImageView iv = (ImageView) v.findViewById(R.id.img);
+                 Bitmap bm = ((BitmapDrawable) photo.getDrawable()).getBitmap();
+                 iv.setImageBitmap(bm);
+                 settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+                 settingsDialog.setContentView(v);
+                 settingsDialog.show();
+             }
+         });
     }
 
     @Override
@@ -151,4 +173,5 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
         }
     }
+
 }
