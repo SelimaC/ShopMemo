@@ -50,8 +50,6 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
         Product obj = ProductFactory.getInstance(this).getProductById(id);
         ab.setTitle(obj.getNome());
-
-
     }
 
     @Override
@@ -62,6 +60,9 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent i = getIntent();
+        String o = i.getStringExtra("oggetto");
+        int id = Integer.parseInt(i.getStringExtra("oggetto"));
         switch (item.getItemId()) {
             case R.id.options:
 
@@ -74,19 +75,19 @@ public class SummaryObject_Activity extends AppCompatActivity {
                 return  true;
             case R.id.menu_summary2:
 
-                /*final FragmentManager supportoFragment = getFragmentManager();
-                ViewGroup viewGroup = (ViewGroup) view.getParent();
-                TextView child = (TextView) viewGroup.getChildAt(6);
-                String id = child.getText().toString();
+                final FragmentManager supportoFragment = getFragmentManager();
+
 
                 DialogFragment fragment = new DeleteProductDialog();
                 Bundle bundle = new Bundle();
-                bundle.putInt("NUMCOMBO",ProductFactory.getInstance(getApplicationContext()).getComboIn(Integer.parseInt(id)).size());
-                bundle.putInt("IDPROD",(Integer.parseInt(id)));
+                bundle.putInt("NUMCOMBO",ProductFactory.getInstance(getApplicationContext()).getComboIn(id).size());
+                bundle.putInt("IDPROD",id);
+
+                bundle.putBoolean("Summary",true);
 
                 fragment.setArguments(bundle);
                 fragment.show(supportoFragment,"conferma");
-                */
+
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

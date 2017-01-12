@@ -439,6 +439,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
                         Bundle bundle = new Bundle();
                         bundle.putInt("NUMCOMBO",ProductFactory.getInstance(getApplicationContext()).getComboIn(Integer.parseInt(id)).size());
                         bundle.putInt("IDPROD",(Integer.parseInt(id)));
+                        bundle.putBoolean("Summary",false);
 
                         fragment.setArguments(bundle);
                         fragment.show(supportoFragment,"conferma");

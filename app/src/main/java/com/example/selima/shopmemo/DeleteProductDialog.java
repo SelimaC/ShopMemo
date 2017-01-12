@@ -3,6 +3,7 @@ package com.example.selima.shopmemo;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -33,7 +34,17 @@ public class DeleteProductDialog extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
                         ProductFactory.getInstance(getActivity()).deleteProduct(idProdotto);
                         Log.d("prod","prodotto"+idProdotto);
-                        ((AllFragment)((Home_Activity)getActivity()).adapter.getItem(0)).setList(((Home_Activity) getActivity()).productList);
+
+                        boolean isSummary =bundle.getBoolean("Summary");
+
+                        if(isSummary){
+                            Intent i = new Intent(Home_Activity.context(), Home_Activity.class);
+                            getActivity().finish();
+                            startActivity(i);
+                        }
+                        else ((AllFragment)((Home_Activity)getActivity()).adapter.getItem(0)).setList(((Home_Activity) getActivity()).productList);
+
+
                     }
                 })
                 .setNegativeButton("annulla", new DialogInterface.OnClickListener() {
