@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.icu.util.RangeValueIterator;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
@@ -18,20 +19,26 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.selima.shopmemo.model.Combo;
 import com.example.selima.shopmemo.model.ComboFactory;
 import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.security.AccessController.getContext;
 
 public class SummaryObject_Activity extends AppCompatActivity {
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +57,50 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
         Product obj = ProductFactory.getInstance(this).getProductById(id);
         ab.setTitle(obj.getNome());
+
+        ImageView photo = (ImageView) findViewById(R.id.photoobj);
+        int idphoto = Home_Activity.context().getResources().getIdentifier(obj.getPathFoto(),
+                "drawable", Home_Activity.context().getPackageName());
+
+        TextView shop = (TextView) findViewById(R.id.shop);
+        TextView price = (TextView) findViewById(R.id.price);
+        TextView category = (TextView) findViewById(R.id.category);
+        TextView combo = (TextView) findViewById(R.id.combo);
+
+        shop.setText(obj.getNegozio());
+        price.setText( obj.getPrezzo() + " €");
+        category.setText(obj.getCategoria()+ "");
+
+        photo.setImageResource(idphoto);
+
+
+        List<Combo> c = new ArrayList<>();
+        c = ProductFactory.getInstance(this).getComboIn(id);
+
+        final ArrayList <String> listp = new ArrayList<String>();
+        if(c.size()==0) {listp.add("Nessuna");}
+        else {
+            for (Combo item : c) {
+                listp.add(item.getNome());
+            }
+        }
+        LinearLayout l = (LinearLayout) findViewById(R.id.summary);
+        for(String s : listp){
+            TextView t = new TextView(this);
+            t.setText(s);
+            t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            l.addView(t);
+        }
+
+       /* final ArrayList <String> listp = new ArrayList<String>();
+        if(c.size()==0) {listp.add("Nessuna");}
+        else
+          for (Combo item : c) {
+              listp.add(item.getNome());
+          }
+
+        final ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listp);
+        list.setAdapter(adapter);*/
     }
 
     @Override
