@@ -140,6 +140,9 @@ public class SummaryObject_Activity extends AppCompatActivity {
                 fragment.show(supportoFragment,"conferma");
 
                 return true;
+            case R.id.menu_summary3:
+                Toast.makeText(this, "Aggiunta", Toast.LENGTH_SHORT).show();
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
