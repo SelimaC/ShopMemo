@@ -17,6 +17,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -85,21 +86,32 @@ public class SummaryObject_Activity extends AppCompatActivity {
         List<Combo> c = new ArrayList<>();
         c = ProductFactory.getInstance(this).getComboIn(id);
 
-        final ArrayList <String> listp = new ArrayList<String>();
-        if(c.size()==0) {listp.add("Nessuna");}
-        else {
-            for (Combo item : c) {
-                listp.add(item.getNome());
-            }
-        }
         LinearLayout l = (LinearLayout) findViewById(R.id.summary);
-        for(String s : listp){
+        if(c.size()==0) {
             TextView t = new TextView(this);
-            t.setText(s);
+            t.setText("Nessuna");
+            t.setTextSize(17);
             t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             l.addView(t);
         }
+        else {
+            for (Combo item : c) {
+                TextView t = new TextView(this);
+                t.setText(item.getNome());
+                t.setTextSize(17);
+                t.setId(item.getId());
+                t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                l.addView(t);
+                t.setOnClickListener(new View.OnClickListener() {
 
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(v.getContext(), "Riepilogo combo", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        }
        /* final ArrayList <String> listp = new ArrayList<String>();
         if(c.size()==0) {listp.add("Nessuna");}
         else
