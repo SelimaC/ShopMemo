@@ -102,6 +102,7 @@ public class SummaryObject_Activity extends AppCompatActivity {
                 t.setId(item.getId());
                 t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 l.addView(t);
+                t.setClickable(true);
                 t.setOnClickListener(new View.OnClickListener() {
 
                     @Override
