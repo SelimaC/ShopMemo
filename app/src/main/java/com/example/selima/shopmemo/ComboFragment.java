@@ -9,10 +9,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ComboFragment extends Fragment {
+import com.example.selima.shopmemo.model.Combo;
+import com.example.selima.shopmemo.model.ComboFactory;
+import com.example.selima.shopmemo.model.Product;
+import com.example.selima.shopmemo.model.ProductFactory;
+
+import java.util.List;
+
+public class ComboFragment extends PageFragmentCombo {
+
+    /*@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.all_fragment1, container, false);
+    }*/
+
+    public static PageFragmentCombo newInstance() {
+        return new ComboFragment();
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.combo_fragment2, container, false);
+    void fillList(List<Combo> list) {
+        list.addAll(ComboFactory.getInstance(getContext()).getAllCombo());
     }
 }

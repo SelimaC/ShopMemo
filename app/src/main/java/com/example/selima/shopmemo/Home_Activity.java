@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -27,6 +28,7 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +41,8 @@ import com.example.selima.shopmemo.model.ProductFactory;
 import java.util.List;
 
 
-public class Home_Activity extends AppCompatActivity implements View.OnClickListener,PageFragmentAll.OnListItemClickListener {
+public class Home_Activity extends AppCompatActivity
+        implements View.OnClickListener,PageFragmentAll.OnListItemClickListener,PageFragmentCombo.OnListItemClickListener {
 
     private static Home_Activity mApp = null;
     LinearLayout mRevealView;
@@ -47,7 +50,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
     LinearLayout ib_cat1,ib_cat2,ib_cat3;
     LinearLayout ib_cat4,ib_cat5,ib_cat6;
     List<Product> productList;
-    private List<Combo> comboList;
+    List<Combo> comboList;
     PagerAdapter adapter;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -136,6 +139,7 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         productList = ProductFactory.getInstance(this).getAllProducts();
         ((AllFragment)(adapter.getItem(0))).setList(productList);
         comboList = ComboFactory.getInstance(this).getAllCombo();
+        ((ComboFragment)(adapter.getItem(1))).setList(comboList);
         Log.d("resume","create");
     }
 
@@ -464,6 +468,13 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
             }
         });
         popup.show();
+    }
+
+    @Override
+    public void onComboItemClick(int id) {
+       // Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
+        //i.putExtra("oggetto", String.valueOf(id));
+        //startActivity(i);
     }
 
 }

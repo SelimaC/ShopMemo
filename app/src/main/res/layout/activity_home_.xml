@@ -66,6 +66,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:id="@+id/cat1icon"
                     android:background="@drawable/cat1"
                     android:clickable="true"/>
 
@@ -90,6 +91,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:id="@+id/cat2icon"
                     android:background="@drawable/cat2"
                     android:clickable="true"/>
 
@@ -114,6 +116,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:id="@+id/cat3icon"
                     android:background="@drawable/cat3"
                     android:clickable="true"/>
 
@@ -147,6 +150,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:id="@+id/cat4icon"
                     android:background="@drawable/cat4"
                     android:clickable="true"/>
 
@@ -172,6 +176,7 @@
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:id="@+id/cat5icon"
                     android:background="@drawable/cat5"
                     android:clickable="true"/>
 
@@ -196,6 +201,7 @@
 
                 <ImageButton
                     android:layout_width="50dp"
+                    android:id="@+id/cat6icon"
                     android:layout_height="50dp"
                     android:background="@drawable/cat6"
                     android:clickable="true"/>

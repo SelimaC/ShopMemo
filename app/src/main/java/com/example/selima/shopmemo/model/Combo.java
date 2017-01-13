@@ -46,4 +46,9 @@ public class Combo implements Serializable {
         }
         return totale;
     }
+
+    public int getNumOggetti(){
+        if(listaProdotti != null) return listaProdotti.size();
+        else return 0;
+    }
 }

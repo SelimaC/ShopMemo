@@ -41,19 +41,12 @@ public class RecyclerAdapterCombo extends RecyclerView.Adapter<RecyclerAdapterCo
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.nome.setText(mItemsList.get(position).getNome());
 
-        float tot = 0;
-        int n = 0;
-        List<Product> p = new ArrayList<>();
-        p = mItemsList.get(position).getListaProdotti();
-        for(Product e : p){
-            tot += e.getPrezzo();
-            n++;
-        }
-        holder.prezzo.setText(tot + " €");
-        holder.numOgg.setText(n + "");
+        holder.prezzo.setText(mItemsList.get(position).getPrezzoTotale() + " €");
+        holder.numOgg.setText(mItemsList.get(position).getNumOggetti() + "");
 
-        if(n!=0) {
-            int id = Home_Activity.context().getResources().getIdentifier(p.get(0).getPathFoto(),
+        if(mItemsList.get(position).getNumOggetti()!=0) {
+            int id = Home_Activity.context().getResources().getIdentifier
+                    (mItemsList.get(position).getListaProdotti().get(0).getPathFoto(),
                     "drawable", Home_Activity.context().getPackageName());
 
             holder.photo.setImageResource(id);
@@ -95,7 +88,7 @@ public class RecyclerAdapterCombo extends RecyclerView.Adapter<RecyclerAdapterCo
             if (null != mListItemClickListener) {
                 // Notify the active callbacks interface (the activity, if the
                 // fragment is attached to one) that an item has been selected.
-                mListItemClickListener.onListItemClick(mItemsList.get(getAdapterPosition()).getId());
+                mListItemClickListener.onComboItemClick(mItemsList.get(getAdapterPosition()).getId());
             }
         }
     }

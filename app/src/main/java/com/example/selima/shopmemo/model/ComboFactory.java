@@ -110,7 +110,17 @@ public class ComboFactory {
     }
 
     private void generateInitialList() {
-        Combo combo = new Combo(null,"Regali per Ugo");
+        ArrayList<Product> a = new ArrayList<>();
+        Product temp = new Product("Monitor 22\"", "MediaWorld", 189.90, "" );
+        temp.setCategoria(Categoria.CAT3);
+        temp.setPathFoto("monitor");
+        a.add(temp);
+        Combo combo = new Combo(a,"Regali per Ugo");
+        allCombo.add(combo);
+        combo = new Combo(null,"Matrimonio");
+        allCombo.add(combo);
+        combo = new Combo(null,"Spesa natale");
+        allCombo.add(combo);
         saveListToFile();
     }
 

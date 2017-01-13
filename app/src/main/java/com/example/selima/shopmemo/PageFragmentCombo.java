@@ -3,6 +3,7 @@ package com.example.selima.shopmemo;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -63,7 +64,7 @@ public abstract class PageFragmentCombo extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.combo_list);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+        GridLayoutManager linearLayoutManager = new GridLayoutManager(getActivity().getBaseContext(),2);
         recyclerView.setLayoutManager(linearLayoutManager);
         //recyclerView.setHasFixedSize(true); improve performace but mine can change
 
@@ -98,6 +99,6 @@ public abstract class PageFragmentCombo extends Fragment {
 
 
     public interface OnListItemClickListener {
-        void onListItemClick(int id);
+        void onComboItemClick(int id);
     }
 }
