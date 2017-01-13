@@ -53,6 +53,7 @@ public class Categories_Activity extends AppCompatActivity implements PageFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories_);
         //findViewById(R.id.fragCateg).setVisibility(View.INVISIBLE);
+        findViewById(R.id.fball).setVisibility(View.INVISIBLE);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
