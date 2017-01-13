@@ -150,7 +150,7 @@ public class ProductFactory {
 
     private void generateInitialList() {
         Product temp = new Product("T-Shirt", "OVS", 14.90, "");
-        temp.setCategoria(Categoria.CAT1);
+        temp.setCategoria(Categoria.CAT6);
         temp.setVoto(4.2f);
         temp.setPathFoto("tshirt");
         allProduct.add(temp);
@@ -161,7 +161,7 @@ public class ProductFactory {
         allProduct.add(temp);
 
         temp = new Product("Monitor 22\"", "MediaWorld", 189.90, "" );
-        temp.setCategoria(Categoria.CAT2);
+        temp.setCategoria(Categoria.CAT3);
         temp.setPathFoto("monitor");
         allProduct.add(temp);
 

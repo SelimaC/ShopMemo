@@ -8,7 +8,10 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.icu.util.RangeValueIterator;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -31,6 +34,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,6 +77,9 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
         Product obj = ProductFactory.getInstance(this).getProductById(id);
         ab.setTitle(obj.getNome());
+
+        RatingBar rb = (RatingBar) findViewById(R.id.myRatingBar);
+        rb.setRating(obj.getVoto());
 
         final ImageView photo = (ImageView) findViewById(R.id.photoobj);
         final int idphoto = Home_Activity.context().getResources().getIdentifier(obj.getPathFoto(),

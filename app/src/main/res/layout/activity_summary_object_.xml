@@ -28,8 +28,19 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_marginTop="?attr/actionBarSize"
             android:id="@+id/summary">
+            <RatingBar
+                android:id="@+id/myRatingBar"
+                android:progressTint="@color/colorPrimary"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:isIndicator="false" />
+
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="30dp"/>
 
             <android.support.v7.widget.CardView
                 android:layout_width="150dp"
