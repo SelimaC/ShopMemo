@@ -26,7 +26,7 @@
             />
         <activity
             android:name=".SummaryObject_Activity"
-            android:parentActivityName=".Home_Activity"
+
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             />

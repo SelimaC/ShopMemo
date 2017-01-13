@@ -60,6 +60,13 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
         ab.setDisplayHomeAsUpEnabled(true);
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         Intent i = getIntent();
         String o = i.getStringExtra("oggetto");
         int id = Integer.parseInt(i.getStringExtra("oggetto"));
