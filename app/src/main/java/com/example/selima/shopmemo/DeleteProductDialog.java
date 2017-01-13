@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
+import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
 
 /**
@@ -42,7 +43,14 @@ public class DeleteProductDialog extends DialogFragment {
                             getActivity().finish();
                            // startActivity(i);
                         }
-                        else ((AllFragment)((Home_Activity)getActivity()).adapter.getItem(0)).setList(((Home_Activity) getActivity()).productList);
+                        else
+                            if (getActivity() instanceof Home_Activity){
+                                ((AllFragment)((Home_Activity)getActivity()).adapter.getItem(0)).setList(((Home_Activity) getActivity()).productList);
+                            }
+                            else{
+                                ((Categories_Activity)getActivity()).productList = ProductFactory.getInstance(getActivity()).getProductsFiltered(((Categories_Activity)getActivity()).categoria);
+                                new AllFragmentCateg().setList(((Categories_Activity)getActivity()).productList);
+                            }
 
 
                     }

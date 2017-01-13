@@ -21,7 +21,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
-
+<!--
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/main_content"
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -36,5 +36,10 @@
             android:background="#ebebeb"/>
 
     </android.support.design.widget.CoordinatorLayout>
-
+-->
+    <fragment android:name="com.example.selima.shopmemo.AllFragmentCateg"
+        android:id="@+id/fragCateg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"/>
 </RelativeLayout>

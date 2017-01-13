@@ -136,13 +136,16 @@ public class Home_Activity extends AppCompatActivity implements View.OnClickList
         productList = ProductFactory.getInstance(this).getAllProducts();
         ((AllFragment)(adapter.getItem(0))).setList(productList);
         comboList = ComboFactory.getInstance(this).getAllCombo();
-
+        Log.d("resume","create");
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onResume() {
         super.onResume();
-        ((AllFragment)adapter.getItem(0)).setList(productList);
+        Log.d("Resume", "lista: "+productList);
+        //((AllFragment)adapter.getItem(0)).setList(productList);
+        new AllFragment().setList(productList);
     }
 
     // imagebutton click events
