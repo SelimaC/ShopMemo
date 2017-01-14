@@ -61,15 +61,24 @@ public class SummaryCombo_Activity extends AppCompatActivity {
                 return true;
             case R.id.menu_summary1:
 
-                Toast.makeText(this, "Modifica", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "La modifica non è implementata", Toast.LENGTH_SHORT).show();
 
                 return  true;
             case R.id.menu_summary2:
 
                 final FragmentManager supportoFragment = getFragmentManager();
 
+                DialogFragment fragment = new DeleteComboDialog();
+                Bundle bundle = new Bundle();
+                bundle.putInt("IDCOMBO",id);
 
-                Toast.makeText(this, "Elimina", Toast.LENGTH_SHORT).show();
+                bundle.putBoolean("Summary",true);
+
+                fragment.setArguments(bundle);
+                fragment.show(supportoFragment,"conferma");
+
+
+                //Toast.makeText(this, "Elimina", Toast.LENGTH_SHORT).show();
 
                 return true;
             default:
