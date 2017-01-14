@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/reveal_items"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="100dp"
+    android:background="#ebebeb"
+    android:orientation="vertical"
+    android:clickable="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/cat1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/cat1i"
+                android:background="@drawable/cat1"
+                android:clickable="true"
+                android:onClick="selectCat"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cat2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/cat2i"
+                android:background="@drawable/cat2"
+                android:clickable="true"
+                android:onClick="selectCat"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cat3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/cat3i"
+                android:background="@drawable/cat3"
+                android:clickable="true"
+                android:onClick="selectCat"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:onClick="selectCat">
+
+        <LinearLayout
+            android:id="@+id/cat4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/cat4i"
+                android:background="@drawable/cat4"
+                android:clickable="true"
+                android:onClick="selectCat"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cat5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/cat5i"
+                android:background="@drawable/cat5"
+                android:clickable="true"
+                android:onClick="selectCat"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cat6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:id="@+id/cat6i"
+                android:layout_height="70dp"
+                android:background="@drawable/cat6"
+                android:clickable="true"
+                android:onClick="selectCat"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

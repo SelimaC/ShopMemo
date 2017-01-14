@@ -34,6 +34,7 @@
             android:id="@+id/nomeoggetto"
             android:textColor="@color/colorPrimaryDark"
             android:hint="Nome oggetto"
+            android:text=""
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
@@ -44,6 +45,7 @@
             android:id="@+id/negoziooggetto"
             android:textColor="@color/colorPrimaryDark"
             android:hint="Negozio"
+            android:text=""
             android:layout_marginTop="12dp"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
@@ -79,6 +81,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:inputType="numberDecimal"
                 android:hint="Prezzo"
+                android:text=""
                 android:layout_toRightOf="@+id/takephoto"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="30dp"
@@ -160,6 +163,7 @@
             android:background="@drawable/buttonobject"
             android:textColor="#ebebeb"
             android:text="Crea"
+            android:id="@+id/crea"
             />
 
     </LinearLayout>
