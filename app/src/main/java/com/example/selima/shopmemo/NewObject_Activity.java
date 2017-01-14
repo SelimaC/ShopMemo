@@ -52,12 +52,16 @@ public class NewObject_Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==PHOTO_REQUEST_CODE)
         {
-            photo = (Bitmap) data.getExtras().get("data");
-            TextView scatta = (TextView) findViewById(R.id.scatta);
-            scatta.setVisibility(View.INVISIBLE);
-            ImageView takephoto = (ImageView) findViewById(R.id.takephoto);
-            takephoto.setImageResource(0);
-            takephoto.setImageBitmap(photo);
+            if(data!=null) {
+                photo = (Bitmap) data.getExtras().get("data");
+                if (photo != null) {
+                    TextView scatta = (TextView) findViewById(R.id.scatta);
+                    scatta.setVisibility(View.INVISIBLE);
+                    ImageView takephoto = (ImageView) findViewById(R.id.takephoto);
+                    takephoto.setImageResource(0);
+                    takephoto.setImageBitmap(photo);
+                }
+            }
         }
     }
 }
