@@ -472,9 +472,9 @@ public class Home_Activity extends AppCompatActivity
 
     @Override
     public void onComboItemClick(int id) {
-       // Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
-        //i.putExtra("oggetto", String.valueOf(id));
-        //startActivity(i);
+        Intent i = new Intent(getApplicationContext(), SummaryCombo_Activity.class);
+        i.putExtra("combo", String.valueOf(id));
+        startActivity(i);
     }
 
 }

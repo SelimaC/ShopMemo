@@ -100,7 +100,7 @@ public class ComboFactory {
         saveListToFile();
     }
 
-    private Combo getComboById(Integer id) {
+    public Combo getComboById(Integer id) {
         for(Combo c: allCombo){
             if(c.getId().equals(id)){
                 return c;
