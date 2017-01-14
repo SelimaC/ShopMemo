@@ -20,21 +20,19 @@
         </activity>
         <activity
             android:name=".Categories_Activity"
-            android:parentActivityName=".Home_Activity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            />
+            android:parentActivityName=".Home_Activity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SummaryObject_Activity"
-
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".NewObject_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewObject_Activity"
+            android:configChanges="orientation"
             android:parentActivityName=".Home_Activity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait" />
+        <activity android:name=".SummaryCombo_Activity"></activity>
     </application>
 
 </manifest>
