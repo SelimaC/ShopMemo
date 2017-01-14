@@ -144,7 +144,6 @@ public class Home_Activity extends AppCompatActivity
 
 
         ((AllFragment)(adapter.getItem(0))).setList(productList);
-        comboList = ComboFactory.getInstance(this).getAllCombo();
         ((ComboFragment)(adapter.getItem(1))).setList(comboList);
         Log.d("resume","create");
     }
@@ -307,35 +306,43 @@ public class Home_Activity extends AppCompatActivity
                 return true;
             case R.id.menu_all0:
                 //Ordina di recente
-                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByTime());
+                productList = ProductFactory.getInstance(this).getProductsByTime();
+                ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_all1:
                 //Ordina per nome
-                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByName());
+                productList = ProductFactory.getInstance(this).getProductsByName();
+                ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_all2:
                 //Ordina per prezzo
-                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByPrice());
+                productList = ProductFactory.getInstance(this).getProductsByPrice();
+                ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_all3:
                 //Ordina per preferenza
-                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByPreference());
+                productList = ProductFactory.getInstance(this).getProductsByPreference();
+                ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_all4:
                 //Ordina per categoria
-                ((AllFragment)(adapter.getItem(0))).setList(ProductFactory.getInstance(this).getProductsByCategory());
+                productList = ProductFactory.getInstance(this).getProductsByCategory();
+                ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_combo0:
                 //Ordina di recente
-                ComboFactory.getInstance(this).getComboByTime();
+                comboList = ComboFactory.getInstance(this).getComboByTime();
+                ((ComboFragment)(adapter.getItem(1))).setList(comboList);
                 return true;
             case R.id.menu_combo1:
                 //Ordina per nome
-                ComboFactory.getInstance(this).getComboByName();
+                comboList = ComboFactory.getInstance(this).getComboByName();
+                ((ComboFragment)(adapter.getItem(1))).setList(comboList);
                 return true;
             case R.id.menu_combo2:
                 //Ordina per prezzo
-                ComboFactory.getInstance(this).getComboByPrice();
+                comboList = ComboFactory.getInstance(this).getComboByPrice();
+                ((ComboFragment)(adapter.getItem(1))).setList(comboList);
                 return true;
             default:
                 // If we got here, the user's action was not recognized.
