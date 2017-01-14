@@ -22,4 +22,73 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nomeoggetto"
+            android:textColor="@color/colorPrimaryDark"
+            android:hint="Nome oggetto"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/negoziooggetto"
+            android:textColor="@color/colorPrimaryDark"
+            android:hint="Negozio"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Campi opzionali : "
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="30dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Categoria"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:drawableLeft="@drawable/plus_circle"
+            android:layout_marginLeft="30dp"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Combinazioni "
+            android:drawableLeft="@drawable/plus_orange"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/buttonobject"
+            android:textColor="#ebebeb"
+            android:text="Crea"
+            />
+
+    </LinearLayout>
+
 </RelativeLayout>
