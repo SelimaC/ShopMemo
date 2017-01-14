@@ -59,26 +59,49 @@
             android:layout_marginLeft="30dp"
             />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/plus_circle"
+                android:id="@+id/plusCat"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="  Categoria"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:textSize="20sp"
-            android:drawableLeft="@drawable/plus_circle"
-            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/plusCat"
+            android:layout_marginLeft="10dp"
             />
+        </RelativeLayout>
 
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/plus_orange"
+                android:id="@+id/plusCombo"
+                android:layout_marginLeft="30dp"
+                />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/plusCombo"
             android:text="  Combinazioni "
-            android:drawableLeft="@drawable/plus_orange"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:textSize="20sp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             />
+        </RelativeLayout>
 
         <Button
             android:layout_width="match_parent"
