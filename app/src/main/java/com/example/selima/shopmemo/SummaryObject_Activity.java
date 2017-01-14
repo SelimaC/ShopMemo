@@ -1,52 +1,34 @@
 package com.example.selima.shopmemo;
 
-import android.animation.Animator;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.icu.util.RangeValueIterator;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.method.LinkMovementMethod;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Combo;
-import com.example.selima.shopmemo.model.ComboFactory;
 import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.security.AccessController.getContext;
 
 public class SummaryObject_Activity extends AppCompatActivity {
 
@@ -191,7 +173,16 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
                 return true;
             case R.id.menu_summary3:
-                Toast.makeText(this, "Aggiunta", Toast.LENGTH_SHORT).show();
+                final FragmentManager supportFragment = getFragmentManager();
+
+
+                DialogFragment frag = new AddProdToComboDialog();
+                bundle = new Bundle();
+                bundle.putInt("IDPROD",id);
+
+                frag.setArguments(bundle);
+                frag.show(supportFragment,"conferma");
+                //Toast.makeText(this, "Aggiunta", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

@@ -475,7 +475,16 @@ public class Home_Activity extends AppCompatActivity
                         Toast.makeText(view.getContext(), "La modifica non è implementata", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.addA:
-                        Toast.makeText(view.getContext(), "Aggiunta", Toast.LENGTH_SHORT).show();
+                        viewGroup = (ViewGroup) view.getParent();
+                        child = (TextView) viewGroup.getChildAt(6);
+                        id = child.getText().toString();
+                        fragment = new AddProdToComboDialog();
+                        bundle = new Bundle();
+                        bundle.putInt("IDPROD",(Integer.parseInt(id)));
+
+                        fragment.setArguments(bundle);
+                        fragment.show(supportoFragment,"conferma");
+                        //Toast.makeText(view.getContext(), "Aggiunta", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return false;
