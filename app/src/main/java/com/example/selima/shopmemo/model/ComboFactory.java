@@ -111,9 +111,10 @@ public class ComboFactory {
 
     private void generateInitialList() {
         ArrayList<Product> a = new ArrayList<>();
-        Product temp = new Product("Monitor 22\"", "MediaWorld", 189.90, "" );
+        /*Product temp = new Product("Monitor 22\"", "MediaWorld", 189.90, "" );
         temp.setCategoria(Categoria.CAT3);
-        temp.setPathFoto("monitor");
+        temp.setPathFoto("monitor");*/
+        Product temp = ProductFactory.getInstance(context).getProductById(2);
         a.add(temp);
         Combo combo = new Combo(a,"Regali per Ugo");
         allCombo.add(combo);

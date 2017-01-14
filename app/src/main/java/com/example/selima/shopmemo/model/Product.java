@@ -79,8 +79,35 @@ public class Product implements Serializable {
         this.voto = voto;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Product product = (Product) o;
 
+        if (id != null ? !id.equals(product.id) : product.id != null) return false;
+        if (nome != null ? !nome.equals(product.nome) : product.nome != null) return false;
+        if (negozio != null ? !negozio.equals(product.negozio) : product.negozio != null)
+            return false;
+        if (prezzo != null ? !prezzo.equals(product.prezzo) : product.prezzo != null) return false;
+        if (pathFoto != null ? !pathFoto.equals(product.pathFoto) : product.pathFoto != null)
+            return false;
+        if (categoria != product.categoria) return false;
+        return voto != null ? voto.equals(product.voto) : product.voto == null;
 
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (nome != null ? nome.hashCode() : 0);
+        result = 31 * result + (negozio != null ? negozio.hashCode() : 0);
+        result = 31 * result + (prezzo != null ? prezzo.hashCode() : 0);
+        result = 31 * result + (pathFoto != null ? pathFoto.hashCode() : 0);
+        result = 31 * result + (categoria != null ? categoria.hashCode() : 0);
+        result = 31 * result + (voto != null ? voto.hashCode() : 0);
+        return result;
+    }
 }
 

@@ -145,6 +145,7 @@ public class ProductFactory {
                 lista.add(c);
             }
         }
+        Log.d("Prodotti","Il prodotto è presente nelle combo"+lista);
         return lista;
     }
 

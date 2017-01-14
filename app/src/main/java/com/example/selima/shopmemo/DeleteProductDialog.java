@@ -46,6 +46,7 @@ public class DeleteProductDialog extends DialogFragment {
                         else
                             if (getActivity() instanceof Home_Activity){
                                 ((AllFragment)((Home_Activity)getActivity()).adapter.getItem(0)).setList(((Home_Activity) getActivity()).productList);
+                                ((ComboFragment)((Home_Activity)getActivity()).adapter.getItem(1)).setList(((Home_Activity) getActivity()).comboList);
                             }
                             else{
                                 ((Categories_Activity)getActivity()).productList = ProductFactory.getInstance(getActivity()).getProductsFiltered(((Categories_Activity)getActivity()).categoria);

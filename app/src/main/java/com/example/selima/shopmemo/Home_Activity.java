@@ -57,6 +57,12 @@ public class Home_Activity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        productList = ProductFactory.getInstance(this).getAllProducts();
+        comboList = ComboFactory.getInstance(this).getAllCombo();
+        productList = ProductFactory.getInstance(this).getAllProducts();
+        comboList = ComboFactory.getInstance(this).getAllCombo();
+
         mApp=this;
         setContentView(R.layout.activity_home_);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -136,7 +142,7 @@ public class Home_Activity extends AppCompatActivity
         });
 
 
-        productList = ProductFactory.getInstance(this).getAllProducts();
+
         ((AllFragment)(adapter.getItem(0))).setList(productList);
         comboList = ComboFactory.getInstance(this).getAllCombo();
         ((ComboFragment)(adapter.getItem(1))).setList(comboList);
@@ -150,6 +156,7 @@ public class Home_Activity extends AppCompatActivity
         Log.d("Resume", "lista: "+productList);
         //((AllFragment)adapter.getItem(0)).setList(productList);
         new AllFragment().setList(productList);
+        new ComboFragment().setList(comboList);
     }
 
     // imagebutton click events
