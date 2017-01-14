@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Combo;
 import com.example.selima.shopmemo.model.ComboFactory;
@@ -92,6 +93,7 @@ public class AddProdToComboDialog extends DialogFragment {
                             if (getActivity() instanceof Home_Activity) {
                                 ((ComboFragment) ((Home_Activity) getActivity()).adapter.getItem(1)).setList(((Home_Activity) getActivity()).comboList);
                             }
+                            Toast.makeText(getActivity(), "Prodotto aggiunto a " + mSelectedItems.size() + " combinazioni", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .setNegativeButton("annulla", new DialogInterface.OnClickListener() {
