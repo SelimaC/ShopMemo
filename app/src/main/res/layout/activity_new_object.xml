@@ -44,7 +44,7 @@
             android:id="@+id/negoziooggetto"
             android:textColor="@color/colorPrimaryDark"
             android:hint="Negozio"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             />
@@ -52,13 +52,25 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scatta foto"
+                android:layout_marginTop="15dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:id="@+id/scatta"
+                android:layout_marginLeft="45dp"
+                />
+
             <ImageButton
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/ic_camera"
                 android:id="@+id/takephoto"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="30dp"
+                android:layout_below="@id/scatta"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="45dp"
                 />
 
             <EditText
@@ -69,9 +81,9 @@
                 android:inputType="numberDecimal"
                 android:hint="Prezzo"
                 android:layout_toRightOf="@+id/takephoto"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="55dp"
                 />
         </RelativeLayout>
 
@@ -97,19 +109,20 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/plus_circle"
                 android:id="@+id/plusCat"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
                 />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="  Categoria"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:textSize="20sp"
             android:layout_toRightOf="@+id/plusCat"
             android:layout_marginLeft="10dp"
@@ -122,7 +135,7 @@
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="7dp"
                 android:background="@drawable/plus_orange"
                 android:id="@+id/plusCombo"
                 android:layout_marginLeft="30dp"
@@ -132,7 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/plusCombo"
             android:text="  Combinazioni "
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
             android:textSize="20sp"
             android:layout_marginLeft="10dp"
             />
@@ -141,7 +154,10 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/buttonobject"
             android:textColor="#ebebeb"
             android:text="Crea"
