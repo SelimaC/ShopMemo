@@ -51,6 +51,7 @@ public class RecyclerAdapterCombo extends RecyclerView.Adapter<RecyclerAdapterCo
 
             holder.photo.setImageResource(id);
         }
+        else holder.photo.setImageResource(R.drawable.ic_camera);
 
     }
 
