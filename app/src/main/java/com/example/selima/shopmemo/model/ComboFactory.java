@@ -141,7 +141,7 @@ public class ComboFactory {
             for(Combo p : allCombo){
                 if(p.getId()>max) max=p.getId();
             }
-            Combo.setMaxId(max);
+            Combo.setMaxId(max+1);
         }
     }
 

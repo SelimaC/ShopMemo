@@ -207,7 +207,7 @@ public class ProductFactory {
             for(Product p : allProduct){
                 if(p.getId()>max) max=p.getId();
             }
-            Product.setMaxId(max);
+            Product.setMaxId(max+1);
         }
     }
 }
