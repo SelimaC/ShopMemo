@@ -429,6 +429,22 @@ public class Home_Activity extends AppCompatActivity
         startActivity(i);
     }
 
+    public void newCombo(View view){
+        //Aprire il pop-up per inserire il nome.
+        //Il popup lancerà, se serve, la nuova activity
+        final FragmentManager supportoFragment = getFragmentManager();
+
+        DialogFragment fragment = new EnterComboNameDialog();
+       /* Bundle bundle = new Bundle();
+        bundle.putInt("NUMCOMBO",ProductFactory.getInstance(getApplicationContext()).getComboIn(id).size());
+        bundle.putInt("IDPROD",id);
+
+        bundle.putBoolean("Summary",true);
+
+        fragment.setArguments(bundle);*/
+        fragment.show(supportoFragment,"conferma");
+    }
+
     @Override
     public void onListItemClick(int id) {
         Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
