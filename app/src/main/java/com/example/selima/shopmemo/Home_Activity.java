@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -486,6 +487,8 @@ public class Home_Activity extends AppCompatActivity
                         fragment.setArguments(bundle);
                         fragment.show(supportoFragment,"conferma");
                         //((AllFragment)(adapter.getItem(0))).setList(lista);
+                        FloatingActionButton addo = (FloatingActionButton) findViewById(R.id.fball);
+                        addo.show();
                         break;
                     case R.id.modificaProd:
                         Toast.makeText(view.getContext(), "La modifica non è implementata", Toast.LENGTH_SHORT).show();
