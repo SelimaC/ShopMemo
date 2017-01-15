@@ -83,6 +83,10 @@ public class Product implements Serializable {
         maxId=max;
     }
 
+    public static int getMaxId(){
+        return maxId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

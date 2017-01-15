@@ -72,6 +72,7 @@ public class NewObject_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ProductFactory.getInstance(getApplicationContext()).deleteProduct(idObj);
+                Product.setMaxId(Product.getMaxId()-1);
                 finish();
             }
         });
@@ -257,6 +258,7 @@ Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
     @Override
     public void onBackPressed() {
         ProductFactory.getInstance(getApplicationContext()).deleteProduct(idObj);
+        Product.setMaxId(Product.getMaxId()-1);
         finish();
     }
 }

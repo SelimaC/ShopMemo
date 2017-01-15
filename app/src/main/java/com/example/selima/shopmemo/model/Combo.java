@@ -55,4 +55,7 @@ public class Combo implements Serializable {
     public static void setMaxId(int max){
         maxId=max;
     }
+    public static int getMaxId(){
+        return maxId;
+    }
 }
