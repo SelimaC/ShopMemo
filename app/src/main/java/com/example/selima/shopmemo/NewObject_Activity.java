@@ -212,13 +212,15 @@ Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
         if (requestCode==PHOTO_REQUEST_CODE)
         {
             if(data!=null) {
-                photo = (Bitmap) data.getExtras().get("data");
-                if (photo != null) {
-                    TextView scatta = (TextView) findViewById(R.id.scatta);
-                    scatta.setVisibility(View.INVISIBLE);
-                    ImageView takephoto = (ImageView) findViewById(R.id.takephoto);
-                    takephoto.setImageResource(0);
-                    takephoto.setImageBitmap(photo);
+                if(data.getExtras() != null){
+                    photo = (Bitmap) data.getExtras().get("data");
+                    if (photo != null) {
+                        TextView scatta = (TextView) findViewById(R.id.scatta);
+                        scatta.setVisibility(View.INVISIBLE);
+                        ImageView takephoto = (ImageView) findViewById(R.id.takephoto);
+                        takephoto.setImageResource(0);
+                        takephoto.setImageBitmap(photo);
+                    }
                 }
             }
         }
