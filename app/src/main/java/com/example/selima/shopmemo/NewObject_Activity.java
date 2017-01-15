@@ -50,7 +50,7 @@ public class NewObject_Activity extends AppCompatActivity {
     EditText prezzo;
     RatingBar preferenza;
     TextView scatta;
-    int idObj;
+    Integer idObj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +108,7 @@ public class NewObject_Activity extends AppCompatActivity {
                 settingsDialog.show();
             }
         });
-
+Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
         ImageButton comb = (ImageButton) findViewById(R.id.plusCombo);
         comb.setOnClickListener(new View.OnClickListener() {
             @Override

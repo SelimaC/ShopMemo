@@ -79,6 +79,10 @@ public class Product implements Serializable {
         this.voto = voto;
     }
 
+    public static void setMaxId(int max){
+        maxId=max;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

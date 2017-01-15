@@ -200,5 +200,14 @@ public class ProductFactory {
             c.printStackTrace();
             return;
         }
+
+        if(allProduct.size()==0) Product.setMaxId(0);
+        else{
+            int max = allProduct.get(0).getId();
+            for(Product p : allProduct){
+                if(p.getId()>max) max=p.getId();
+            }
+            Product.setMaxId(max);
+        }
     }
 }

@@ -51,4 +51,8 @@ public class Combo implements Serializable {
         if(listaProdotti != null) return listaProdotti.size();
         else return 0;
     }
+
+    public static void setMaxId(int max){
+        maxId=max;
+    }
 }

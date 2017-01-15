@@ -135,6 +135,14 @@ public class ComboFactory {
             c.printStackTrace();
             return;
         }
+        if(allCombo.size()==0) Combo.setMaxId(0);
+        else{
+            int max = allCombo.get(0).getId();
+            for(Combo p : allCombo){
+                if(p.getId()>max) max=p.getId();
+            }
+            Combo.setMaxId(max);
+        }
     }
 
     private void saveListToFile() {
