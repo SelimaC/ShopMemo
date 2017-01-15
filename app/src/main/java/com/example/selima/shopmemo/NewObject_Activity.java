@@ -243,4 +243,10 @@ public class NewObject_Activity extends AppCompatActivity {
         }
         settingsDialog.dismiss();
     }
+
+    @Override
+    public void onBackPressed() {
+        ProductFactory.getInstance(getApplicationContext()).deleteProduct(idObj);
+        finish();
+    }
 }
