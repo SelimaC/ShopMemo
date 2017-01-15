@@ -113,6 +113,10 @@ public class ProductFactory {
         allProduct.add(temp);
         saveListToFile();
     }
+    public void createNewProduct(Product p){
+        allProduct.add(p);
+        saveListToFile();
+    }
 
     public void deleteProduct(Integer id){
         Log.d("elimina", "prdootto"+id);
@@ -152,12 +156,12 @@ public class ProductFactory {
     private void generateInitialList() {
         Product temp = new Product("T-Shirt", "OVS", 14.90, "");
         temp.setCategoria(Categoria.CAT6);
-        temp.setVoto(4.2f);
+        temp.setVoto(4.5f);
         temp.setPathFoto("tshirt");
         allProduct.add(temp);
 
         temp = new Product("Jeans neri", "Bershka", 29.00, "");
-        temp.setVoto(4.8f);
+        temp.setVoto(4.0f);
         temp.setPathFoto("jeans");
         allProduct.add(temp);
 

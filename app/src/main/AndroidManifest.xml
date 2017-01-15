@@ -32,7 +32,6 @@
         <activity
             android:name=".NewObject_Activity"
             android:configChanges="orientation"
-            android:parentActivityName=".Home_Activity"
             android:screenOrientation="portrait" />
         <activity android:name=".SummaryCombo_Activity" />
         <activity android:name=".NewCombo_Activity"></activity>

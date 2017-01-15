@@ -2,6 +2,8 @@ package com.example.selima.shopmemo;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -29,9 +31,11 @@ import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Categoria;
 import com.example.selima.shopmemo.model.Product;
+import com.example.selima.shopmemo.model.ProductFactory;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.DecimalFormat;
 
 public class NewObject_Activity extends AppCompatActivity {
 
@@ -44,12 +48,17 @@ public class NewObject_Activity extends AppCompatActivity {
     EditText negozio;
     EditText prezzo;
     RatingBar preferenza;
-
+    int idObj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_object);
+
+        Product obj = new Product("","", 0d,"");
+        idObj = obj.getId();
+        ProductFactory.getInstance(this).createNewProduct(obj);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,6 +66,13 @@ public class NewObject_Activity extends AppCompatActivity {
         final ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProductFactory.getInstance(getApplicationContext()).deleteProduct(idObj);
+                finish();
+            }
+        });
 
         ab.setTitle("Nuovo oggetto");
 
@@ -94,6 +110,16 @@ public class NewObject_Activity extends AppCompatActivity {
         comb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final FragmentManager supportFragment = getFragmentManager();
+
+
+                DialogFragment frag = new AddProdToComboDialog();
+                Bundle bundle = new Bundle();
+                bundle.putInt("IDPROD",idObj);
+
+                frag.setArguments(bundle);
+                frag.show(supportFragment,"conferma");
+
 
             }
         });
@@ -105,6 +131,7 @@ public class NewObject_Activity extends AppCompatActivity {
                 boolean check = true;
                 String nomes="", negozios="";
                 Double prezzod=0d;
+                float pref = 0f;
 
                 if(nome.getText().toString().equals("") || nome.getText()==null){
                     check = false;
@@ -130,9 +157,9 @@ public class NewObject_Activity extends AppCompatActivity {
                     if (!directory.exists()) {
                         directory.mkdir();
                     }
-                    File mypath = new File(directory, "obj"+ obj.getId()+ ".JPG");
+                    File mypath = new File(directory, "obj"+ ProductFactory.getInstance(con).getProductById(idObj).getId()+ ".JPG");
 
-                    obj.setPathFoto(mypath.getPath());
+                    ProductFactory.getInstance(con).getProductById(idObj).setPathFoto(mypath.getPath());
                     Log.d("SAVE_IMAGE", "path : " + mypath.getPath());
 
                     FileOutputStream fos = null;
@@ -146,8 +173,22 @@ public class NewObject_Activity extends AppCompatActivity {
                 }
                 else check=false;
 
-                Toast.makeText(getApplicationContext(), "Oggetto creato", Toast.LENGTH_SHORT).show();
-                finish();
+                pref = preferenza.getRating();
+
+                if(check) {
+                    ProductFactory.getInstance(con).getProductById(idObj).setNome(nomes);
+                    ProductFactory.getInstance(con).getProductById(idObj).setNegozio(negozios);
+                    ProductFactory.getInstance(con).getProductById(idObj).setPrezzo(prezzod);
+                    ProductFactory.getInstance(con).getProductById(idObj).setVoto(pref);
+                    ProductFactory.getInstance(con).getProductById(idObj).setCategoria(categoria);
+
+                    Toast.makeText(getApplicationContext(), "Oggetto creato", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Errore", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -202,5 +243,11 @@ public class NewObject_Activity extends AppCompatActivity {
                 break;
         }
         settingsDialog.dismiss();
+    }
+
+    @Override
+    public void onBackPressed() {
+        ProductFactory.getInstance(getApplicationContext()).deleteProduct(idObj);
+        finish();
     }
 }
