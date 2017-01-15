@@ -37,7 +37,11 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_toRightOf="@+id/photo"
                 android:layout_alignParentTop="true"
-                android:textSize="25sp"
+                android:textSize="24sp"
+                android:ellipsize="end"
+
+                android:maxLines="1"
+                android:layout_marginRight="5dp"
                 android:paddingBottom="10dp"
                 />
 
