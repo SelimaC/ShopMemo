@@ -1,5 +1,7 @@
 package com.example.selima.shopmemo;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 import com.example.selima.shopmemo.model.Combo;
 import com.example.selima.shopmemo.model.Product;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,11 +50,25 @@ public class RecyclerAdapterCombo extends RecyclerView.Adapter<RecyclerAdapterCo
         holder.numOgg.setText(mItemsList.get(position).getNumOggetti() + "");
 
         if(mItemsList.get(position).getNumOggetti()!=0) {
-            int id = Home_Activity.context().getResources().getIdentifier
-                    (mItemsList.get(position).getListaProdotti().get(0).getPathFoto(),
+            int id = Home_Activity.context().getResources().getIdentifier(mItemsList.get(position).getListaProdotti().get(0).getPathFoto(),
                     "drawable", Home_Activity.context().getPackageName());
 
-            holder.photo.setImageResource(id);
+            if(id!=0){
+                holder.photo.setImageResource(id);
+            }
+            else {
+                Bitmap bitmap = null;
+                File f = new File(mItemsList.get(position).getListaProdotti().get(0).getPathFoto());
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                try {
+                    bitmap = BitmapFactory.decodeStream(new FileInputStream(f), null, options);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                holder.photo.setImageBitmap(bitmap);
+            }
         }
         else holder.photo.setImageResource(R.drawable.ic_camera);
 

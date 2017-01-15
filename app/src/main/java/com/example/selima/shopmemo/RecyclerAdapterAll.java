@@ -4,6 +4,8 @@ package com.example.selima.shopmemo;
  * Created by selim on 10/01/2017.
  */
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +17,9 @@ import android.widget.TextView;
 
 import com.example.selima.shopmemo.model.Product;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +58,23 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
         int id = Home_Activity.context().getResources().getIdentifier(mItemsList.get(position).getPathFoto(),
                 "drawable", Home_Activity.context().getPackageName());
 
-        holder.photo.setImageResource(id);
+        if(id!=0) {
+            holder.photo.setImageResource(id);
+            Log.d("Check", " " + mItemsList.get(position).getNome() + " " + id);
+        }
+        else {
+            Bitmap bitmap = null;
+            File f = new File(mItemsList.get(position).getPathFoto());
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            try {
+                bitmap = BitmapFactory.decodeStream(new FileInputStream(f), null, options);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            holder.photo.setImageBitmap(bitmap);
+        }
         holder.hiddenId.setText(mItemsList.get(position).getId().toString());
     }
 

@@ -6,6 +6,7 @@ import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -13,6 +14,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +29,9 @@ import com.example.selima.shopmemo.model.Combo;
 import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,10 +69,26 @@ public class SummaryObject_Activity extends AppCompatActivity {
         rb.setRating(obj.getVoto());
 
         final ImageView photo = (ImageView) findViewById(R.id.photoobj);
-        final int idphoto = Home_Activity.context().getResources().getIdentifier(obj.getPathFoto(),
-                "drawable", Home_Activity.context().getPackageName());
-        photo.setImageResource(idphoto);
 
+        int idphoto = Home_Activity.context().getResources().getIdentifier(obj.getPathFoto(),
+                "drawable", Home_Activity.context().getPackageName());
+
+        if(idphoto!=0) {
+            photo.setImageResource(idphoto);
+        }
+        else {
+            Bitmap bitmap = null;
+            File f = new File(obj.getPathFoto());
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            try {
+                bitmap = BitmapFactory.decodeStream(new FileInputStream(f), null, options);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            photo.setImageBitmap(bitmap);
+        }
 
         TextView shop = (TextView) findViewById(R.id.shop);
         TextView price = (TextView) findViewById(R.id.price);
