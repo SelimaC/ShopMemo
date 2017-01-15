@@ -1,6 +1,7 @@
 package com.example.selima.shopmemo;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,10 +10,13 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.SparseBooleanArray;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Combo;
@@ -72,7 +76,7 @@ public class NewCombo_Activity extends AppCompatActivity {
         }*/
         String[] listContent = listaNomi.toArray(new String[0]);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_multiple_choice,
+                R.layout.checklistcombo,
                 listContent);
         myList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         myList.setAdapter(adapter);
@@ -92,6 +96,7 @@ public class NewCombo_Activity extends AppCompatActivity {
                 ComboFactory.getInstance(getApplicationContext()).createNewCombo(selectedProducts, nomeCombo);
                 finish();
             }});
+
         //Setto il filtro
         EditText filter = (EditText) findViewById(R.id.filter);
         filter.addTextChangedListener(new TextWatcher() {
@@ -114,9 +119,20 @@ public class NewCombo_Activity extends AppCompatActivity {
                 }
                 String[] listContent = listaNomi.toArray(new String[0]);
                 //riimposto i prodotti
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
-                        android.R.layout.simple_list_item_multiple_choice,
+                ArrayAdapter<String> adapter = new ArrayAdapter(getApplicationContext(),
+                        R.layout.checklistcombo,
                         listContent);
+                /*{
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        TextView text = (TextView) view.findViewById(android.R.id.text1);
+                        text.setTextColor(Color.BLACK);
+                        CheckBox c = (CheckBox)view.findViewById(android.R.id.c);
+                        c.setTextColor(Color.BLACK);
+                        return view;
+                    }
+                };*/
                 myList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
                 myList.setAdapter(adapter);
                 myList.invalidate();
