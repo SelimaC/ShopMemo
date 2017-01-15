@@ -22,11 +22,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Filtra per nome"
+            android:id="@+id/filter"
+            />
         <ListView
             android:id="@+id/list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            />
+            android:layout_below="@+id/filter" />
     </RelativeLayout>
     <Button
         android:layout_width="match_parent"

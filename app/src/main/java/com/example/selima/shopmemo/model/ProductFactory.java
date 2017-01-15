@@ -106,6 +106,16 @@ public class ProductFactory {
         return temp;
     }
 
+    public List<Product> getProductsFiltered(CharSequence s){
+        List<Product> temp = new ArrayList<>();
+        for(Product p : allProduct){
+            if(p.getNome().toLowerCase().contains(s.toString().toLowerCase())) {
+                temp.add(p);
+            }
+        }
+        return temp;
+    }
+
     public void createNewProduct(String nome, String negozio, Double prezzo, String pathFoto, Categoria cat, Float voto){
         Product temp = new Product(nome, negozio, prezzo, pathFoto);
         temp.setCategoria(cat);
