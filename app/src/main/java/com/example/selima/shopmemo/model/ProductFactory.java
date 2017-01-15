@@ -113,6 +113,10 @@ public class ProductFactory {
         allProduct.add(temp);
         saveListToFile();
     }
+    public void createNewProduct(Product p){
+        allProduct.add(p);
+        saveListToFile();
+    }
 
     public void deleteProduct(Integer id){
         Log.d("elimina", "prdootto"+id);

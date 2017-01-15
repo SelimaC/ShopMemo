@@ -57,7 +57,8 @@ public class NewObject_Activity extends AppCompatActivity {
 
         Product obj = new Product("","", 0d,"");
         idObj = obj.getId();
-        ProductFactory.getInstance(this).getAllProducts().add(obj);
+        ProductFactory.getInstance(this).createNewProduct(obj);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
