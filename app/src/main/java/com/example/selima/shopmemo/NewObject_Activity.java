@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
@@ -48,6 +49,7 @@ public class NewObject_Activity extends AppCompatActivity {
     EditText negozio;
     EditText prezzo;
     RatingBar preferenza;
+    TextView scatta;
     int idObj;
 
     @Override
@@ -80,6 +82,7 @@ public class NewObject_Activity extends AppCompatActivity {
         negozio = (EditText) findViewById(R.id.negoziooggetto);
         prezzo = (EditText) findViewById(R.id.prezzooggetto);
         preferenza = (RatingBar) findViewById(R.id.ratingBar);
+        scatta = (TextView) findViewById(R.id.scatta);
 
         ImageView takephoto = (ImageView)findViewById(R.id.takephoto);
         takephoto.setImageResource(R.drawable.ic_camera);
@@ -135,16 +138,19 @@ public class NewObject_Activity extends AppCompatActivity {
 
                 if(nome.getText().toString().equals("") || nome.getText()==null){
                     check = false;
+                    nome.setError("Inserire il nome");
                 }
                 else nomes=nome.getText() + "";
 
                 if(negozio.getText().toString().equals("") || negozio.getText()==null){
                     check = false;
+                    negozio.setError("Inserire il negozio");
                 }
                 else negozios=negozio.getText() + "";
 
                 if(prezzo.getText().toString().equals("") || prezzo.getText()==null){
                     check = false;
+                    prezzo.setError("Inserire il prezzo");
                 }
                 else prezzod=Double.parseDouble(prezzo.getText().toString());
 
@@ -171,7 +177,10 @@ public class NewObject_Activity extends AppCompatActivity {
                         Log.e("SAVE_IMAGE", e.getMessage(), e);
                     }
                 }
-                else check=false;
+                else{
+                    check=false;
+                    scatta.setTextColor(Color.RED);
+                }
 
                 pref = preferenza.getRating();
 
@@ -186,7 +195,7 @@ public class NewObject_Activity extends AppCompatActivity {
                     finish();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Errore", Toast.LENGTH_SHORT).show();
+
                 }
 
             }
