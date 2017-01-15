@@ -18,5 +18,27 @@
         android:textSize="30dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         />
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/buttonobject"
+        android:textColor="#ebebeb"
+        android:text="Crea"
+        android:id="@+id/crea"
+        android:layout_alignParentBottom="true"
+        />
 </RelativeLayout>
