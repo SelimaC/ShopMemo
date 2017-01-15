@@ -57,6 +57,7 @@ public class NewObject_Activity extends AppCompatActivity {
 
         Product obj = new Product("","", 0d,"");
         idObj = obj.getId();
+        ProductFactory.getInstance(this).getAllProducts().add(obj);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -155,9 +156,9 @@ public class NewObject_Activity extends AppCompatActivity {
                     if (!directory.exists()) {
                         directory.mkdir();
                     }
-                    File mypath = new File(directory, "obj"+ obj.getId()+ ".JPG");
+                    File mypath = new File(directory, "obj"+ ProductFactory.getInstance(con).getProductById(idObj).getId()+ ".JPG");
 
-                    obj.setPathFoto(mypath.getPath());
+                    ProductFactory.getInstance(con).getProductById(idObj).setPathFoto(mypath.getPath());
                     Log.d("SAVE_IMAGE", "path : " + mypath.getPath());
 
                     FileOutputStream fos = null;
@@ -174,13 +175,11 @@ public class NewObject_Activity extends AppCompatActivity {
                 pref = preferenza.getRating();
 
                 if(check) {
-                    obj.setNome(nomes);
-                    obj.setNegozio(negozios);
-                    obj.setPrezzo(prezzod);
-                    obj.setVoto(pref);
-                    obj.setCategoria(categoria);
-
-                    ProductFactory.getInstance(con).getAllProducts().add(obj);
+                    ProductFactory.getInstance(con).getProductById(idObj).setNome(nomes);
+                    ProductFactory.getInstance(con).getProductById(idObj).setNegozio(negozios);
+                    ProductFactory.getInstance(con).getProductById(idObj).setPrezzo(prezzod);
+                    ProductFactory.getInstance(con).getProductById(idObj).setVoto(pref);
+                    ProductFactory.getInstance(con).getProductById(idObj).setCategoria(categoria);
 
                     Toast.makeText(getApplicationContext(), "Oggetto creato", Toast.LENGTH_SHORT).show();
                     finish();
