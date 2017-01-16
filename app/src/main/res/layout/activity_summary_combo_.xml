@@ -21,24 +21,31 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
-
-    <fragment android:name="com.example.selima.shopmemo.SummaryComboFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/fragInCombo"
         android:layout_below="@id/toolbar"
-        tools:layout="@layout/all_fragment1" />
+        android:layout_marginBottom="90dp">
+        <fragment android:name="com.example.selima.shopmemo.SummaryComboFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
+            tools:layout="@layout/all_fragment1" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/fragInCombo">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/totText"
-            android:textSize="20sp"
+            android:textSize="35sp"
             android:text="Totale : "
             android:textColor="@color/colorPrimaryDark"
             />
@@ -46,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tot"
-            android:textSize="17sp"
+            android:textSize="32sp"
             />
     </LinearLayout>
     <android.support.design.widget.FloatingActionButton

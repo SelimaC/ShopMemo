@@ -7,6 +7,7 @@ package com.example.selima.shopmemo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -49,6 +50,8 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
             if( parent.getContext() instanceof SummaryCombo_Activity){
                 CardView cw = (CardView) ((LinearLayout)v).getChildAt(0);
                 ((RelativeLayout)cw.getChildAt(0)).getChildAt(3).setVisibility(View.INVISIBLE);
+                CoordinatorLayout  cl = (CoordinatorLayout) parent.getParent();
+                ((FloatingActionButton)cl.getChildAt(1)).setTranslationX(500.f);
             }
             //Log.d("view",""+ ((LinearLayout)v).getChildAt(0));
             //cl.findViewById(R.id.three).setVisibility(View.INVISIBLE);

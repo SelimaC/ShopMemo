@@ -73,7 +73,7 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
 
         Combo combo = ComboFactory.getInstance(this).getComboById(id);
         ab.setTitle(combo.getNome());
-        ((TextView)findViewById(R.id.tot)).setText(combo.getPrezzoTotale().toString());
+        ((TextView)findViewById(R.id.tot)).setText(combo.getPrezzoTotale().toString()+" €");
         new SummaryComboFragment().setList(combo.getListaProdotti());
 
     }
