@@ -91,14 +91,7 @@
                 />
         </RelativeLayout>
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_marginTop="10dp"
-            android:progressTint="@color/colorPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:layout_gravity="center"/>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -109,6 +102,15 @@
             android:textStyle="bold"
             android:layout_marginLeft="30dp"
             />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_marginTop="10dp"
+            android:progressTint="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:layout_gravity="center"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -11,6 +11,7 @@ import android.text.TextWatcher;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -38,6 +39,9 @@ public class NewCombo_Activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         final ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+        Window window = getWindow();
+        window.setStatusBarColor(Color.parseColor("#EF6C00"));
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
