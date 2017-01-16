@@ -28,6 +28,7 @@ import com.example.selima.shopmemo.model.ComboFactory;
 import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,7 +74,8 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
 
         Combo combo = ComboFactory.getInstance(this).getComboById(id);
         ab.setTitle(combo.getNome());
-        ((TextView)findViewById(R.id.tot)).setText(combo.getPrezzoTotale().toString()+" €");
+        DecimalFormat df = new DecimalFormat("#.##");
+        ((TextView)findViewById(R.id.tot)).setText(df.format(combo.getPrezzoTotale()).toString()+" €");
         new SummaryComboFragment().setList(combo.getListaProdotti());
 
     }

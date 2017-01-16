@@ -24,6 +24,7 @@ import com.example.selima.shopmemo.model.Product;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,8 +64,9 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(mItemsList.get(position).getNome());
+        DecimalFormat df = new DecimalFormat("#.##");
         holder.shopANDprice.setText(mItemsList.get(position).getNegozio() + " - " +
-                                    mItemsList.get(position).getPrezzo() + " €");
+                                    df.format(mItemsList.get(position).getPrezzo()) + " €");
 
         if(mItemsList.get(position).getVoto()==0)
             holder.preference.setText("0");
