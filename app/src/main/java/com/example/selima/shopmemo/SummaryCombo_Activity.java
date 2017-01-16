@@ -27,7 +27,22 @@ import com.example.selima.shopmemo.model.ProductFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SummaryCombo_Activity extends AppCompatActivity {
+public class SummaryCombo_Activity extends AppCompatActivity implements PageFragmentAll.OnListItemClickListener {
+
+    List<Product> productList;
+    int id;
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume(){
+        productList = ComboFactory.getInstance(this).getComboById(id).getListaProdotti();
+        new SummaryComboFragment().setList(productList);
+        super.onResume();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +64,12 @@ public class SummaryCombo_Activity extends AppCompatActivity {
         });
 
         Intent i = getIntent();
-        int id = Integer.parseInt(i.getStringExtra("combo"));
+        id = Integer.parseInt(i.getStringExtra("combo"));
 
         Combo combo = ComboFactory.getInstance(this).getComboById(id);
         ab.setTitle(combo.getNome());
+
+        new SummaryComboFragment().setList(productList);
     }
 
     @Override
@@ -99,6 +116,20 @@ public class SummaryCombo_Activity extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    public void onListItemClick(int id) {
+        Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
+        i.putExtra("oggetto", String.valueOf(id));
+        startActivity(i);
+    }
+
+    public void updateList(){
+        new AllFragmentCateg().setList(productList);
+    }
+    public void cardMoreFunctionProd(View view){
+
+    }
 }
 
 
@@ -140,17 +171,13 @@ class SummaryComboFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.all_fragment1, container, false);
+        View view = inflater.inflate(R.layout.summarycombo_fragment, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.al_list);
+        recyclerView = (RecyclerView) view.findViewById(R.id.productcombo);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        //recyclerView.setHasFixedSize(true); improve performace but mine can change
 
-        //List<Product> list = new ArrayList<>();
-
-        //fillList(list);
 
         RecyclerAdapterAll adapter = new RecyclerAdapterAll(list);
         recyclerView.setAdapter(adapter);
