@@ -1,6 +1,7 @@
 package com.example.selima.shopmemo;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -82,6 +83,7 @@ public class NewCombo_Activity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 R.layout.checklistcombo,
                 listContent);
+        
         myList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         myList.setAdapter(adapter);
         //Setto il button

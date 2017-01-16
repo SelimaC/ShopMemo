@@ -10,7 +10,7 @@
     android:textSize="20dp"
     android:paddingRight="10dip"
     android:textColor="#000000"
-    android:checkMarkTint="@color/colorPrimary"
-    android:backgroundTint="@color/colorPrimary"
-    android:drawableTint="@color/colorPrimary"
+    android:checkMarkTint="@color/colorAccent"
+    android:backgroundTint="@color/colorAccent"
+    android:drawableTint="@color/colorAccent"
     />
