@@ -19,6 +19,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Combo;
@@ -50,6 +52,7 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_combo_);
+        findViewById(R.id.fball).setVisibility(View.INVISIBLE);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -70,8 +73,9 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
 
         Combo combo = ComboFactory.getInstance(this).getComboById(id);
         ab.setTitle(combo.getNome());
+        ((TextView)findViewById(R.id.tot)).setText(combo.getPrezzoTotale().toString());
+        new SummaryComboFragment().setList(combo.getListaProdotti());
 
-        new SummaryComboFragment().setList(ComboFactory.getInstance(this).getComboById(id).getListaProdotti());
     }
 
     @Override
@@ -132,6 +136,10 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
     public void cardMoreFunctionProd(View view){
 
     }
+
+    public void editCombo(View view) {
+        Toast.makeText(view.getContext(), "modifica combo", Toast.LENGTH_SHORT).show();
+    }
 }
 
 
@@ -173,9 +181,10 @@ class SummaryComboFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.summarycombo_fragment, container, false);
+        View view = inflater.inflate(R.layout.all_fragment1, container, false);
 Log.d("Z","Sono qui");
-        recyclerView = (RecyclerView) view.findViewById(R.id.productcombo);
+
+        recyclerView = (RecyclerView) view.findViewById(R.id.al_list);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(linearLayoutManager);

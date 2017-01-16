@@ -6,6 +6,7 @@ package com.example.selima.shopmemo;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.selima.shopmemo.model.Product;
@@ -38,7 +41,18 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
         // Create a new view by inflating the row item xml.
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_view, parent, false);
-
+        //Log.d("view",""+parent.getParent());
+    /*    if(parent.getParent() instanceof CoordinatorLayout){
+            CoordinatorLayout  cl = (CoordinatorLayout) parent.getParent();
+            RecyclerView rw = (RecyclerView) cl.getChildAt(0);
+            Log.d("view",""+rw.getContext());*/
+            if( parent.getContext() instanceof SummaryCombo_Activity){
+                CardView cw = (CardView) ((LinearLayout)v).getChildAt(0);
+                ((RelativeLayout)cw.getChildAt(0)).getChildAt(3).setVisibility(View.INVISIBLE);
+            }
+            //Log.d("view",""+ ((LinearLayout)v).getChildAt(0));
+            //cl.findViewById(R.id.three).setVisibility(View.INVISIBLE);
+       // }
         // Set the view to the ViewHolder
         return new ViewHolder(v);
     }
