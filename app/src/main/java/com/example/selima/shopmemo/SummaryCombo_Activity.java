@@ -48,7 +48,6 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_combo_);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -69,7 +68,7 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
         Combo combo = ComboFactory.getInstance(this).getComboById(id);
         ab.setTitle(combo.getNome());
 
-        new SummaryComboFragment().setList(productList);
+        new SummaryComboFragment().setList(ComboFactory.getInstance(this).getComboById(id).getListaProdotti());
     }
 
     @Override
@@ -172,7 +171,7 @@ class SummaryComboFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.summarycombo_fragment, container, false);
-
+Log.d("Z","Sono qui");
         recyclerView = (RecyclerView) view.findViewById(R.id.productcombo);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());

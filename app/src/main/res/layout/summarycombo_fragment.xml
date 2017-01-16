@@ -12,6 +12,26 @@
         android:layout_height="match_parent"
         android:background="#ebebeb"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/totText"
+            android:textSize="20sp"
+            android:text="Totale : "
+            android:textColor="@color/colorPrimaryDark"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tot"
+            android:textSize="17sp"
+            />
+    </LinearLayout>
+
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/fbprodcombo"
@@ -20,7 +40,7 @@
         android:layout_margin="16dp"
         android:src="@drawable/edit"
         app:layout_anchor="@id/al_list"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/colorAccent"
         app:layout_anchorGravity="bottom|right|end"
         app:layout_behavior="com.example.selima.shopmemo.ScrollAwareFABBehavior"
         android:onClick="newObject"/>
