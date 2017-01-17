@@ -10,9 +10,31 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/deletelist"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#ebebeb"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/plus_circle"
+            android:id="@+id/plusCat"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Oggetti"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/plusCat"
+            android:layout_marginLeft="10dp"
+            />
+    </RelativeLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

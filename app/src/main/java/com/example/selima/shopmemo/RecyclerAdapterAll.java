@@ -58,7 +58,7 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
                 CardView cw = (CardView) ((LinearLayout)v).getChildAt(0);
                 ((RelativeLayout)cw.getChildAt(0)).getChildAt(3).setBackgroundResource(R.drawable.delete);
                 RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                lp.setMargins(860, 0, 0, 0);
+                lp.setMargins(865, 0, 0, 0);
                 ((RelativeLayout)cw.getChildAt(0)).getChildAt(3).setLayoutParams(lp);
              }
             //Log.d("view",""+ ((LinearLayout)v).getChildAt(0));
