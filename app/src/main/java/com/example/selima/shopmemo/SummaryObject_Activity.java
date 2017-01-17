@@ -7,9 +7,13 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -112,7 +116,7 @@ public class SummaryObject_Activity extends AppCompatActivity {
             l.addView(t);
         }
         else {
-            for (Combo item : c) {
+            for (final Combo item : c) {
                 TextView t = new TextView(this);
                 t.setText(item.getNome());
                 t.setTextSize(17);
@@ -120,12 +124,20 @@ public class SummaryObject_Activity extends AppCompatActivity {
                 t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 l.addView(t);
                 t.setClickable(true);
+                //t.setPaintFlags(t.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+                Paint p = new Paint();
+                p.setColor(Color.RED);
+                p.setFlags(Paint.UNDERLINE_TEXT_FLAG);
+                t.setPaintFlags(p.getFlags());
+
                 t.setOnClickListener(new View.OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(v.getContext(), "Riepilogo combo", Toast.LENGTH_SHORT).show();
-
+                        Intent i = new Intent(getApplicationContext(), SummaryCombo_Activity.class);
+                        i.putExtra("combo", String.valueOf(item.getId()));
+                        startActivity(i);
                     }
                 });
             }
