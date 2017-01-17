@@ -15,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Combo;
 import com.example.selima.shopmemo.model.ComboFactory;
@@ -72,7 +74,7 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
         new AllFragmentCateg().setList(productList);
     }
     public void cardMoreFunctionProd(View view){
-
+        Toast.makeText(this, "Elimina dalla combo", Toast.LENGTH_SHORT).show();
     }
 }
 

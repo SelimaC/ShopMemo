@@ -54,6 +54,13 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
                 CoordinatorLayout  cl = (CoordinatorLayout) parent.getParent();
                 ((FloatingActionButton)cl.getChildAt(1)).setTranslationX(500.f);
             }
+            if( parent.getContext() instanceof EditCombo_Activity){
+                CardView cw = (CardView) ((LinearLayout)v).getChildAt(0);
+                ((RelativeLayout)cw.getChildAt(0)).getChildAt(3).setBackgroundResource(R.drawable.delete);
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                lp.setMargins(860, 0, 0, 0);
+                ((RelativeLayout)cw.getChildAt(0)).getChildAt(3).setLayoutParams(lp);
+             }
             //Log.d("view",""+ ((LinearLayout)v).getChildAt(0));
             //cl.findViewById(R.id.three).setVisibility(View.INVISIBLE);
        // }
