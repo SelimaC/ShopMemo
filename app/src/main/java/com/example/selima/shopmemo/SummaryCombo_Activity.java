@@ -117,6 +117,11 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
                 //Toast.makeText(this, "Elimina", Toast.LENGTH_SHORT).show();
 
                 return true;
+            case R.id.menu_summary3:
+
+                Toast.makeText(this, "Galleria", Toast.LENGTH_SHORT).show();
+
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
