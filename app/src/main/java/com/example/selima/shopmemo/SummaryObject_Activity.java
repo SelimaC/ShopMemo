@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SummaryObject_Activity extends AppCompatActivity {
-
+    List<Combo> c = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
@@ -104,7 +104,6 @@ public class SummaryObject_Activity extends AppCompatActivity {
         category.setText(obj.getCategoria()+ "");
 
 
-        List<Combo> c = new ArrayList<>();
         c = ProductFactory.getInstance(this).getComboIn(id);
 
         LinearLayout l = (LinearLayout) findViewById(R.id.summary);
@@ -216,6 +215,7 @@ public class SummaryObject_Activity extends AppCompatActivity {
                 frag.setArguments(bundle);
                 frag.show(supportFragment,"conferma");
                 //Toast.makeText(this, "Aggiunta", Toast.LENGTH_SHORT).show();
+
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

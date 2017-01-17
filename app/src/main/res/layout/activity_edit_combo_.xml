@@ -23,5 +23,9 @@
         />
 
 
+    <fragment android:name="com.example.selima.shopmemo.EditComboFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
+        tools:layout="@layout/editcombo_fragment" />
 </RelativeLayout>
