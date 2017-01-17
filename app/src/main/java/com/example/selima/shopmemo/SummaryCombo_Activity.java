@@ -46,6 +46,8 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
     protected void onResume(){
         productList = ComboFactory.getInstance(this).getComboById(id).getListaProdotti();
         new SummaryComboFragment().setList(productList);
+        DecimalFormat df = new DecimalFormat("#.##");
+        ((TextView)findViewById(R.id.tot)).setText(df.format(ComboFactory.getInstance(this).getComboById(id).getPrezzoTotale()).toString()+" €");
         super.onResume();
     }
 
