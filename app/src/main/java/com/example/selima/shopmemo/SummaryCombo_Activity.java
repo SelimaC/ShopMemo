@@ -141,6 +141,9 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
 
     public void editCombo(View view) {
         Toast.makeText(view.getContext(), "modifica combo", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(getApplicationContext(), EditCombo_Activity.class);
+        i.putExtra("combo", String.valueOf(id));
+        startActivity(i);
     }
 }
 
