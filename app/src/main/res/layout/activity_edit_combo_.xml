@@ -23,10 +23,40 @@
         />
 
 
-    <fragment android:name="com.example.selima.shopmemo.EditComboFragment"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/fragInCombo"
+        android:layout_below="@id/toolbar"
+        android:layout_marginBottom="90dp">
+        <fragment android:name="com.example.selima.shopmemo.EditComboFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        tools:layout="@layout/editcombo_fragment" />
+            tools:layout="@layout/editcombo_fragment" />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/plus_circle"
+            android:id="@+id/plusCat"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  Oggetti"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/plusCat"
+            android:layout_marginLeft="10dp"
+            />
+    </RelativeLayout>
 
 </RelativeLayout>
