@@ -49,7 +49,7 @@ public class ComboFactory {
         Collections.sort(allCombo, new Comparator<Combo>() {
             @Override
             public int compare(Combo c1, Combo c2) {
-                return c1.getId().compareTo(c2.getId());
+                return c2.getId() - c1.getId();
             }
         });
         return allCombo;

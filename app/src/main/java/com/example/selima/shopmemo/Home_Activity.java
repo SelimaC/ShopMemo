@@ -155,8 +155,8 @@ public class Home_Activity extends AppCompatActivity
         super.onResume();
         Log.d("Resume", "lista: "+productList);
         //((AllFragment)adapter.getItem(0)).setList(productList);
-        new AllFragment().setList(productList);
-        new ComboFragment().setList(comboList);
+        new AllFragment().setList(ProductFactory.getInstance(this).getAllProducts());
+        new ComboFragment().setList(ComboFactory.getInstance(this).getAllCombo());
     }
 
     // imagebutton click events

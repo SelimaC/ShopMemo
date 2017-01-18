@@ -90,7 +90,7 @@ public class ProductFactory {
         Collections.sort(allProduct, new Comparator<Product>() {
             @Override
             public int compare(Product p1, Product p2) {
-                return p1.getId().compareTo(p2.getId());
+                return p2.getId()- p1.getId();
             }
         });
         return allProduct;
