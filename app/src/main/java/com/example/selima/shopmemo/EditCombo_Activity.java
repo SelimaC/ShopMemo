@@ -61,6 +61,8 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
         ab.setTitle("Modifica " + combo.getNome());
 
         new EditComboFragment().setList(combo.getListaProdotti());
+
+
     }
 
     @Override
@@ -75,6 +77,10 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
     }
     public void cardMoreFunctionProd(View view){
         Toast.makeText(this, "Elimina dalla combo", Toast.LENGTH_SHORT).show();
+    }
+
+    public void addObject(View view) {
+        Toast.makeText(this, "Aggiungi oggetti", Toast.LENGTH_SHORT).show();
     }
 }
 
