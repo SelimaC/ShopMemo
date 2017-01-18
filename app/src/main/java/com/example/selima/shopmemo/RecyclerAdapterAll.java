@@ -61,6 +61,10 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
                 lp.setMargins(865, 0, 0, 0);
                 ((RelativeLayout)cw.getChildAt(0)).getChildAt(3).setLayoutParams(lp);
              }
+            if( parent.getContext() instanceof Categories_Activity){
+                CoordinatorLayout  cl = (CoordinatorLayout) parent.getParent();
+                ((FloatingActionButton)cl.getChildAt(1)).setTranslationX(500.f);
+            }
             //Log.d("view",""+ ((LinearLayout)v).getChildAt(0));
             //cl.findViewById(R.id.three).setVisibility(View.INVISIBLE);
        // }
