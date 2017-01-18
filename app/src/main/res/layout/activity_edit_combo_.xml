@@ -43,7 +43,7 @@
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginLeft="30dp">
 
     <RelativeLayout
@@ -66,7 +66,7 @@
             android:layout_marginTop="20dp"
             android:textSize="25sp"
             android:layout_toRightOf="@+id/plusObj"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             />
     </RelativeLayout>
     </LinearLayout>
