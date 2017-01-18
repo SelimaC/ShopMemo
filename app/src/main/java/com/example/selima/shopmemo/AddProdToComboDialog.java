@@ -24,7 +24,7 @@ public class AddProdToComboDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final List<Integer> mSelectedItems = new ArrayList<>();  // Where we track the selected items
-        final List<Combo> comboList = ComboFactory.getInstance(getActivity()).getAllCombo();
+        final List<Combo> comboList = ComboFactory.getInstance(getActivity()).getComboByName();
         List<String> nomi = new ArrayList<>();
         final Bundle bundle = this.getArguments();
         int idProd = -1;
