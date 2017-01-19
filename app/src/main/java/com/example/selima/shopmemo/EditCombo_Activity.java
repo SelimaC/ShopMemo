@@ -1,5 +1,7 @@
 package com.example.selima.shopmemo;
 
+import android.app.DialogFragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Combo;
@@ -77,7 +80,20 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
         new AllFragmentCateg().setList(productList);
     }
     public void cardMoreFunctionProd(View view){
-        Toast.makeText(this, "Elimina dalla combo", Toast.LENGTH_SHORT).show();
+        final List<Product> lista = productList;
+        final FragmentManager supportoFragment = getFragmentManager();
+        ViewGroup viewGroup = (ViewGroup) view.getParent();
+        TextView child = (TextView) viewGroup.getChildAt(6);
+        String idP = child.getText().toString();
+        DialogFragment fragment = new DeleteProductFromCombo();
+        Bundle bundle = new Bundle();
+        bundle.putInt("IDCOMBO",id);
+        bundle.putInt("IDPROD",(Integer.parseInt(idP)));
+        bundle.putBoolean("Summary",false);
+
+        fragment.setArguments(bundle);
+        fragment.show(supportoFragment,"conferma");
+        updateList();
     }
 
     public void addObject(View view) {
