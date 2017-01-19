@@ -21,26 +21,17 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragInCombo"
-        android:layout_below="@id/toolbar"
-        android:layout_marginBottom="90dp">
-        <fragment android:name="com.example.selima.shopmemo.SummaryComboFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            tools:layout="@layout/all_fragment1" />
-    </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/layoutprezzo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="30dp">
+        android:layout_below="@id/toolbar"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +47,19 @@
             android:textSize="32sp"
             />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragInCombo"
+        android:layout_below="@id/layoutprezzo">
+        <fragment android:name="com.example.selima.shopmemo.SummaryComboFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            tools:layout="@layout/all_fragment1" />
+    </LinearLayout>
+<!--
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/fbprodcombo"
@@ -70,5 +74,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         />
-
+-->
 </RelativeLayout>

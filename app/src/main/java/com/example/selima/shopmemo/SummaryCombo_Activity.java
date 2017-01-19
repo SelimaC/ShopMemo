@@ -55,7 +55,7 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_combo_);
-        findViewById(R.id.fball).setVisibility(View.INVISIBLE);
+        //findViewById(R.id.fball).setVisibility(View.INVISIBLE);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

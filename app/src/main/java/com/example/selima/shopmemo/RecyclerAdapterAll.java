@@ -39,7 +39,7 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
         // Create a new view by inflating the row item xml.
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_view, parent, false);
@@ -52,7 +52,16 @@ public class RecyclerAdapterAll extends RecyclerView.Adapter<RecyclerAdapterAll.
                 CardView cw = (CardView) ((LinearLayout)v).getChildAt(0);
                 ((RelativeLayout)cw.getChildAt(0)).getChildAt(3).setVisibility(View.INVISIBLE);
                 CoordinatorLayout  cl = (CoordinatorLayout) parent.getParent();
-                ((FloatingActionButton)cl.getChildAt(1)).setTranslationX(500.f);
+                //((FloatingActionButton)cl.getChildAt(1)).setTranslationX(500.f);
+                FloatingActionButton fab = ((FloatingActionButton)cl.getChildAt(1));
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ((SummaryCombo_Activity) parent.getContext()).editCombo(view);
+                    }
+                });
+                fab.setBackgroundTintList(fab.getResources().getColorStateList(R.color.colorAccent));
+                fab.setImageDrawable(fab.getResources().getDrawable(R.drawable.edit));
             }
             if( parent.getContext() instanceof EditCombo_Activity){
                 CardView cw = (CardView) ((LinearLayout)v).getChildAt(0);
