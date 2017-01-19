@@ -17,18 +17,21 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.selima.shopmemo.model.Categoria;
 import com.example.selima.shopmemo.model.Combo;
 import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
@@ -96,13 +99,73 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
         TextView shop = (TextView) findViewById(R.id.shop);
         TextView price = (TextView) findViewById(R.id.price);
-        TextView category = (TextView) findViewById(R.id.category);
+        ImageView category = (ImageView) findViewById(R.id.category);
         TextView combo = (TextView) findViewById(R.id.combo);
 
         shop.setText(obj.getNegozio());
         price.setText( obj.getPrezzo() + " €");
-        category.setText(obj.getCategoria()+ "");
 
+
+        switch (obj.getCategoria()) {
+            case CAT1:
+                category.setImageResource(R.drawable.cat1);
+                category.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       Toast.makeText(getApplicationContext(), "Alimentari e cura della persona", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                break;
+            case CAT2:
+                category.setImageResource(R.drawable.cat2);
+                category.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "Libri, film, musica", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                break;
+            case CAT3:
+                category.setImageResource(R.drawable.cat3);
+                category.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "Elettronica, informatica e giochi", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                break;
+            case CAT4:
+                category.setImageResource(R.drawable.cat4);
+                category.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "Casa, giardino e fai da te", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                break;
+            case CAT5:
+                category.setImageResource(R.drawable.cat5);
+                category.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "Sport, auto e tempo libero", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                break;
+            case CAT6:
+                category.setImageResource(R.drawable.cat6);
+                category.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "Vestiario, scarpe e accessori", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                break;
+            case NO_CAT: category.setVisibility(View.INVISIBLE);
+                     TextView nocat = (TextView) findViewById(R.id.nocat);
+                     nocat.setVisibility(View.VISIBLE);
+                     nocat.setText("Nessuna");
+        }
 
         c = ProductFactory.getInstance(this).getComboIn(id);
 
@@ -117,17 +180,21 @@ public class SummaryObject_Activity extends AppCompatActivity {
         else {
             for (final Combo item : c) {
                 TextView t = new TextView(this);
-                t.setText(item.getNome());
+                t.setText(" • " + item.getNome());
                 t.setTextSize(17);
                 t.setId(item.getId());
-                t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 l.addView(t);
+                t.setTextColor(getResources().getColor(R.color.colorAccent));
                 t.setClickable(true);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                lp.setMargins(150, 10, 10, 10);
+                t.setLayoutParams(lp);
+                t.setTextSize(20);
                 //t.setPaintFlags(t.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                Paint p = new Paint();
+                /*Paint p = new Paint();
                 p.setColor(Color.RED);
                 p.setFlags(Paint.UNDERLINE_TEXT_FLAG);
-                t.setPaintFlags(p.getFlags());
+                t.setPaintFlags(p.getFlags());*/
 
                 t.setOnClickListener(new View.OnClickListener() {
 

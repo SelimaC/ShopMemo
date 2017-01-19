@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.selima.shopmemo.model.Combo;
 import com.example.selima.shopmemo.model.ComboFactory;
 import com.example.selima.shopmemo.model.Product;
+import com.example.selima.shopmemo.model.ProductFactory;
 
 import java.util.ArrayList;
 import java.util.List;
