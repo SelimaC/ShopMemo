@@ -22,52 +22,47 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         />
 
+    <LinearLayout
+        android:id="@+id/layoutprezzo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/toolbar"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="100dp"
+                android:background="@drawable/plus_circle"
+                android:id="@+id/plusObj"
+
+                android:onClick="addObject"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" Oggetti"
+                android:textSize="25sp"
+                android:layout_toRightOf="@+id/plusObj"
+                android:layout_marginLeft="0dp"
+                />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragInCombo"
-        android:layout_below="@id/toolbar"
-        android:layout_marginBottom="90dp">
+        android:layout_below="@id/layoutprezzo">
         <fragment android:name="com.example.selima.shopmemo.EditComboFragment"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
 
             tools:layout="@layout/editcombo_fragment" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="30dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/plus_circle"
-            android:id="@+id/plusObj"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="65dp"
-            android:onClick="addObject"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="  Oggetti"
-            android:layout_marginTop="20dp"
-            android:textSize="25sp"
-            android:layout_toRightOf="@+id/plusObj"
-            android:layout_marginLeft="0dp"
-            />
-    </RelativeLayout>
-    </LinearLayout>
 </RelativeLayout>
