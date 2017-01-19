@@ -3,9 +3,13 @@ package com.example.selima.shopmemo;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Combo;
@@ -92,6 +96,47 @@ public class AddProdToComboDialog extends DialogFragment {
                             }
                             if (getActivity() instanceof Home_Activity) {
                                 ((ComboFragment) ((Home_Activity) getActivity()).adapter.getItem(1)).setList(((Home_Activity) getActivity()).comboList);
+                            }
+
+                            if(getActivity() instanceof SummaryObject_Activity) {
+                                List<Combo> c = ProductFactory.getInstance(getActivity()).getComboIn(idProdotto);
+                                LinearLayout l = (LinearLayout) getActivity().findViewById(R.id.combos);
+                                if (l.getChildCount() > 0)
+                                    l.removeAllViews();
+                                if (c.size() == 0) {
+                                    TextView t = new TextView(getActivity());
+                                    t.setText("Nessuna");
+                                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                    lp.setMargins(150, 10, 10, 10);
+                                    t.setLayoutParams(lp);
+                                    t.setTextSize(20);
+                                    l.addView(t);
+                                } else {
+                                    for (final Combo item : c) {
+                                        TextView t = new TextView(getActivity());
+                                        t.setText(" • " + item.getNome());
+                                        t.setTextSize(17);
+                                        t.setId(item.getId());
+                                        l.addView(t);
+                                        t.setTextColor(getResources().getColor(R.color.colorAccent));
+                                        t.setClickable(true);
+                                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                        lp.setMargins(150, 10, 10, 10);
+                                        t.setLayoutParams(lp);
+                                        t.setTextSize(20);
+
+                                        t.setOnClickListener(new View.OnClickListener() {
+
+                                            @Override
+                                            public void onClick(View v) {
+                                                Toast.makeText(v.getContext(), "Riepilogo combo", Toast.LENGTH_SHORT).show();
+                                                Intent i = new Intent(getActivity().getApplicationContext(), SummaryCombo_Activity.class);
+                                                i.putExtra("combo", String.valueOf(item.getId()));
+                                                startActivity(i);
+                                            }
+                                        });
+                                    }
+                                }
                             }
                             Toast.makeText(getActivity(), "Prodotto aggiunto a " + mSelectedItems.size() + " combinazioni", Toast.LENGTH_SHORT).show();
                         }

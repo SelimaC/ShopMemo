@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +19,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -42,7 +44,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SummaryObject_Activity extends AppCompatActivity {
+public class SummaryObject_Activity extends AppCompatActivity implements DialogInterface.OnDismissListener{
     List<Combo> c = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -169,12 +171,15 @@ public class SummaryObject_Activity extends AppCompatActivity {
 
         c = ProductFactory.getInstance(this).getComboIn(id);
 
-        LinearLayout l = (LinearLayout) findViewById(R.id.summary);
+        LinearLayout l = (LinearLayout) findViewById(R.id.combos);
         if(c.size()==0) {
             TextView t = new TextView(this);
             t.setText("Nessuna");
-            t.setTextSize(17);
-            t.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lp.setMargins(150, 10, 10, 10);
+            t.setLayoutParams(lp);
+            t.setTextSize(20);
+
             l.addView(t);
         }
         else {
@@ -290,6 +295,16 @@ public class SummaryObject_Activity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+    @Override
+    public void onDismiss(final DialogInterface dialog) {
+
     }
 
 }

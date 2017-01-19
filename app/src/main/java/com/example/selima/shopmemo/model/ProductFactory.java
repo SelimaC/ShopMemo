@@ -152,7 +152,7 @@ public class ProductFactory {
 
     public List<Combo> getComboIn(Integer id){
         Product prod = getProductById(id);
-        List<Combo> l = ComboFactory.getInstance(context).getAllCombo();
+        List<Combo> l = ComboFactory.getInstance(context).getComboByName();
         List<Combo> lista = new ArrayList<>();
         for(Combo c: l){
             if(c.listaProdotti.contains(prod)){
