@@ -55,7 +55,6 @@
 
 
             <LinearLayout
-                android:id="@+id/cat1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -68,9 +67,11 @@
                     android:layout_height="50dp"
                     android:id="@+id/cat1icon"
                     android:background="@drawable/cat1"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="filtercategory"/>
 
                 <TextView
+                    android:id="@+id/cat1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -80,7 +81,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/cat2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -93,9 +93,11 @@
                     android:layout_height="50dp"
                     android:id="@+id/cat2icon"
                     android:background="@drawable/cat2"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="filtercategory"/>
 
                 <TextView
+                    android:id="@+id/cat2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -105,7 +107,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/cat3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -118,9 +119,11 @@
                     android:layout_height="50dp"
                     android:id="@+id/cat3icon"
                     android:background="@drawable/cat3"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="filtercategory"/>
 
                 <TextView
+                    android:id="@+id/cat3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -139,7 +142,6 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/cat4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -152,9 +154,11 @@
                     android:layout_height="50dp"
                     android:id="@+id/cat4icon"
                     android:background="@drawable/cat4"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="filtercategory"/>
 
                 <TextView
+                    android:id="@+id/cat4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -165,7 +169,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/cat5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -178,9 +181,11 @@
                     android:layout_height="50dp"
                     android:id="@+id/cat5icon"
                     android:background="@drawable/cat5"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="filtercategory"/>
 
                 <TextView
+                    android:id="@+id/cat5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
@@ -191,7 +196,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/cat6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -204,9 +208,11 @@
                     android:id="@+id/cat6icon"
                     android:layout_height="50dp"
                     android:background="@drawable/cat6"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="filtercategory"/>
 
                 <TextView
+                    android:id="@+id/cat6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"

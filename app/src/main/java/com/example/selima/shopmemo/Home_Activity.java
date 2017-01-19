@@ -48,8 +48,8 @@ public class Home_Activity extends AppCompatActivity
     private static Home_Activity mApp = null;
     LinearLayout mRevealView;
     boolean hidden=true;
-    LinearLayout ib_cat1,ib_cat2,ib_cat3;
-    LinearLayout ib_cat4,ib_cat5,ib_cat6;
+    TextView ib_cat1,ib_cat2,ib_cat3;
+    TextView ib_cat4,ib_cat5,ib_cat6;
     List<Product> productList;
     List<Combo> comboList;
     PagerAdapter adapter;
@@ -80,12 +80,12 @@ public class Home_Activity extends AppCompatActivity
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        ib_cat1=(LinearLayout)findViewById(R.id.cat1);
-        ib_cat2=(LinearLayout)findViewById(R.id.cat2);
-        ib_cat3=(LinearLayout)findViewById(R.id.cat3);
-        ib_cat4=(LinearLayout)findViewById(R.id.cat4);
-        ib_cat5=(LinearLayout)findViewById(R.id.cat5);
-        ib_cat6=(LinearLayout)findViewById(R.id.cat6);
+        ib_cat1=(TextView)findViewById(R.id.cat1);
+        ib_cat2=(TextView)findViewById(R.id.cat2);
+        ib_cat3=(TextView)findViewById(R.id.cat3);
+        ib_cat4=(TextView)findViewById(R.id.cat4);
+        ib_cat5=(TextView)findViewById(R.id.cat5);
+        ib_cat6=(TextView)findViewById(R.id.cat6);
 
         ib_cat1.setOnClickListener(this);
         ib_cat2.setOnClickListener(this);
@@ -221,6 +221,80 @@ public class Home_Activity extends AppCompatActivity
 
                 break;
             case R.id.cat6:
+
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat6");
+                startActivity(i);
+
+                break;
+        }
+
+
+    }
+
+    public void filtercategory(View v) {
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.offsetTopAndBottom(-((LinearLayout)(findViewById(R.id.reveal_items))).getHeight());
+        Intent i;
+        switch (v.getId()) {
+            case R.id.cat1icon:
+
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat1");
+                startActivity(i);
+
+                break;
+            case R.id.cat2icon:
+
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat2");
+                startActivity(i);
+
+                break;
+            case R.id.cat3icon:
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat3");
+                startActivity(i);
+
+                break;
+            case R.id.cat4icon:
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat4");
+                startActivity(i);
+
+                break;
+            case R.id.cat5icon:
+
+                mRevealView.setVisibility(View.INVISIBLE);
+                mRevealView.setVisibility(View.INVISIBLE);
+                hidden=true;
+
+                i = new Intent(getApplicationContext(), Categories_Activity.class);
+                i.putExtra("categoria", "cat5");
+                startActivity(i);
+
+                break;
+            case R.id.cat6icon:
 
                 mRevealView.setVisibility(View.INVISIBLE);
                 mRevealView.setVisibility(View.INVISIBLE);
