@@ -54,7 +54,7 @@
         android:id="@+id/fragInCombo"
         android:layout_below="@id/layoutprezzo">
         <fragment android:name="com.example.selima.shopmemo.SummaryComboFragment"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
 
             tools:layout="@layout/all_fragment1" />

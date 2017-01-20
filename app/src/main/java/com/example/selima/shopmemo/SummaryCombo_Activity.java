@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -56,6 +57,15 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_combo_);
         //findViewById(R.id.fball).setVisibility(View.INVISIBLE);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fball);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editCombo(view);
+            }
+        });
+        fab.setBackgroundTintList(fab.getResources().getColorStateList(R.color.colorAccent));
+        fab.setImageDrawable(fab.getResources().getDrawable(R.drawable.edit));
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
