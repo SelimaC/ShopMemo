@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/reveal_items"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reveal_items"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="100dp"
-    android:background="#ebebeb"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="00dp"
+    android:background="#ffffff"
     android:orientation="vertical"
     android:clickable="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -19,7 +20,7 @@
             android:id="@+id/cat1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -31,13 +32,22 @@
                 android:background="@drawable/cat1"
                 android:clickable="true"
                 android:onClick="selectCat"/>
+            <TextView
+                android:id="@+id/cat1t"
+                android:onClick="selectCat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:textSize="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:text="Alimentari e cura della persona" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/cat2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -49,13 +59,22 @@
                 android:background="@drawable/cat2"
                 android:clickable="true"
                 android:onClick="selectCat"/>
+            <TextView
+                android:id="@+id/cat2t"
+                android:onClick="selectCat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:textSize="@dimen/activity_vertical_margin"
+                android:gravity="center"
+                android:text="Libri, film, musica" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/cat3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -67,6 +86,15 @@
                 android:background="@drawable/cat3"
                 android:clickable="true"
                 android:onClick="selectCat"/>
+            <TextView
+                android:id="@+id/cat3t"
+                android:onClick="selectCat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:text="Elettronica, informatica e giochi" />
         </LinearLayout>
 
     </LinearLayout>
@@ -77,13 +105,13 @@
         android:layout_margin="10dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:onClick="selectCat">
+        >
 
         <LinearLayout
             android:id="@+id/cat4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -96,13 +124,23 @@
                 android:clickable="true"
                 android:onClick="selectCat"/>
 
+            <TextView
+                android:id="@+id/cat4t"
+                android:onClick="selectCat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:text="Casa, giardino e fai da te" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/cat5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -114,7 +152,15 @@
                 android:background="@drawable/cat5"
                 android:clickable="true"
                 android:onClick="selectCat"/>
-
+            <TextView
+                android:id="@+id/cat5t"
+                android:onClick="selectCat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:text="Sport, auto e tempo libero" />
 
         </LinearLayout>
 
@@ -122,7 +168,7 @@
             android:id="@+id/cat6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -134,6 +180,16 @@
                 android:background="@drawable/cat6"
                 android:clickable="true"
                 android:onClick="selectCat"/>
+
+            <TextView
+                android:id="@+id/cat6t"
+                android:onClick="selectCat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:text="Vestiario, scarpe e accessori" />
 
         </LinearLayout>
 

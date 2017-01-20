@@ -14,6 +14,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -43,7 +44,7 @@ public class NewObject_Activity extends AppCompatActivity {
     final int PHOTO_REQUEST_CODE = 1;
     boolean take = false;
     Bitmap photo;
-    Dialog settingsDialog;
+    DialogFragment settingsDialog;
     Categoria categoria = Categoria.NO_CAT;
     EditText nome;
     EditText negozio;
@@ -101,12 +102,15 @@ public class NewObject_Activity extends AppCompatActivity {
         cat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                settingsDialog = new Dialog(con);
+                /*settingsDialog = new Dialog(con);
                 View v = con.getLayoutInflater().inflate(R.layout.popup_categories, null);
 
                 settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
                 settingsDialog.setContentView(v);
-                settingsDialog.show();
+                settingsDialog.show();*/
+                final FragmentManager supportFragment = getFragmentManager();
+                DialogFragment fragment = new InsertCategoryDialog();
+                fragment.show(supportFragment,"categoria");
             }
         });
 Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
@@ -227,34 +231,42 @@ Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
     }
 
     public void selectCat(View v) {
-
+        Log.d("prova",""+v);
         switch (v.getId()) {
             case R.id.cat1i:
+            case R.id.cat1t:
                 Toast.makeText(getApplicationContext(), "Alimentari e cura della persona", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT1;
                 break;
             case R.id.cat2i:
+            case R.id.cat2t:
                 Toast.makeText(getApplicationContext(), "Libri, film, musica", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT2;
                 break;
             case R.id.cat3i:
+            case R.id.cat3t:
                 Toast.makeText(getApplicationContext(), "Elettronica, informatica e giochi", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT3;
                 break;
             case R.id.cat4i:
+            case R.id.cat4t:
                 Toast.makeText(getApplicationContext(), "Casa, giardino e fai da te", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT4;
                 break;
             case R.id.cat5i:
+            case R.id.cat5t:
                 Toast.makeText(getApplicationContext(), "Sport, auto e tempo libero", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT5;
                 break;
             case R.id.cat6i:
+            case R.id.cat6t:
                 Toast.makeText(getApplicationContext(), "Vestiario, scarpe e accessori", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT6;
                 break;
         }
-        settingsDialog.dismiss();
+        if(settingsDialog != null) {
+            settingsDialog.dismiss();
+        }
     }
 
     @Override
