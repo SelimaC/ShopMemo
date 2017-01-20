@@ -35,8 +35,7 @@ public class DeleteProductFromCombo extends DialogFragment {
                 ". Vuoi proseguire?")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        ComboFactory.getInstance(getActivity()).getComboById(idCombo)
-                                .getListaProdotti().remove(ProductFactory.getInstance(getActivity()).getProductById(idProdotto));
+                        ComboFactory.getInstance(getActivity()).removeProductFromCombo(idProdotto,idCombo);
                         Log.d("prod","prodotto"+idProdotto);
 
                          ((EditCombo_Activity)getActivity()).productList =  ComboFactory.getInstance(getActivity()).getComboById(idCombo)

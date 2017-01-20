@@ -64,8 +64,9 @@ public class NewCombo_Activity extends AppCompatActivity {
         //Setto la lista
         final ListView myList = (ListView)findViewById(R.id.list);
         final List<Product> listaProdotti = new ArrayList<>();
-        if(creazione)
-          listaProdotti.addAll(ProductFactory.getInstance(this).getProductsByName());
+        if(creazione) {
+            listaProdotti.addAll(ProductFactory.getInstance(this).getProductsByName());
+        }
         else {
             listaProdotti.addAll(ComboFactory.getInstance(this).getProductNotIn(idCombo));
             Button b = (Button) findViewById(R.id.crea);
@@ -116,8 +117,11 @@ public class NewCombo_Activity extends AppCompatActivity {
                 }
                 if(creazione)
                    ComboFactory.getInstance(getApplicationContext()).createNewCombo(selectedProducts, nomeCombo);
-                else
-                   ComboFactory.getInstance(getApplicationContext()).getComboById(idCombo).getListaProdotti().addAll(selectedProducts);
+                else {
+                    for(Product p : selectedProducts){
+                        ComboFactory.getInstance(getApplicationContext()).addProductToCombo(p.getId(),idCombo);
+                    }
+               }
                 finish();
             }});
 
