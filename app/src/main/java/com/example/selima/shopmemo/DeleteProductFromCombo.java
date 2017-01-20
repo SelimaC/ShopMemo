@@ -39,19 +39,9 @@ public class DeleteProductFromCombo extends DialogFragment {
                                 .getListaProdotti().remove(ProductFactory.getInstance(getActivity()).getProductById(idProdotto));
                         Log.d("prod","prodotto"+idProdotto);
 
-                        boolean isSummary =bundle.getBoolean("Summary");
-
-                        if(isSummary){
-                            Intent i = new Intent(Home_Activity.context(), Home_Activity.class);
-                            getActivity().finish();
-                            // startActivity(i);
-                        }
-                        else
-
-
-                            ((EditCombo_Activity)getActivity()).productList =  ComboFactory.getInstance(getActivity()).getComboById(idCombo)
+                         ((EditCombo_Activity)getActivity()).productList =  ComboFactory.getInstance(getActivity()).getComboById(idCombo)
                                     .getListaProdotti();
-                            new EditComboFragment().setList(((EditCombo_Activity)getActivity()).productList);
+                        new EditComboFragment().setList(((EditCombo_Activity)getActivity()).productList);
 
 
 

@@ -98,7 +98,6 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
         Bundle bundle = new Bundle();
         bundle.putInt("IDCOMBO",id);
         bundle.putInt("IDPROD",(Integer.parseInt(idP)));
-        bundle.putBoolean("Summary",false);
 
         fragment.setArguments(bundle);
         fragment.show(supportoFragment,"conferma");
