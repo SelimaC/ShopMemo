@@ -85,8 +85,9 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
     }
 
     public void updateList(){
-        new AllFragmentCateg().setList(productList);
+        new EditComboFragment().setList(productList);
     }
+
     public void cardMoreFunctionProd(View view){
         final List<Product> lista = productList;
         final FragmentManager supportoFragment = getFragmentManager();
@@ -109,7 +110,7 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
             Toast.makeText(this, "Non ci sono altri oggetti da aggiungere", Toast.LENGTH_SHORT).show();
         else {
             Intent i = new Intent(this, NewCombo_Activity.class);
-            i.putExtra("NOME", ComboFactory.getInstance(this).getComboById(id));
+            i.putExtra("NOME", ComboFactory.getInstance(this).getComboById(id).getNome());
             i.putExtra("CREAZIONE", false);
             i.putExtra("ID", id);
             startActivity(i);
