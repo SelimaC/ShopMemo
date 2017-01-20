@@ -35,6 +35,14 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
     int id;
 
     @Override
+    protected void onResume(){
+        productList = ComboFactory.getInstance(this).getComboById(id).getListaProdotti();
+        Combo combo = ComboFactory.getInstance(this).getComboById(id);
+        new EditComboFragment().setList(combo.getListaProdotti());
+        super.onResume();
+    }
+
+    @Override
     protected void onPause(){
         super.onPause();
     }
