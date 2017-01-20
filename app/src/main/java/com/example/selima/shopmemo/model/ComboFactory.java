@@ -106,7 +106,7 @@ public class ComboFactory {
 
         all.removeAll(cont);
 
-       return all;
+        return all;
     }
 
     public Combo getComboById(Integer id) {

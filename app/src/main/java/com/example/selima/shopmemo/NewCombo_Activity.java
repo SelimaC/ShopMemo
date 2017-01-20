@@ -57,7 +57,10 @@ public class NewCombo_Activity extends AppCompatActivity {
         Log.d("bool","vsl : " + creazione);
         final int idCombo = i.getIntExtra("ID",-1);;
 
-        ab.setTitle(nomeCombo);
+        if (creazione)
+          ab.setTitle(nomeCombo);
+        else
+          ab.setTitle("Aggiunta oggetti");
         //Setto la lista
         final ListView myList = (ListView)findViewById(R.id.list);
         final List<Product> listaProdotti = new ArrayList<>();
