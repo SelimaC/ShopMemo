@@ -237,36 +237,43 @@ Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
             case R.id.cat1t:
                 Toast.makeText(getApplicationContext(), "Alimentari e cura della persona", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT1;
+                findViewById(R.id.plusCat).setBackgroundResource(R.drawable.cat1);
                 break;
             case R.id.cat2i:
             case R.id.cat2t:
                 Toast.makeText(getApplicationContext(), "Libri, film, musica", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT2;
+                findViewById(R.id.plusCat).setBackgroundResource(R.drawable.cat2);
                 break;
             case R.id.cat3i:
             case R.id.cat3t:
                 Toast.makeText(getApplicationContext(), "Elettronica, informatica e giochi", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT3;
+                findViewById(R.id.plusCat).setBackgroundResource(R.drawable.cat3);
                 break;
             case R.id.cat4i:
             case R.id.cat4t:
                 Toast.makeText(getApplicationContext(), "Casa, giardino e fai da te", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT4;
+                findViewById(R.id.plusCat).setBackgroundResource(R.drawable.cat4);
                 break;
             case R.id.cat5i:
             case R.id.cat5t:
                 Toast.makeText(getApplicationContext(), "Sport, auto e tempo libero", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT5;
+                findViewById(R.id.plusCat).setBackgroundResource(R.drawable.cat5);
                 break;
             case R.id.cat6i:
             case R.id.cat6t:
                 Toast.makeText(getApplicationContext(), "Vestiario, scarpe e accessori", Toast.LENGTH_SHORT).show();
                 categoria=Categoria.CAT6;
+                findViewById(R.id.plusCat).setBackgroundResource(R.drawable.cat6);
                 break;
         }
         if(settingsDialog != null) {
             settingsDialog.dismiss();
         }
+
     }
 
     @Override
