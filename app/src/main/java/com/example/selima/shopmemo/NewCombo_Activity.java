@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,11 +52,22 @@ public class NewCombo_Activity extends AppCompatActivity {
         });
         Intent i = getIntent();
         final String nomeCombo = (i.getStringExtra("NOME"));
+        final boolean creazione = i.getBooleanExtra("CREAZIONE",false);
+
+        Log.d("bool","vsl : " + creazione);
+        final int idCombo = i.getIntExtra("ID",-1);;
+
         ab.setTitle(nomeCombo);
         //Setto la lista
         final ListView myList = (ListView)findViewById(R.id.list);
         final List<Product> listaProdotti = new ArrayList<>();
-        listaProdotti.addAll(ProductFactory.getInstance(this).getProductsByName());
+        if(creazione)
+          listaProdotti.addAll(ProductFactory.getInstance(this).getProductsByName());
+        else {
+            listaProdotti.addAll(ComboFactory.getInstance(this).getProductNotIn(idCombo));
+            Button b = (Button) findViewById(R.id.crea);
+            b.setText("Aggiungi");
+        }
         final List<String> listaNomi = new ArrayList<>();
         for(Product p : listaProdotti){
             listaNomi.add(p.getNome());
@@ -99,7 +111,10 @@ public class NewCombo_Activity extends AppCompatActivity {
                         selectedProducts.add(listaProdotti.get(i));
                     }
                 }
-                ComboFactory.getInstance(getApplicationContext()).createNewCombo(selectedProducts, nomeCombo);
+                if(creazione)
+                   ComboFactory.getInstance(getApplicationContext()).createNewCombo(selectedProducts, nomeCombo);
+                else
+                   ComboFactory.getInstance(getApplicationContext()).getComboById(idCombo).getListaProdotti().addAll(selectedProducts);
                 finish();
             }});
 
