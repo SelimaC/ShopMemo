@@ -103,10 +103,10 @@ public class ComboFactory {
     public List<Product> getProductNotIn(Integer idCombo){
         List<Product> all = ProductFactory.getInstance(context).getProductsByName();
         List<Product> cont = ComboFactory.getInstance(context).getComboById(idCombo).getListaProdotti();
-
-        all.removeAll(cont);
-
-        return all;
+        List<Product> temp = new ArrayList<>();
+        temp.addAll(all);
+        temp.removeAll(cont);
+        return temp;
     }
 
     public Combo getComboById(Integer id) {
