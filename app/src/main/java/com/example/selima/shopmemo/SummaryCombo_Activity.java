@@ -109,7 +109,9 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
                 return true;
             case R.id.menu_summary1:
 
-                Toast.makeText(this, "La modifica non è implementata", Toast.LENGTH_SHORT).show();
+                Intent in = new Intent(getApplicationContext(), EditCombo_Activity.class);
+                in.putExtra("combo", String.valueOf(id));
+                startActivity(in);
 
                 return  true;
             case R.id.menu_summary2:

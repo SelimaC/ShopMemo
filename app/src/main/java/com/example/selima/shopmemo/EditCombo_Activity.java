@@ -106,6 +106,11 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
 
     public void addObject(View view) {
         Toast.makeText(this, "Aggiungi oggetti", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, NewCombo_Activity.class);
+        i.putExtra("NOME", ComboFactory.getInstance(this).getComboById(id));
+        i.putExtra("CREAZIONE", false);
+        i.putExtra("ID", id);
+        startActivity(i);
     }
 }
 

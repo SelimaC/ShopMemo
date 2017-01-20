@@ -72,6 +72,8 @@ public class EnterComboNameDialog extends DialogFragment {
                         d.dismiss();
                         Intent i = new Intent(getActivity().getApplicationContext(), NewCombo_Activity.class);
                         i.putExtra("NOME", nomeCombo);
+                        i.putExtra("CREAZIONE", true);
+                        i.putExtra("ID", -1);
                         startActivity(i);
                     }
                 }
