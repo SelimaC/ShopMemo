@@ -102,24 +102,18 @@ public class NewObject_Activity extends AppCompatActivity {
         cat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*settingsDialog = new Dialog(con);
-                View v = con.getLayoutInflater().inflate(R.layout.popup_categories, null);
-
-                settingsDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-                settingsDialog.setContentView(v);
-                settingsDialog.show();*/
                 final FragmentManager supportFragment = getFragmentManager();
                 DialogFragment fragment = new InsertCategoryDialog();
                 fragment.show(supportFragment,"categoria");
             }
         });
-Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
+        Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
+
         ImageButton comb = (ImageButton) findViewById(R.id.plusCombo);
         comb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final FragmentManager supportFragment = getFragmentManager();
-
 
                 DialogFragment frag = new AddProdToComboDialog();
                 Bundle bundle = new Bundle();
@@ -127,8 +121,6 @@ Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
 
                 frag.setArguments(bundle);
                 frag.show(supportFragment,"conferma");
-
-
             }
         });
 
@@ -145,21 +137,19 @@ Log.d("lista", ProductFactory.getInstance(this).getAllProducts().toString());
                     check = false;
                     nome.setError("Inserire il nome");
                 }
-                else nomes=nome.getText() + "";
+                else nomes=nome.getText().toString();
 
                 if(negozio.getText().toString().equals("") || negozio.getText()==null){
                     check = false;
                     negozio.setError("Inserire il negozio");
                 }
-                else negozios=negozio.getText() + "";
+                else negozios=negozio.getText().toString();
 
                 if(prezzo.getText().toString().equals("") || prezzo.getText()==null){
                     check = false;
                     prezzo.setError("Inserire il prezzo");
                 }
                 else prezzod=Double.parseDouble(prezzo.getText().toString());
-
-                Product obj = new Product(nomes, negozios, prezzod,"");
 
                 if(photo!=null){
 

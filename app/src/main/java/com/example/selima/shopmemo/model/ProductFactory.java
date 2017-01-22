@@ -116,7 +116,6 @@ public class ProductFactory {
         return temp;
     }
 
-
     public void createNewProduct(String nome, String negozio, Double prezzo, String pathFoto, Categoria cat, Float voto){
         Product temp = new Product(nome, negozio, prezzo, pathFoto);
         temp.setCategoria(cat);
@@ -124,6 +123,7 @@ public class ProductFactory {
         allProduct.add(temp);
         saveListToFile();
     }
+
     public void createNewProduct(Product p){
         allProduct.add(p);
         saveListToFile();

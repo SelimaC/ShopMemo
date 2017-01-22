@@ -26,6 +26,7 @@ public class ComboFactory {
     private ComboFactory(Context context){
         this.context = context;
     }
+
     public static ComboFactory getInstance(Context context){
         if (singleton == null)
             singleton = new ComboFactory(context);
@@ -144,6 +145,7 @@ public class ComboFactory {
             c.printStackTrace();
             return;
         }
+
         if(allCombo.size()==0) Combo.setMaxId(0);
         else{
             int max = allCombo.get(0).getId();

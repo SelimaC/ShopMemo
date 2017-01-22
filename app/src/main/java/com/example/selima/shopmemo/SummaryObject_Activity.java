@@ -44,7 +44,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SummaryObject_Activity extends AppCompatActivity implements DialogInterface.OnDismissListener{
+public class SummaryObject_Activity extends AppCompatActivity{
     List<Combo> c = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -186,20 +186,14 @@ public class SummaryObject_Activity extends AppCompatActivity implements DialogI
             for (final Combo item : c) {
                 TextView t = new TextView(this);
                 t.setText(" • " + item.getNome());
-                t.setTextSize(17);
                 t.setId(item.getId());
-                l.addView(t);
                 t.setTextColor(getResources().getColor(R.color.colorAccent));
                 t.setClickable(true);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(150, 10, 10, 10);
                 t.setLayoutParams(lp);
                 t.setTextSize(20);
-                //t.setPaintFlags(t.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                /*Paint p = new Paint();
-                p.setColor(Color.RED);
-                p.setFlags(Paint.UNDERLINE_TEXT_FLAG);
-                t.setPaintFlags(p.getFlags());*/
+                l.addView(t);
 
                 t.setOnClickListener(new View.OnClickListener() {
 
@@ -213,15 +207,7 @@ public class SummaryObject_Activity extends AppCompatActivity implements DialogI
                 });
             }
         }
-       /* final ArrayList <String> listp = new ArrayList<String>();
-        if(c.size()==0) {listp.add("Nessuna");}
-        else
-          for (Combo item : c) {
-              listp.add(item.getNome());
-          }
 
-        final ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listp);
-        list.setAdapter(adapter);*/
          final Activity con = this;
          photo.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -252,38 +238,27 @@ public class SummaryObject_Activity extends AppCompatActivity implements DialogI
         int id = Integer.parseInt(i.getStringExtra("oggetto"));
         switch (item.getItemId()) {
             case R.id.options:
-
-
                 return true;
             case R.id.menu_summary1:
-
                 Toast.makeText(this, "La modifica non è implementata", Toast.LENGTH_SHORT).show();
 
                 return  true;
             case R.id.menu_summary2:
-
                 final FragmentManager supportoFragment = getFragmentManager();
-
-
                 DialogFragment fragment = new DeleteProductDialog();
                 Bundle bundle = new Bundle();
                 bundle.putInt("NUMCOMBO",ProductFactory.getInstance(getApplicationContext()).getComboIn(id).size());
                 bundle.putInt("IDPROD",id);
-
                 bundle.putBoolean("Summary",true);
-
                 fragment.setArguments(bundle);
                 fragment.show(supportoFragment,"conferma");
 
                 return true;
             case R.id.menu_summary3:
                 final FragmentManager supportFragment = getFragmentManager();
-
-
                 DialogFragment frag = new AddProdToComboDialog();
                 bundle = new Bundle();
                 bundle.putInt("IDPROD",id);
-
                 frag.setArguments(bundle);
                 frag.show(supportFragment,"conferma");
                 //Toast.makeText(this, "Aggiunta", Toast.LENGTH_SHORT).show();
@@ -302,9 +277,6 @@ public class SummaryObject_Activity extends AppCompatActivity implements DialogI
         super.onResume();
 
     }
-    @Override
-    public void onDismiss(final DialogInterface dialog) {
 
-    }
 
 }

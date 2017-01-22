@@ -29,6 +29,7 @@ public class Product implements Serializable {
     public Integer getId(){
         return id;
     }
+
     public String getNome() {
         return nome;
     }

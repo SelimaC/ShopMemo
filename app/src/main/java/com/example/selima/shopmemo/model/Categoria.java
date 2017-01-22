@@ -15,7 +15,6 @@ public enum Categoria implements Serializable {
             case CAT5: return "Sport, auto e tempo libero";
             case CAT6: return "Vestiario, scarpe e accessori";
             default: return "Nessuna";
-
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.example.selima.shopmemo;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,10 +34,12 @@ public class AddProdToComboDialog extends DialogFragment {
         List<String> nomi = new ArrayList<>();
         final Bundle bundle = this.getArguments();
         int idProd = -1;
+
         if (bundle != null) {
             idProd = bundle.getInt("IDPROD", -1);
         }
         final int idProdotto = idProd;
+
         final List<Combo> comboL = new ArrayList<>();
         for (Combo c : comboList){
             if (! c.getListaProdotti().contains(ProductFactory.getInstance(getActivity()).getProductById(idProd))) {
@@ -97,8 +101,9 @@ public class AddProdToComboDialog extends DialogFragment {
                             if (getActivity() instanceof Home_Activity) {
                                 ((ComboFragment) ((Home_Activity) getActivity()).adapter.getItem(1)).setList(((Home_Activity) getActivity()).comboList);
                             }
-
-                            if(getActivity() instanceof SummaryObject_Activity) {
+                            final Activity activity = getActivity();
+                            if(activity!=null && isAdded())
+                            if(activity instanceof SummaryObject_Activity) {
                                 List<Combo> c = ProductFactory.getInstance(getActivity()).getComboIn(idProdotto);
                                 LinearLayout l = (LinearLayout) getActivity().findViewById(R.id.combos);
                                 if (l.getChildCount() > 0)
@@ -115,30 +120,30 @@ public class AddProdToComboDialog extends DialogFragment {
                                     for (final Combo item : c) {
                                         TextView t = new TextView(getActivity());
                                         t.setText(" • " + item.getNome());
-                                        t.setTextSize(17);
                                         t.setId(item.getId());
-                                        l.addView(t);
                                         t.setTextColor(getResources().getColor(R.color.colorAccent));
                                         t.setClickable(true);
                                         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                                         lp.setMargins(150, 10, 10, 10);
                                         t.setLayoutParams(lp);
                                         t.setTextSize(20);
-
+                                        l.addView(t);
+                                        final Context context = getActivity().getApplicationContext();
                                         t.setOnClickListener(new View.OnClickListener() {
 
                                             @Override
                                             public void onClick(View v) {
-                                                Toast.makeText(v.getContext(), "Riepilogo combo", Toast.LENGTH_SHORT).show();
-                                                Intent i = new Intent(getActivity().getApplicationContext(), SummaryCombo_Activity.class);
+                                               Toast.makeText(activity, "Riepilogo combo", Toast.LENGTH_SHORT).show();
+                                                Intent i = new Intent(activity,SummaryCombo_Activity.class);
                                                 i.putExtra("combo", String.valueOf(item.getId()));
-                                                startActivity(i);
+                                                activity.startActivity(i);
                                             }
                                         });
                                     }
                                 }
                             }
                             Toast.makeText(getActivity(), "Prodotto aggiunto a " + mSelectedItems.size() + " combinazioni", Toast.LENGTH_SHORT).show();
+                            //dismiss();
                         }
                     })
                     .setNegativeButton("annulla", new DialogInterface.OnClickListener() {

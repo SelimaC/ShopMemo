@@ -37,6 +37,7 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
 
     List<Product> productList;
     int id;
+    private static SummaryCombo_Activity con = null;
 
     @Override
     protected void onPause(){
@@ -69,6 +70,8 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        con=this;
+
         final ActionBar ab = getSupportActionBar();
 
         ab.setDisplayHomeAsUpEnabled(true);
@@ -90,6 +93,12 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
         ((TextView)findViewById(R.id.tot)).setText(df.format(combo.getPrezzoTotale()).toString()+" €");
         new SummaryComboFragment().setList(combo.getListaProdotti());
 
+    }
+
+    public static Context context()
+    {
+
+        return con.getApplicationContext();
     }
 
     @Override
@@ -129,11 +138,6 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
 
 
                 //Toast.makeText(this, "Elimina", Toast.LENGTH_SHORT).show();
-
-                return true;
-            case R.id.menu_summary3:
-
-                Toast.makeText(this, "Galleria", Toast.LENGTH_SHORT).show();
 
                 return true;
             default:

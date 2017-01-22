@@ -14,9 +14,6 @@
             <item
                 android:id="@+id/menu_summary2"
                 android:title="Elimina"/>
-            <item
-                android:id="@+id/menu_summary3"
-                android:title="Galleria"/>
         </menu>
     </item>
 </menu>
