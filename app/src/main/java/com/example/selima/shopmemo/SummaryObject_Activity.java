@@ -226,14 +226,21 @@ public class SummaryObject_Activity extends AppCompatActivity{
 
         int idNext = -1, idPrev = -1;
         List<Product> lista = ProductFactory.getInstance(this).getProductsByTime();
+        Log.d("lista","l : " + lista);
         for(int index = 0; index< lista.size(); index++){
-            if(lista.get(index).equals(obj)){
-                idNext = index +1;
-                idPrev = index -1;
+            if(lista.get(index).getId()==id){
+                if(index!=lista.size()-1)
+                   idNext = lista.get(index +1).getId();
+                else
+                   idNext = lista.get(0).getId();
+                if(index!=0)
+                   idPrev = lista.get(index -1).getId();
+                else idPrev = lista.get(lista.size()-1).getId();
+                Log.d("ZZ","next " + idNext + " prev : " + idPrev + "cu " + index + " id " + id);
                 break;
             }
         }
-        final int idP = idPrev, idN = idNext;
+        final int idP = idNext, idN = idPrev;
         findViewById(R.id.scrollId).setOnTouchListener(new OnSwipeTouchListener(){
             @Override
             public boolean onSwipeRight(){
