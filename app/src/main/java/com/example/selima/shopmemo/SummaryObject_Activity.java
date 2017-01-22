@@ -223,6 +223,36 @@ public class SummaryObject_Activity extends AppCompatActivity{
                  settingsDialog.show();
              }
          });
+
+        int idNext = -1, idPrev = -1;
+        List<Product> lista = ProductFactory.getInstance(this).getProductsByTime();
+        for(int index = 0; index< lista.size(); index++){
+            if(lista.get(index).equals(obj)){
+                idNext = index +1;
+                idPrev = index -1;
+                break;
+            }
+        }
+        final int idP = idPrev, idN = idNext;
+        findViewById(R.id.scrollId).setOnTouchListener(new OnSwipeTouchListener(){
+            @Override
+            public boolean onSwipeRight(){
+                Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
+                i.putExtra("oggetto", String.valueOf(idN));
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //Per non avere più activity uguali in cima
+                startActivity(i);
+                return false;
+            }
+
+            @Override
+            public boolean onSwipeLeft(){
+                Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
+                i.putExtra("oggetto", String.valueOf(idP));
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //Per non avere più activity uguali in cima
+                startActivity(i);
+                return false;
+            }
+        });
     }
 
     @Override
