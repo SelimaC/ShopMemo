@@ -524,6 +524,8 @@ public class Home_Activity extends AppCompatActivity
     public void onListItemClick(int id) {
         Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
         i.putExtra("oggetto", String.valueOf(id));
+        i.putExtra("parent", "all");
+        i.putExtra("idCombo", -1);
         startActivity(i);
     }
     public void cardMoreFunctionProd(View view){

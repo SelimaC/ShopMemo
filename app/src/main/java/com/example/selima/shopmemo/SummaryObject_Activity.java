@@ -35,6 +35,7 @@ import android.widget.Toast;
 
 import com.example.selima.shopmemo.model.Categoria;
 import com.example.selima.shopmemo.model.Combo;
+import com.example.selima.shopmemo.model.ComboFactory;
 import com.example.selima.shopmemo.model.Product;
 import com.example.selima.shopmemo.model.ProductFactory;
 
@@ -46,6 +47,7 @@ import java.util.List;
 
 public class SummaryObject_Activity extends AppCompatActivity{
     List<Combo> c = new ArrayList<>();
+    String parent;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
@@ -70,6 +72,12 @@ public class SummaryObject_Activity extends AppCompatActivity{
         Intent i = getIntent();
         String o = i.getStringExtra("oggetto");
         int id = Integer.parseInt(i.getStringExtra("oggetto"));
+        parent = i.getStringExtra("parent");
+        Log.d("parent","parent " + parent);
+        final int idCombo;
+        if(parent.equals("combo"))
+            idCombo=i.getIntExtra("idCombo",-1);
+        else idCombo=-1;
 
         Product obj = ProductFactory.getInstance(this).getProductById(id);
         ab.setTitle(obj.getNome());
@@ -225,7 +233,12 @@ public class SummaryObject_Activity extends AppCompatActivity{
          });
 
         int idNext = -1, idPrev = -1;
-        List<Product> lista = ProductFactory.getInstance(this).getProductsByTime();
+        List<Product> lista;
+        if(idCombo==-1)
+           lista = ProductFactory.getInstance(this).getProductsByTime();
+        else
+            lista = ComboFactory.getInstance(this).getComboById(idCombo).getListaProdotti();
+
         Log.d("lista","l : " + lista);
         for(int index = 0; index< lista.size(); index++){
             if(lista.get(index).getId()==id){
@@ -246,6 +259,11 @@ public class SummaryObject_Activity extends AppCompatActivity{
             public boolean onSwipeRight(){
                 Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
                 i.putExtra("oggetto", String.valueOf(idN));
+                i.putExtra("parent", parent);
+                if(idCombo!=-1)
+                   i.putExtra("idCombo", idCombo);
+                else
+                    i.putExtra("idCombo", -1);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //Per non avere più activity uguali in cima
                 startActivity(i);
                 return false;
@@ -255,6 +273,11 @@ public class SummaryObject_Activity extends AppCompatActivity{
             public boolean onSwipeLeft(){
                 Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
                 i.putExtra("oggetto", String.valueOf(idP));
+                i.putExtra("parent", parent);
+                if(idCombo!=-1)
+                    i.putExtra("idCombo", idCombo);
+                else
+                    i.putExtra("idCombo", -1);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //Per non avere più activity uguali in cima
                 startActivity(i);
                 return false;

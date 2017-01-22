@@ -78,9 +78,11 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
     }
 
     @Override
-    public void onListItemClick(int id) {
+    public void onListItemClick(int idI) {
         Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
-        i.putExtra("oggetto", String.valueOf(id));
+        i.putExtra("oggetto", String.valueOf(idI));
+        i.putExtra("parent", "combo");
+        i.putExtra("idCombo", id);
         startActivity(i);
     }
 
