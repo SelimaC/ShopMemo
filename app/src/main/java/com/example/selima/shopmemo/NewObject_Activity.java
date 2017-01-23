@@ -272,4 +272,5 @@ public class NewObject_Activity extends AppCompatActivity {
         Product.setMaxId(Product.getMaxId()-1);
         finish();
     }
+
 }

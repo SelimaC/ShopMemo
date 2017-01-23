@@ -34,6 +34,8 @@ import java.util.List;
 public class Categories_Activity extends AppCompatActivity implements PageFragmentAll.OnListItemClickListener{
     List<Product> productList;
     Categoria categoria;
+    String cat;
+
     //AllFragment allFragment;
     @Override
     protected void onPause(){
@@ -62,7 +64,7 @@ public class Categories_Activity extends AppCompatActivity implements PageFragme
         ab.setDisplayHomeAsUpEnabled(true);
 
         Intent i = getIntent();
-        String cat = i.getStringExtra("categoria");
+        cat = i.getStringExtra("categoria");
         switch (cat){
             case "cat1":
                 ab.setTitle("Alimentari e cura della persona");
@@ -121,6 +123,9 @@ public class Categories_Activity extends AppCompatActivity implements PageFragme
     public void onListItemClick(int id) {
         Intent i = new Intent(getApplicationContext(), SummaryObject_Activity.class);
         i.putExtra("oggetto", String.valueOf(id));
+        i.putExtra("parent", "cat");
+        i.putExtra("idCombo", -1);
+        i.putExtra("cat", cat);
         startActivity(i);
     }
 

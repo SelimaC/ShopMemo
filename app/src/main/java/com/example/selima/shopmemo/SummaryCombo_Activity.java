@@ -154,6 +154,7 @@ public class SummaryCombo_Activity extends AppCompatActivity implements PageFrag
         i.putExtra("oggetto", String.valueOf(idI));
         i.putExtra("parent", "combo");
         i.putExtra("idCombo", id);
+        i.putExtra("cat", "");
         startActivity(i);
     }
 

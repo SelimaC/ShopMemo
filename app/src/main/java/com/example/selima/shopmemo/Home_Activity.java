@@ -53,6 +53,7 @@ public class Home_Activity extends AppCompatActivity
     List<Product> productList;
     List<Combo> comboList;
     PagerAdapter adapter;
+    int ordinamento = 0;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -382,26 +383,31 @@ public class Home_Activity extends AppCompatActivity
             case R.id.menu_all0:
                 //Ordina di recente
                 productList = ProductFactory.getInstance(this).getProductsByTime();
+                ordinamento = 0;
                 ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_all1:
                 //Ordina per nome
                 productList = ProductFactory.getInstance(this).getProductsByName();
+                ordinamento = 1;
                 ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_all2:
                 //Ordina per prezzo
                 productList = ProductFactory.getInstance(this).getProductsByPrice();
+                ordinamento = 2;
                 ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_all3:
                 //Ordina per preferenza
                 productList = ProductFactory.getInstance(this).getProductsByPreference();
+                ordinamento = 3;
                 ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_all4:
                 //Ordina per categoria
                 productList = ProductFactory.getInstance(this).getProductsByCategory();
+                ordinamento = 4;
                 ((AllFragment)(adapter.getItem(0))).setList(productList);
                 return true;
             case R.id.menu_combo0:
@@ -526,6 +532,8 @@ public class Home_Activity extends AppCompatActivity
         i.putExtra("oggetto", String.valueOf(id));
         i.putExtra("parent", "all");
         i.putExtra("idCombo", -1);
+        i.putExtra("ordinamento", ordinamento);
+        i.putExtra("cat", "");
         startActivity(i);
     }
     public void cardMoreFunctionProd(View view){

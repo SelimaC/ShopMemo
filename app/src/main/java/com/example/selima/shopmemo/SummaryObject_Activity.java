@@ -75,9 +75,32 @@ public class SummaryObject_Activity extends AppCompatActivity{
         parent = i.getStringExtra("parent");
         Log.d("parent","parent " + parent);
         final int idCombo;
-        if(parent.equals("combo"))
-            idCombo=i.getIntExtra("idCombo",-1);
-        else idCombo=-1;
+        final int ordinamento;
+        final String cat;
+        Categoria categoria = Categoria.NO_CAT;
+
+        cat=i.getStringExtra("cat");
+        idCombo=i.getIntExtra("idCombo",-1);
+        ordinamento = i.getIntExtra("ordinamento", -1);
+
+        if(cat.equals("")==false){
+            switch (cat){
+                case "cat1": categoria = Categoria.CAT1;
+                    break;
+                case "cat2":categoria = Categoria.CAT2;
+                    break;
+                case "cat3": categoria = Categoria.CAT3;
+                    break;
+                case "cat4": categoria = Categoria.CAT4;
+                    break;
+                case "cat5": categoria = Categoria.CAT5;
+                    break;
+                case "cat6":categoria = Categoria.CAT6;
+                    break;
+                default:
+                    throw new RuntimeException("Categoria non valida: "+cat);
+            }
+        }
 
         Product obj = ProductFactory.getInstance(this).getProductById(id);
         ab.setTitle(obj.getNome());
@@ -234,10 +257,25 @@ public class SummaryObject_Activity extends AppCompatActivity{
 
         int idNext = -1, idPrev = -1;
         List<Product> lista;
-        if(idCombo==-1)
-           lista = ProductFactory.getInstance(this).getProductsByTime();
-        else
+        if(parent.equals("all")){
+            switch (ordinamento) {
+                case 0 :lista = ProductFactory.getInstance(this).getProductsByTime();
+                    break;
+                case 1 :lista = ProductFactory.getInstance(this).getProductsByName();
+                    break;
+                case 2 :lista = ProductFactory.getInstance(this).getProductsByPrice();
+                    break;
+                case 3 :lista = ProductFactory.getInstance(this).getProductsByPreference();
+                    break;
+                case 4 :lista = ProductFactory.getInstance(this).getProductsByCategory();
+                    break;
+                default: lista = ProductFactory.getInstance(this).getProductsByTime();
+            }
+        }
+        else if(parent.equals("combo"))
             lista = ComboFactory.getInstance(this).getComboById(idCombo).getListaProdotti();
+            else
+            lista = ProductFactory.getInstance(this).getProductsFiltered(categoria);
 
         Log.d("lista","l : " + lista);
         for(int index = 0; index< lista.size(); index++){
@@ -264,6 +302,8 @@ public class SummaryObject_Activity extends AppCompatActivity{
                    i.putExtra("idCombo", idCombo);
                 else
                     i.putExtra("idCombo", -1);
+                i.putExtra("ordinamento", ordinamento);
+                i.putExtra("cat", cat);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //Per non avere più activity uguali in cima
                 startActivity(i);
                 return false;
@@ -278,6 +318,8 @@ public class SummaryObject_Activity extends AppCompatActivity{
                     i.putExtra("idCombo", idCombo);
                 else
                     i.putExtra("idCombo", -1);
+                i.putExtra("ordinamento", ordinamento);
+                i.putExtra("cat", cat);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //Per non avere più activity uguali in cima
                 startActivity(i);
                 return false;

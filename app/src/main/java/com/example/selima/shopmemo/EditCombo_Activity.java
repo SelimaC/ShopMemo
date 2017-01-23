@@ -83,6 +83,7 @@ public class EditCombo_Activity extends AppCompatActivity implements PageFragmen
         i.putExtra("oggetto", String.valueOf(idI));
         i.putExtra("parent", "combo");
         i.putExtra("idCombo", id);
+        i.putExtra("cat", "");
         startActivity(i);
     }
 
