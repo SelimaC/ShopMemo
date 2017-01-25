@@ -31,7 +31,7 @@ public class DeleteProductFromCombo extends DialogFragment {
         }
         final int idProdotto = idProd;
         final int idCombo = idC;
-        builder.setTitle("Elimina oggetto").setMessage("L'oggetto selezionato sarà eliminato dalla combinazione" +
+        builder.setTitle("Rimuovi oggetto").setMessage("L'oggetto selezionato sarà rimosso dalla combinazione" +
                 ". Vuoi proseguire?")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
